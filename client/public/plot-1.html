@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Plot Test - Plot 70</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -17,7 +22,7 @@
             width: 100%;
             height: 100%;
             background: #f0f0f0;
-            font-family: Arial, sans-serif;
+            font-family: 'Plus Jakarta Sans', Arial, sans-serif;
             overscroll-behavior: none;
         }
 
@@ -55,11 +60,25 @@
             pointer-events: none;
         }
 
+
+        .plot-label {
+            position: relative;
+            top: 15px;
+            left: 4px;
+            font-size: 6px;
+            fill: #302f2f;
+            pointer-events: none;
+            user-select: none;
+        }
+
         .plot-zone {
             cursor: pointer;
             opacity: 0.7;
             transition: opacity 0.15s;
-            /* Ensures clicks register precisely regardless of zoom scale */
+            stroke: #1a1a1a;
+            /* border color */
+            stroke-width: 1;
+            /* border thickness */
             vector-effect: non-scaling-stroke;
         }
 
@@ -113,47 +132,204 @@
         }
 
         /* ---- Info popup card: fixed to viewport, bottom-left ---- */
+        @keyframes slideUpIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(-4px) scale(1.01);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+
+
         #info {
             position: fixed;
             left: 16px;
             bottom: 16px;
             z-index: 1000;
             background: #ffffff;
-            padding: 16px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+            border-radius: 16px;
+            box-shadow:
+                0 4px 6px rgba(26, 60, 43, 0.04),
+                0 12px 32px rgba(26, 60, 43, 0.12),
+                0 0 0 1px rgba(26, 60, 43, 0.08);
             display: none;
             width: min(300px, calc(100vw - 32px));
             max-height: calc(100vh - 32px);
-            overflow-y: auto;
+            overflow: hidden;
+            animation: slideUpIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
-        #info h3 {
-            margin: 0 0 8px 0;
-            padding-right: 24px;
+        /* Card Header */
+        .info-header {
+            background: linear-gradient(135deg, #1A3C2B 0%, #0F241A 100%);
+            padding: 18px 20px 16px;
+            position: relative;
+        }
+
+        .info-header-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: rgba(212, 175, 55, 0.8);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .info-plot-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            padding-right: 36px;
             word-break: break-word;
         }
 
-        #info p {
-            margin: 4px 0;
-            font-size: 14px;
-        }
-
+        /* Close button */
         #infoClose {
             position: absolute;
-            top: 10px;
-            right: 12px;
+            top: 14px;
+            right: 14px;
+            width: 28px;
+            height: 28px;
             border: none;
-            background: none;
-            font-size: 18px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 13px;
             line-height: 1;
             cursor: pointer;
-            color: #666;
-            padding: 4px;
+            color: rgba(255, 255, 255, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
         }
 
         #infoClose:hover {
-            color: #000;
+            background: rgba(255, 255, 255, 0.22);
+            color: #ffffff;
+        }
+
+        /* Card Body */
+        .info-body {
+            padding: 16px 20px 20px;
+        }
+
+        /* Status row */
+        .info-status-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .info-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            text-transform: uppercase;
+        }
+
+        .info-status-badge.status-available {
+            background: rgba(41, 219, 255, 0.12);
+            color: #0284c7;
+            border: 1px solid rgba(41, 219, 255, 0.4);
+        }
+
+        .info-status-badge.status-booked {
+            background: rgba(34, 197, 94, 0.12);
+            color: #16a34a;
+            border: 1px solid rgba(34, 197, 94, 0.4);
+        }
+
+        .info-status-badge.status-registered {
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+            border: 1px solid rgba(239, 68, 68, 0.35);
+        }
+
+        .info-status-badge.status-blocked {
+            background: rgba(245, 158, 11, 0.12);
+            color: #d97706;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .status-available .status-dot {
+            background: #0ea5e9;
+        }
+
+        .status-booked .status-dot {
+            background: #22c55e;
+        }
+
+        .status-registered .status-dot {
+            background: #ef4444;
+        }
+
+        .status-blocked .status-dot {
+            background: #f59e0b;
+        }
+
+        /* Spec rows */
+        .info-spec-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(26, 60, 43, 0.07);
+        }
+
+        .info-spec-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .info-spec-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        .info-spec-icon {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .info-spec-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1A3C2B;
         }
 
         /* Small screens: let the card use more of the width */
@@ -162,7 +338,6 @@
                 width: calc(100vw - 24px);
                 left: 12px;
                 bottom: 12px;
-                padding: 14px 16px;
             }
 
             #zoomControls {
@@ -184,12 +359,18 @@
     <div id="viewport">
         <div id="mapWrapper">
             <!-- Background: embedded as a live SVG document (not an <img>) so it
-                 renders as true vector content and stays crisp at any zoom level -->
-            <object type="image/svg+xml" data="layout-background.svg" width="714.92" height="828.96" aria-hidden="true">
+                 renders as true vector content and stays crisp at any zoom level.
+                 Width/height here now match the background SVG's own native
+                 viewBox (82 193 725 840) exactly, at 1 unit = 1px, so there is
+                 no independent scaling of the background relative to the
+                 overlay. -->
+            <object type="image/svg+xml" data="layout-background.svg" width="725" height="840" aria-hidden="true">
             </object>
 
-            <!-- Overlay with matching viewBox -->
-            <svg id="plotOverlay" width="714.92" height="828.96" viewBox="87.32 198.40 714.92 828.96"
+            <!-- Overlay: viewBox now matches the background SVG's native
+                 viewBox exactly (same origin 82,193 and same 725x840 extent),
+                 so plot paths line up with the drawing with zero drift. -->
+            <svg id="plotOverlay" width="725" height="840" viewBox="82 193 725 840"
                 style="position:absolute; top:0; left:0;">
                 <!-- plots will be added by JavaScript -->
             </svg>
@@ -203,10 +384,32 @@
     </div>
 
     <div id="info">
-        <button id="infoClose" aria-label="Close">✕</button>
-        <h3 id="plotTitle">-</h3>
-        <p>Status: <span id="plotStatus">-</span></p>
-        <p>Facing: <span id="plotFacing">-</span></p>
+        <!-- Card Header -->
+        <div class="info-header">
+            <button id="infoClose" aria-label="Close">✕</button>
+            <div class="info-header-label">Plot No.</div>
+            <div class="info-plot-number" id="plotTitle">—</div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="info-body">
+            <!-- Status badge -->
+            <div class="info-status-row">
+                <span class="info-status-badge" id="plotStatusBadge">
+                    <span class="status-dot"></span>
+                    <span id="plotStatus">—</span>
+                </span>
+            </div>
+
+            <!-- Spec: Facing -->
+            <div class="info-spec-row">
+                <span class="info-spec-label">
+                    <span class="info-spec-icon">🧭</span>
+                    Facing
+                </span>
+                <span class="info-spec-value" id="plotFacing">—</span>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -232,8 +435,10 @@
             return Math.min(MAX_SCALE, Math.max(MIN_SCALE, s));
         }
 
-        const CONTENT_W = 714.92;
-        const CONTENT_H = 828.96;
+        // Updated to match the background SVG's native viewBox size
+        // (82 193 725 840) so the overlay and background scale identically.
+        const CONTENT_W = 725;
+        const CONTENT_H = 840;
 
         function applyTransform() {
             mapWrapper.style.transform = `scale(${scale})`;
@@ -404,35 +609,53 @@
                 overlay.innerHTML = '';
 
                 data.forEach(plot => {
-                    // support both uppercase and lowercase column names
                     const pathData = plot.SVGPATH || plot.svgpath || plot.SvgPath;
                     if (!pathData) return;
 
                     const status = (plot.STATUS || plot.status || 'Available').toLowerCase();
                     const plotNo = plot.PLOTNO || plot.plotno || plot.PlotNo || '-';
+                    const plotId = plot.ID || plot.id || plot.Id || '-';   // <-- separate field
                     const facing = plot.FACING || plot.facing || plot.Facing || '';
 
                     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                     path.setAttribute('d', pathData);
                     path.setAttribute('class', `plot-zone ${status}`);
                     path.dataset.plotno = plotNo;
+                    path.dataset.plotid = plotId;
                     path.dataset.status = plot.STATUS || plot.status || 'Available';
                     path.dataset.facing = facing;
 
                     path.addEventListener('click', (e) => {
-                        // If the click was actually the end of a drag gesture,
-                        // ignore it so panning doesn't accidentally open the card.
                         if (dragMoved) return;
 
+                        // Populate content
                         document.getElementById('plotTitle').innerText = path.dataset.plotno;
                         document.getElementById('plotStatus').innerText = path.dataset.status;
-                        document.getElementById('plotFacing').innerText = path.dataset.facing;
+                        document.getElementById('plotFacing').innerText = path.dataset.facing || '—';
+
+                        // Apply status badge class
+                        const badge = document.getElementById('plotStatusBadge');
+                        badge.className = 'info-status-badge status-' + (path.dataset.status || 'available').toLowerCase();
+
+                        // Re-trigger slide-up animation
+                        infoCard.style.animation = 'none';
+                        infoCard.offsetHeight; // reflow
+                        infoCard.style.animation = '';
                         infoCard.style.display = 'block';
                     });
 
                     overlay.appendChild(path);
-                });
 
+                    // --- label: ID field near the top of the box ---
+                    const bbox = path.getBBox();
+                    const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    label.setAttribute('x', bbox.x + bbox.width / 2);
+                    label.setAttribute('y', bbox.y + 16);
+                    label.setAttribute('text-anchor', 'middle');
+                    label.setAttribute('class', 'plot-label');
+                    label.textContent = plotId;
+                    overlay.appendChild(label);
+                });
             } catch (err) {
                 console.error('Error loading data:', err);
                 alert('Could not load data from Google Sheet.\n\nMake sure the sheet is shared as "Anyone with the link" → Viewer.');
