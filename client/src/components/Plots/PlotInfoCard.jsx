@@ -16,22 +16,30 @@ const PlotInfoCard = ({
   if (!plotData) return null;
 
   const { plotNo = '—', status = 'Available', facing = '—', area = '1500 Sq.ft' } = plotData;
-  const normalizedStatus = status.toLowerCase();
+  const rawStatus = (status || '').toString().trim();
+  const normalizedStatus = rawStatus.toLowerCase();
 
   let statusKey = 'available';
-  if (normalizedStatus.includes('registered')) {
+  if (
+    normalizedStatus.includes('registered') ||
+    normalizedStatus.includes('sold') ||
+    normalizedStatus.includes('red') ||
+    normalizedStatus.includes('unavailable')
+  ) {
     statusKey = 'registered';
   } else if (normalizedStatus.includes('booked')) {
     statusKey = 'booked';
-  } else if (normalizedStatus.includes('sold')) {
-    statusKey = 'registered';
   } else if (normalizedStatus.includes('blocked') || normalizedStatus.includes('reserved')) {
     statusKey = 'blocked';
+  } else if (normalizedStatus.includes('available')) {
+    statusKey = 'available';
   }
+
+  const displayStatus = rawStatus || 'Available';
 
   const cleanWhatsapp = whatsappNumber.replace(/\D/g, '');
   const inquiryMessage = encodeURIComponent(
-    `Hello Anugraha Developers, I am interested in Plot No: ${plotNo} (Status: ${status}, Facing: ${facing}, Area: ${area}). Please share availability and pricing.`
+    `Hello Anugraha Developers, I am interested in Plot No: ${plotNo} (Status: ${displayStatus}, Facing: ${facing}, Area: ${area}). Please share availability and pricing.`
   );
 
   const whatsappUrl = `https://wa.me/${cleanWhatsapp}?text=${inquiryMessage}`;
@@ -54,7 +62,7 @@ const PlotInfoCard = ({
         <div className="info-status-row">
           <span className={`info-status-badge status-${statusKey}`}>
             <span className="status-dot" />
-            <span>{status}</span>
+            <span>{displayStatus}</span>
           </span>
         </div>
 

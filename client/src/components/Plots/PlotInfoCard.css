@@ -35,9 +35,9 @@
 
 /* Status Active Borders for Selected Plot Card */
 .plot-info-card-container.status-card-registered {
-  border: 1.5px solid #ef4444;
+  border: 1.5px solid #b91c1c;
   box-shadow:
-    0 4px 14px rgba(239, 68, 68, 0.15),
+    0 4px 14px rgba(185, 28, 28, 0.22),
     0 12px 32px rgba(26, 60, 43, 0.12);
 }
 
@@ -49,16 +49,16 @@
 }
 
 .plot-info-card-container.status-card-booked {
-  border: 1.5px solid #22c55e;
+  border: 1.5px solid #16a34a;
   box-shadow:
-    0 4px 14px rgba(34, 197, 94, 0.15),
+    0 4px 14px rgba(22, 163, 74, 0.15),
     0 12px 32px rgba(26, 60, 43, 0.12);
 }
 
 .plot-info-card-container.status-card-blocked {
-  border: 1.5px solid #f59e0b;
+  border: 1.5px solid #d97706;
   box-shadow:
-    0 4px 14px rgba(245, 158, 11, 0.15),
+    0 4px 14px rgba(217, 119, 6, 0.15),
     0 12px 32px rgba(26, 60, 43, 0.12);
 }
 
@@ -161,14 +161,15 @@
   border-color: #16a34a;
 }
 
+/* REGISTERED STATUS BADGE - DARK CRIMSON RED COLOR (NOT BLUE) */
 .info-status-badge.status-registered {
-  background: rgba(239, 68, 68, 0.12);
-  color: #dc2626;
-  border: 1px solid rgba(239, 68, 68, 0.5);
+  background: rgba(185, 28, 28, 0.12);
+  color: #b91c1c;
+  border: 1px solid rgba(185, 28, 28, 0.5);
 }
 .info-status-badge.status-registered:hover {
-  background: rgba(239, 68, 68, 0.22);
-  border-color: #dc2626;
+  background: rgba(185, 28, 28, 0.24);
+  border-color: #b91c1c;
 }
 
 .info-status-badge.status-blocked {
@@ -194,18 +195,19 @@
 }
 
 .status-booked .status-dot {
-  background: #22c55e;
-  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+  background: #16a34a;
+  box-shadow: 0 0 6px rgba(22, 163, 74, 0.6);
 }
 
+/* REGISTERED STATUS DOT - DARK CRIMSON RED (NOT BLUE) */
 .status-registered .status-dot {
-  background: #ef4444;
-  box-shadow: 0 0 6px rgba(239, 68, 68, 0.6);
+  background: #b91c1c;
+  box-shadow: 0 0 6px rgba(185, 28, 28, 0.7);
 }
 
 .status-blocked .status-dot {
-  background: #f59e0b;
-  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+  background: #d97706;
+  box-shadow: 0 0 6px rgba(217, 119, 6, 0.6);
 }
 
 /* Spec rows */
