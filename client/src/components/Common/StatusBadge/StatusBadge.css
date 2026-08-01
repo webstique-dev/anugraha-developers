@@ -33,14 +33,37 @@
   background-color: #0284c7;
   box-shadow: 0 0 6px rgba(2, 132, 199, 0.6);
 }
+.badge-available:hover {
+  background-color: rgba(41, 219, 255, 0.25);
+  border-color: rgba(2, 132, 199, 0.8);
+}
 
 .badge-booked {
-  background-color: rgba(245, 158, 11, 0.15);
-  color: #d97706;
-  border: 1px solid rgba(245, 158, 11, 0.5);
+  background-color: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.5);
 }
 .badge-booked .badge-dot {
-  background-color: #d97706;
+  background-color: #16a34a;
+  box-shadow: 0 0 6px rgba(22, 163, 74, 0.6);
+}
+.badge-booked:hover {
+  background-color: rgba(34, 197, 94, 0.25);
+  border-color: rgba(22, 163, 74, 0.8);
+}
+
+.badge-registered {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+}
+.badge-registered .badge-dot {
+  background-color: #dc2626;
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
+}
+.badge-registered:hover {
+  background-color: rgba(239, 68, 68, 0.25);
+  border-color: rgba(220, 38, 38, 0.8);
 }
 
 .badge-sold {
@@ -50,15 +73,25 @@
 }
 .badge-sold .badge-dot {
   background-color: #dc2626;
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
+}
+.badge-sold:hover {
+  background-color: rgba(239, 68, 68, 0.25);
+  border-color: rgba(220, 38, 38, 0.8);
 }
 
 .badge-reserved {
-  background-color: rgba(168, 85, 247, 0.15);
-  color: #9333ea;
-  border: 1px solid rgba(168, 85, 247, 0.5);
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.5);
 }
 .badge-reserved .badge-dot {
-  background-color: #9333ea;
+  background-color: #d97706;
+  box-shadow: 0 0 6px rgba(217, 119, 6, 0.6);
+}
+.badge-reserved:hover {
+  background-color: rgba(245, 158, 11, 0.25);
+  border-color: rgba(217, 119, 6, 0.8);
 }
 
 .badge-approved {

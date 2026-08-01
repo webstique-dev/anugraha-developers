@@ -3,7 +3,7 @@ import './StatusBadge.css';
 
 /**
  * Reusable StatusBadge component for rendering status indicator badges
- * Supports availability statuses (Available, Booked, Sold, Reserved) 
+ * Supports availability statuses (Available, Booked, Registered, Sold, Reserved, Blocked) 
  * as well as category/approval tags (DTCP Approved, RERA Registered, etc.)
  */
 const StatusBadge = ({ status, variant = 'availability', className = '' }) => {
@@ -17,7 +17,9 @@ const StatusBadge = ({ status, variant = 'availability', className = '' }) => {
     statusClass = 'badge-available';
   } else if (normalizedStatus.includes('booked')) {
     statusClass = 'badge-booked';
-  } else if (normalizedStatus.includes('sold') || normalizedStatus.includes('registered')) {
+  } else if (normalizedStatus.includes('registered')) {
+    statusClass = 'badge-registered';
+  } else if (normalizedStatus.includes('sold')) {
     statusClass = 'badge-sold';
   } else if (normalizedStatus.includes('reserved') || normalizedStatus.includes('blocked')) {
     statusClass = 'badge-reserved';

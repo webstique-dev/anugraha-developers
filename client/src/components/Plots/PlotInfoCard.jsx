@@ -18,6 +18,17 @@ const PlotInfoCard = ({
   const { plotNo = '—', status = 'Available', facing = '—', area = '1500 Sq.ft' } = plotData;
   const normalizedStatus = status.toLowerCase();
 
+  let statusKey = 'available';
+  if (normalizedStatus.includes('registered')) {
+    statusKey = 'registered';
+  } else if (normalizedStatus.includes('booked')) {
+    statusKey = 'booked';
+  } else if (normalizedStatus.includes('sold')) {
+    statusKey = 'registered';
+  } else if (normalizedStatus.includes('blocked') || normalizedStatus.includes('reserved')) {
+    statusKey = 'blocked';
+  }
+
   const cleanWhatsapp = whatsappNumber.replace(/\D/g, '');
   const inquiryMessage = encodeURIComponent(
     `Hello Anugraha Developers, I am interested in Plot No: ${plotNo} (Status: ${status}, Facing: ${facing}, Area: ${area}). Please share availability and pricing.`
@@ -27,7 +38,7 @@ const PlotInfoCard = ({
   const callUrl = `tel:${phoneNumber}`;
 
   return (
-    <div id="info" className="plot-info-card-container">
+    <div id="info" className={`plot-info-card-container status-card-${statusKey}`}>
       {/* Card Header */}
       <div className="info-header">
         <button id="infoClose" aria-label="Close" onClick={onClose}>
@@ -41,7 +52,7 @@ const PlotInfoCard = ({
       <div className="info-body">
         {/* Status badge */}
         <div className="info-status-row">
-          <span className={`info-status-badge status-${normalizedStatus}`}>
+          <span className={`info-status-badge status-${statusKey}`}>
             <span className="status-dot" />
             <span>{status}</span>
           </span>

@@ -88,20 +88,35 @@
   opacity: 0.95;
 }
 
+/* Active / Selected Plot Border Highlight */
+.plot-zone.selected,
+.plot-zone:active {
+  stroke: #D4AF37;
+  stroke-width: 3;
+  stroke-dasharray: none;
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.9));
+}
+
 .available {
   fill: #29dbff;
+  stroke: #0284c7;
 }
 
 .booked {
-  fill: #00ff00;
+  fill: #22c55e;
+  stroke: #16a34a;
 }
 
-.registered {
+.registered,
+.sold {
   fill: #ef4444;
+  stroke: #dc2626;
 }
 
 .blocked {
   fill: #f59e0b;
+  stroke: #d97706;
 }
 
 /* On-Hover Floating Plot Card Tooltip */
