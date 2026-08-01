@@ -1,0 +1,70 @@
+.social-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.social-icon-btn.whatsapp {
+  background: #25d366;
+}
+
+.social-icon-btn.whatsapp:hover {
+  background: #128c7e;
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
+}
+
+.social-icon-btn.call {
+  background: #1A3C2B;
+}
+
+.social-icon-btn.call:hover {
+  background: #24523B;
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 6px 14px rgba(26, 60, 43, 0.4);
+}
+
+.social-icon-btn.share {
+  background: #D4AF37;
+  color: #0F241A;
+}
+
+.social-icon-btn.share:hover {
+  background: #E4C358;
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 6px 14px rgba(212, 175, 55, 0.4);
+}
+
+.social-icon-btn .copied-icon {
+  color: #0F241A;
+}
+
+/* Small size variant */
+.social-actions-group.size-sm .social-icon-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 13px;
+}
+
+/* Large size variant */
+.social-actions-group.size-lg .social-icon-btn {
+  width: 42px;
+  height: 42px;
+  font-size: 18px;
+}

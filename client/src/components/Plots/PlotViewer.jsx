@@ -3,6 +3,8 @@ import PlotZoomControls from './PlotZoomControls';
 import PlotInfoCard from './PlotInfoCard';
 import PlotFilterPanel from './PlotFilterPanel';
 import PlotBreadcrumb from './PlotBreadcrumb';
+import StatusBadge from '../Common/StatusBadge/StatusBadge';
+import SocialActions from '../Common/SocialActions/SocialActions';
 import './PlotViewer.css';
 
 const DEFAULT_SHEET_ID = '1n1puqY0m1MtqG8652yhWAChj6pYxP8b5ASDXQjpCp70';
@@ -25,6 +27,7 @@ const PlotViewer = ({
 
   const [scale, setScale] = useState(1);
   const [selectedPlot, setSelectedPlot] = useState(null);
+  const [hoveredPlot, setHoveredPlot] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
   const [plotsData, setPlotsData] = useState([]);
   const [statusCounts, setStatusCounts] = useState({
@@ -166,8 +169,8 @@ const PlotViewer = ({
         e.preventDefault();
         const newDist = touchDist(e.touches[0], e.touches[1]);
         const ratio = newDist / pinchRef.current.startDist;
-        const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
-        const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        const midX = (e.touches[0].clientX + e.touches[0].clientX) / 2;
+        const midY = (e.touches[0].clientY + e.touches[0].clientY) / 2;
         zoomTo(pinchRef.current.startScale * ratio, midX, midY);
       }
     };
@@ -299,6 +302,26 @@ const PlotViewer = ({
       path.dataset.facing = facing;
       path.dataset.area = area;
 
+      path.addEventListener('mouseenter', (e) => {
+        setHoveredPlot({
+          plotNo,
+          plotId,
+          status: rawStatus,
+          facing,
+          area,
+          x: e.clientX,
+          y: e.clientY
+        });
+      });
+
+      path.addEventListener('mousemove', (e) => {
+        setHoveredPlot((prev) => (prev ? { ...prev, x: e.clientX, y: e.clientY } : null));
+      });
+
+      path.addEventListener('mouseleave', () => {
+        setHoveredPlot(null);
+      });
+
       path.addEventListener('click', () => {
         if (dragRef.current.dragMoved) return;
         setSelectedPlot({
@@ -359,6 +382,34 @@ const PlotViewer = ({
           />
         </div>
       </div>
+
+      {/* On-Hover Floating Plot Card Tooltip */}
+      {hoveredPlot && (
+        <div
+          className="map-hover-card"
+          style={{
+            left: `${Math.min(window.innerWidth - 220, hoveredPlot.x + 15)}px`,
+            top: `${Math.min(window.innerHeight - 150, hoveredPlot.y + 15)}px`
+          }}
+        >
+          <div className="hover-card-header">
+            <span className="hover-card-title">Plot {hoveredPlot.plotNo}</span>
+            <StatusBadge status={hoveredPlot.status} variant="availability" />
+          </div>
+          <div className="hover-card-specs">
+            <span>🧭 {hoveredPlot.facing}</span>
+            <span>📐 {hoveredPlot.area}</span>
+          </div>
+          <div className="hover-card-actions">
+            <SocialActions
+              phone={phoneNumber}
+              whatsapp={whatsappNumber}
+              title={`Plot ${hoveredPlot.plotNo}`}
+              size="sm"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Zoom Controls */}
       <PlotZoomControls

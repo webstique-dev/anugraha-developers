@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import Button from '../Button/Button';
 import StatusBadge from '../StatusBadge/StatusBadge';
-import ContactActions from '../ContactActions/ContactActions';
 import PlotDetails from '../PlotDetails/PlotDetails';
+import SocialActions from '../SocialActions/SocialActions';
 import './PropertyCard.css';
 
 /**
  * Reusable PropertyCard / PlotCard Component
- * Assembles image thumbnail, status badge, category tag, plot details,
- * contact actions (WhatsApp / Call), and layout action button.
+ * Displays plot image with an elegant hover overlay revealing status badges
+ * and social action icons (WhatsApp, Call, Share).
  */
 const PropertyCard = ({ property }) => {
   if (!property) return null;
@@ -18,7 +18,6 @@ const PropertyCard = ({ property }) => {
   const {
     id,
     title,
-    status,
     availability = 'Available',
     location,
     price,
@@ -33,6 +32,8 @@ const PropertyCard = ({ property }) => {
   } = property;
 
   const targetLink = plotlink || `/layout/${id}`;
+  const phone = contact.phone || '+919876543210';
+  const whatsapp = contact.whatsapp || '919876543210';
 
   return (
     <motion.div
@@ -56,6 +57,19 @@ const PropertyCard = ({ property }) => {
             <StatusBadge status={category} variant="category" />
           </div>
         )}
+
+        {/* On-Hover Overlay with Status & Social Contact Action Icons */}
+        <div className="property-hover-overlay">
+          <div className="hover-status-header">
+            <StatusBadge status={availability} variant="availability" />
+            {category && <StatusBadge status={category} variant="category" />}
+          </div>
+
+          <div className="hover-social-actions">
+            <span className="hover-actions-label">Quick Contact & Share</span>
+            <SocialActions phone={phone} whatsapp={whatsapp} title={title} size="md" />
+          </div>
+        </div>
       </div>
 
       <div className="property-content">
@@ -70,8 +84,8 @@ const PropertyCard = ({ property }) => {
         />
 
         <div className="property-footer">
-          {/* Contact Action Icons (WhatsApp & Call) */}
-          <ContactActions contact={contact} title={title} />
+          {/* Social Contact Icons */}
+          <SocialActions phone={phone} whatsapp={whatsapp} title={title} size="sm" />
 
           {/* View Layout Button */}
           <Button href={targetLink} variant="outline" size="sm" icon={<FaArrowRight />}>

@@ -77,3 +77,67 @@
 .blocked {
   fill: #f59e0b;
 }
+
+/* On-Hover Floating Plot Card Tooltip */
+.map-hover-card {
+  position: fixed;
+  z-index: 1050;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 60, 43, 0.12);
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(26, 60, 43, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 180px;
+  animation: fadeInTooltip 0.15s ease;
+}
+
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hover-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.hover-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1A3C2B;
+}
+
+.hover-card-specs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #666;
+}
+
+.hover-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 4px;
+  border-top: 1px solid rgba(26, 60, 43, 0.08);
+}
