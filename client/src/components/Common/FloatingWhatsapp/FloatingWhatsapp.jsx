@@ -27,7 +27,7 @@ const FloatingWhatsapp = ({
       <div className="whatsapp-icon-wrapper">
         <FaWhatsapp className="whatsapp-svg-icon" />
       </div>
-      <span className="whatsapp-hover-label">Chat with Us</span>
+      {/* <span className="whatsapp-hover-label">Chat with Us</span> */}
     </a>
   );
 };

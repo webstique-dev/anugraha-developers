@@ -15,6 +15,8 @@ function App() {
           <Route path="/plot-1" element={<Plot1 />} />
           <Route path="/plot-1.html" element={<Plot1 />} />
           <Route path="/layout/1" element={<Plot1 />} />
+          <Route path="/pages/plots/plot1.jsx" element={<Plot1 />} />
+          <Route path="/pages/plots/plot1" element={<Plot1 />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Router>

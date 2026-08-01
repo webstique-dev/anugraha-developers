@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './Button.css';
 
@@ -12,9 +13,11 @@ const Button = ({
   type = 'button',
   className = '',
   href,
+  to,
   ...props
 }) => {
   const btnClasses = `btn btn-${variant} btn-${size} ${className}`;
+  const targetPath = to || href;
 
   const content = (
     <>
@@ -24,10 +27,26 @@ const Button = ({
     </>
   );
 
-  if (href) {
+  if (targetPath) {
+    const isInternal = targetPath.startsWith('/') || targetPath.startsWith('#');
+    if (isInternal && !targetPath.includes('.html')) {
+      return (
+        <motion.div
+          whileHover={{ y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ duration: 0.2 }}
+          style={{ display: 'inline-block' }}
+        >
+          <Link to={targetPath} className={btnClasses} {...props}>
+            {content}
+          </Link>
+        </motion.div>
+      );
+    }
+
     return (
       <motion.a
-        href={href}
+        href={targetPath}
         className={btnClasses}
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.98 }}

@@ -24,7 +24,7 @@ export const PROPERTIES_DATA = [
     status: "DTCP Approved",
     availability: "Available",
     location: "Sulur Road, Coimbatore",
-    plotlink: "/plot-1.html",
+    plotlink: "/plot-1",
     price: "₹18.5 Lakhs",
     pricePerSqft: "₹1,250 / sq.ft",
     area: "1,500 sq.ft",
