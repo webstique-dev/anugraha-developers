@@ -23,15 +23,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.9833333"
-     inkscape:cx="480.2521"
-     inkscape:cy="265.96639"
-     inkscape:window-width="1196"
+     inkscape:zoom="7.9333333"
+     inkscape:cx="399.89496"
+     inkscape:cy="186.11345"
+     inkscape:window-width="1188"
      inkscape:window-height="1033"
-     inkscape:window-x="-8"
+     inkscape:window-x="796"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="roads"
+     inkscape:current-layer="svg2446"
      showguides="true" />
   <title
      id="title1">Land Layout Master Plan</title>
@@ -1508,6 +1508,11 @@
      height="840"
      fill="#ffffff" />
   <path
+     class="plot"
+     id="plot-191-1"
+     d="m 712.16,358.56 h 19.44 v -32.4 h -19.44 z"
+     style="fill:#fbfaf7;stroke:#12151a;stroke-width:0.32;stroke-linejoin:round" />
+  <path
      class="road"
      id="road-3-1"
      d="m 435.565,334.01 0.04,1.92 -1.09,1.14 1.02,1.02 0.13,1.58 -0.3,0.63 -0.85,0.73 1.05,1.02 0.1,1.24 0.37,0.17 0.98,-0.31 0.94,0.31 1.04,-0.36 0.92,0.36 0.94,-0.31 1.24,0.25 0.21,-1.35 1.05,-1.02 -0.85,-0.74 -0.3,-0.63 0.13,-1.57 1.02,-1.02 -1.05,-1.03 -0.1,-1.69 0.3,-0.63 0.85,-0.73 -0.96,-0.92 -0.19,-1.22 -0.37,-0.18 -0.98,0.32 -0.94,-0.32 -1.04,0.36 -0.92,-0.36 -0.94,0.32 -1.21,-0.27 -0.33,1.36 -0.95,0.87 z"
@@ -1565,11 +1570,11 @@
        d="M 574.70 333.38 L 574.53 311.08 L 458.56 311.08 L 455.44 307.84 L 455.44 333.40 L 458.56 330.28 L 482.80 330.28 L 502.24 330.28 L 522.40 330.28 L 541.84 330.28 L 571.48 330.28 Z" />
     <path
        class="plot"
-       id="plot-6"
+       id="Plot-8"
        d="M 574.92 362.68 L 574.70 333.38 L 571.48 330.28 L 541.84 330.28 L 541.84 362.68 Z" />
     <path
        class="plot"
-       id="plot-7"
+       id="Plot-17"
        d="M 575.08 383.20 L 574.92 362.68 L 541.84 362.68 L 541.84 392.08 L 571.96 392.08 L 575.08 388.96 Z" />
     <path
        class="plot"
@@ -1597,7 +1602,7 @@
        d="M 749.32 308.08 L 654.40 285.89 L 654.40 311.08 L 749.30 311.08 Z" />
     <path
        class="plot"
-       id="plot-14"
+       id="Plot-24"
        d="M 748.76 392.08 L 748.96 362.68 L 724.96 362.68 L 724.96 392.08 Z" />
     <path
        class="plot"
@@ -1661,23 +1666,23 @@
        d="M 434.08 341.44 L 434.08 322.00 L 404.80 322.00 L 404.80 341.44 Z" />
     <path
        class="plot"
-       id="plot-30"
+       id="Plot-13"
        d="M 455.44 362.68 L 455.44 388.96 L 458.56 392.08 L 482.80 392.08 L 482.80 388.96 L 482.80 362.68 Z" />
     <path
        class="plot"
-       id="plot-31"
+       id="Plot-12"
        d="M 455.44 333.40 L 455.44 362.68 L 482.80 362.68 L 482.80 330.28 L 458.56 330.28 Z" />
     <path
        class="plot"
-       id="plot-32"
+       id="Plot-14"
        d="M 482.80 392.08 L 502.24 392.08 L 502.24 388.96 L 502.24 362.68 L 482.80 362.68 L 482.80 388.96 Z" />
     <path
        class="plot"
-       id="plot-33"
+       id="Plot-15"
        d="M 502.24 392.08 L 522.40 392.08 L 522.40 388.96 L 522.40 362.68 L 502.24 362.68 L 502.24 388.96 Z" />
     <path
        class="plot"
-       id="plot-34"
+       id="Plot-16"
        d="M 522.40 392.08 L 541.84 392.08 L 541.84 362.68 L 522.40 362.68 L 522.40 388.96 Z" />
     <path
        class="plot"
@@ -1849,23 +1854,23 @@
        d="M 434.08 902.80 L 434.08 893.08 L 430.84 889.84 L 414.76 889.84 L 414.76 902.80 Z" />
     <path
        class="plot"
-       id="plot-77"
+       id="Plot-23"
        d="M 705.52 392.08 L 724.96 392.08 L 724.96 362.68 L 705.52 362.68 Z" />
     <path
        class="plot"
-       id="plot-78"
+       id="Plot-22"
        d="M 686.08 392.08 L 705.52 392.08 L 705.52 362.68 L 686.08 362.68 Z" />
     <path
        class="plot"
-       id="plot-79"
+       id="Plot-21"
        d="M 666.52 392.08 L 686.08 392.08 L 686.08 362.68 L 666.52 362.68 Z" />
     <path
        class="plot"
-       id="plot-80"
+       id="Plot-20"
        d="M 647.08 392.08 L 666.52 392.08 L 666.52 362.68 L 647.08 362.68 Z" />
     <path
        class="plot"
-       id="plot-81"
+       id="Plot-19"
        d="M 627.64 392.08 L 647.08 392.08 L 647.08 362.68 L 627.64 362.68 Z" />
     <path
        class="plot"
@@ -2278,35 +2283,35 @@
        d="M 468.40 798.64 L 481.36 798.64 L 481.36 775.96 L 476.80 775.96 L 468.40 775.96 Z" />
     <path
        class="plot"
-       id="plot-184"
+       id="Plot-11"
        d="M 482.80 362.68 L 502.24 362.68 L 502.24 330.28 L 482.80 330.28 Z" />
     <path
        class="plot"
-       id="plot-185"
+       id="Plot-10"
        d="M 502.24 362.68 L 522.40 362.68 L 522.40 330.28 L 502.24 330.28 Z" />
     <path
        class="plot"
-       id="plot-186"
+       id="Plot-9"
        d="M 522.40 362.68 L 541.84 362.68 L 541.84 330.28 L 522.40 330.28 Z" />
     <path
        class="plot"
-       id="plot-187"
+       id="Plot-6"
        d="M 627.64 362.68 L 647.08 362.68 L 647.08 330.28 L 627.64 330.28 Z" />
     <path
        class="plot"
-       id="plot-188"
+       id="Plot-5"
        d="M 647.08 362.68 L 666.52 362.68 L 666.52 330.28 L 647.08 330.28 Z" />
     <path
        class="plot"
-       id="plot-189"
+       id="Plot-4"
        d="M 666.52 362.68 L 686.08 362.68 L 686.08 330.28 L 666.52 330.28 Z" />
     <path
        class="plot"
-       id="plot-190"
+       id="Plot-3"
        d="M 686.08 362.68 L 705.52 362.68 L 705.52 330.28 L 686.08 330.28 Z" />
     <path
        class="plot"
-       id="plot-191"
+       id="Plot-2"
        d="M 705.52 362.68 L 724.96 362.68 L 724.96 330.28 L 705.52 330.28 Z" />
     <path
        class="plot"
@@ -2949,6 +2954,11 @@
        id="plot-351"
        d="M 213.88 909.28 L 226.84 909.28 L 226.84 889.84 L 213.88 889.84 Z" />
   </g>
+  <path
+     id="Plot-18"
+     style="fill:#fcfbf8;stroke:#000000;stroke-width:0.292584;stroke-linecap:square;stroke-miterlimit:4.7;paint-order:markers fill stroke"
+     d="m 600.6663,362.98629 h 26.66741 v 29.10742 L 604.26,392.08 601.17,389 Z"
+     sodipodi:nodetypes="cccccc" />
   <g
      id="roads">
     <path
@@ -4918,18 +4928,7 @@
     </g>
     <g
        class="label"
-       id="g775">
-      <use
-         xlink:href="#glyph-10-0"
-         x="555.52"
-         y="380.32"
-         id="use774" />
-      <use
-         xlink:href="#glyph-10-16"
-         x="558.78928"
-         y="380.32"
-         id="use775" />
-    </g>
+       id="g775" />
     <g
        class="label"
        id="g777">
@@ -4946,18 +4945,7 @@
     </g>
     <g
        class="label"
-       id="g779">
-      <use
-         xlink:href="#glyph-10-0"
-         x="612.04"
-         y="377.92"
-         id="use778" />
-      <use
-         xlink:href="#glyph-10-17"
-         x="615.30928"
-         y="377.92"
-         id="use779" />
-    </g>
+       id="g779" />
     <g
        class="label"
        id="g803">
@@ -5922,20 +5910,21 @@
     </g>
     <g
        class="dim"
-       id="g968">
+       id="g968"
+       transform="matrix(0.75296456,0,0,0.71999857,163.07391,100.97782)">
       <use
          xlink:href="#glyph-8-3"
-         x="651.04"
+         x="651.03998"
          y="363.16"
          id="use966" />
       <use
          xlink:href="#glyph-8-7"
-         x="655.97728"
+         x="655.97729"
          y="363.16"
          id="use967" />
       <use
          xlink:href="#glyph-8-9"
-         x="660.91456"
+         x="660.91455"
          y="363.16"
          id="use968" />
     </g>
@@ -6725,46 +6714,13 @@
     </g>
     <g
        class="label"
-       id="g1134">
-      <use
-         xlink:href="#glyph-10-1"
-         x="553.48"
-         y="348.64"
-         id="use1133" />
-      <use
-         xlink:href="#glyph-10-17"
-         x="556.74928"
-         y="348.64"
-         id="use1134" />
-    </g>
+       id="g1134" />
     <g
        class="label"
-       id="g1136">
-      <use
-         xlink:href="#glyph-10-0"
-         x="465.52"
-         y="348.64"
-         id="use1135" />
-      <use
-         xlink:href="#glyph-10-22"
-         x="468.78928"
-         y="348.64"
-         id="use1136" />
-    </g>
+       id="g1136" />
     <g
        class="label"
-       id="g1138">
-      <use
-         xlink:href="#glyph-10-0"
-         x="465.52"
-         y="379.72"
-         id="use1137" />
-      <use
-         xlink:href="#glyph-10-27"
-         x="468.78928"
-         y="379.72"
-         id="use1138" />
-    </g>
+       id="g1138" />
     <g
        class="label"
        id="g1144">
@@ -6820,35 +6776,36 @@
     </g>
     <g
        class="dim"
-       id="g1153">
+       id="g1153"
+       transform="matrix(0.83983595,0,0,0.5368125,104.97112,175.61487)">
       <use
          xlink:href="#glyph-11-7"
-         x="645.4"
-         y="388.6"
+         x="645.40002"
+         y="388.60001"
          id="use1148" />
       <use
          xlink:href="#glyph-11-6"
-         x="645.4"
+         x="645.40002"
          y="383.66272"
          id="use1149" />
       <use
          xlink:href="#glyph-11-2"
-         x="645.4"
-         y="378.72544"
+         x="645.40002"
+         y="378.72543"
          id="use1150" />
       <use
          xlink:href="#glyph-11-8"
-         x="645.4"
+         x="645.40002"
          y="377.02936"
          id="use1151" />
       <use
          xlink:href="#glyph-11-0"
-         x="645.4"
-         y="374.07232"
+         x="645.40002"
+         y="374.07233"
          id="use1152" />
       <use
          xlink:href="#glyph-11-9"
-         x="645.4"
+         x="645.40002"
          y="369.13504"
          id="use1153" />
     </g>
@@ -12398,18 +12355,7 @@
     </g>
     <g
        class="label"
-       id="g2130">
-      <use
-         xlink:href="#glyph-10-22"
-         x="733.96"
-         y="377.92"
-         id="use2129" />
-      <use
-         xlink:href="#glyph-10-29"
-         x="737.22928"
-         y="377.92"
-         id="use2130" />
-    </g>
+       id="g2130" />
     <g
        class="dim"
        id="g2133">
@@ -16723,4 +16669,13 @@
       </g>
     </g>
   </g>
+  <path
+     id="Plot-1"
+     style="fill:#fcfbf8;stroke:#000000;stroke-width:0.32;stroke-linecap:square;stroke-miterlimit:4.7;paint-order:markers fill stroke;fill-opacity:1"
+     d="m 724.96002,330.28 h 24 l -2e-5,32.4 h -24 z"
+     sodipodi:nodetypes="ccccc" />
+  <path
+     id="Plot-7"
+     style="fill:#fcfbf8;stroke:#000000;stroke-width:0.30865;stroke-linecap:square;stroke-miterlimit:4.7;paint-order:markers fill stroke"
+     d="m 600.67432,330.27433 h 26.65135 v 32.41133 h -26.65135 z" />
 </svg>
