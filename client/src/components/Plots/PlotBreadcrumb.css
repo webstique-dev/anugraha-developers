@@ -1,45 +1,95 @@
-#breadcrumb {
+.plot-header-card {
   position: fixed;
   top: 14px;
   left: 14px;
   z-index: 950;
   display: flex;
   align-items: center;
-  gap: 0;
-  background: rgba(255, 255, 255, 0.88);
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(26, 60, 43, 0.1);
+  border: 1px solid rgba(26, 60, 43, 0.12);
   border-radius: 100px;
-  padding: 6px 14px 6px 8px;
+  padding: 6px 16px 6px 10px;
   box-shadow:
-    0 2px 8px rgba(26, 60, 43, 0.08),
-    0 1px 2px rgba(0, 0, 0, 0.04);
+    0 4px 14px rgba(26, 60, 43, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
 }
 
-#breadcrumb .bc-back {
+/* Company Logo & Brand Link */
+.plot-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.plot-brand-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+.plot-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.plot-brand-text .brand-title {
+  font-family: 'Space Grotesk', var(--font-heading, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  color: #1A3C2B;
+  letter-spacing: 0.04em;
+}
+
+.plot-brand-text .brand-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  font-weight: 600;
+  color: #D4AF37;
+  letter-spacing: 0.12em;
+}
+
+/* Divider Line */
+.plot-header-divider {
+  width: 1px;
+  height: 22px;
+  background-color: rgba(26, 60, 43, 0.15);
+  flex-shrink: 0;
+}
+
+/* Integrated Breadcrumb Navigation */
+.plot-breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.plot-breadcrumb-nav .bc-back {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: #1A3C2B;
   color: #ffffff;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
   flex-shrink: 0;
   transition: background 0.2s, transform 0.15s;
-  margin-right: 8px;
 }
 
-#breadcrumb .bc-back:hover {
+.plot-breadcrumb-nav .bc-back:hover {
   background: #24523B;
   transform: translateX(-2px);
 }
 
-#breadcrumb ol {
+.plot-breadcrumb-nav .bc-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -49,57 +99,93 @@
   flex-wrap: nowrap;
 }
 
-#breadcrumb ol li {
+.plot-breadcrumb-nav .bc-list li {
   display: flex;
   align-items: center;
   gap: 4px;
   white-space: nowrap;
 }
 
-#breadcrumb ol li a {
+.plot-breadcrumb-nav .bc-list li a {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   color: #4a5568;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-#breadcrumb ol li a:hover {
+.plot-breadcrumb-nav .bc-list li a:hover {
   color: #1A3C2B;
 }
 
-#breadcrumb ol li .bc-sep {
-  font-size: 11px;
+.plot-breadcrumb-nav .bc-sep {
   color: #D4AF37;
-  font-weight: 700;
-  user-select: none;
+  flex-shrink: 0;
 }
 
-#breadcrumb ol li.bc-current {
+.plot-breadcrumb-nav .bc-current {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: #1A3C2B;
-  max-width: 160px;
+}
+
+.plot-breadcrumb-nav .bc-current-text {
+  max-width: 140px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+/* Responsiveness for Tablets & Mobiles (≤640px) */
 @media (max-width: 640px) {
-  #breadcrumb ol li:not(.bc-current):not(:first-child) {
+  .plot-header-card {
+    top: 10px;
+    left: 10px;
+    padding: 5px 12px 5px 8px;
+    gap: 8px;
+  }
+
+  .plot-brand-logo {
+    height: 24px;
+  }
+
+  .plot-brand-text .brand-title {
+    font-size: 12px;
+  }
+
+  .plot-brand-text .brand-subtitle {
+    font-size: 7px;
+  }
+
+  .plot-breadcrumb-nav .bc-list li:not(.bc-current):not(:first-child) {
     display: none;
   }
-  #breadcrumb ol li:not(.bc-current):not(:first-child) + li .bc-sep {
-    display: none;
-  }
-  #breadcrumb ol li.bc-current {
-    max-width: 130px;
+
+  .plot-breadcrumb-nav .bc-current-text {
+    max-width: 110px;
   }
 }
 
-@media (max-width: 420px) {
-  #breadcrumb ol li.bc-current {
-    max-width: 100px;
+/* Mobile Screens (≤500px) */
+@media (max-width: 500px) {
+  .plot-header-card {
+    top: 8px;
+    left: 8px;
+    gap: 6px;
+    max-width: calc(100vw - 16px);
+  }
+
+  .plot-brand-text {
+    display: none;
+  }
+
+  .plot-header-divider {
+    height: 18px;
+  }
+
+  .plot-breadcrumb-nav .bc-current-text {
+    max-width: 90px;
   }
 }

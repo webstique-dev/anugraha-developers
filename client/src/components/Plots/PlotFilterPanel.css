@@ -6,15 +6,16 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(26, 60, 43, 0.1);
+  border: 1px solid rgba(26, 60, 43, 0.12);
   border-radius: 100px;
   padding: 6px 14px 6px 12px;
   box-shadow:
-    0 2px 8px rgba(26, 60, 43, 0.08),
-    0 1px 2px rgba(0, 0, 0, 0.04);
+    0 4px 14px rgba(26, 60, 43, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
 }
 
 .filter-panel-title {
@@ -24,12 +25,14 @@
   color: #1A3C2B;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  flex-shrink: 0;
 }
 
 .filter-panel-buttons {
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  flex-wrap: nowrap;
 }
 
 .plot-map-filter-btn {
@@ -45,6 +48,7 @@
   background: rgba(26, 60, 43, 0.05);
   color: #4a5568;
   cursor: pointer;
+  white-space: nowrap;
   transition: all 0.2s ease;
 }
 
@@ -58,6 +62,7 @@
   height: 6px;
   border-radius: 50%;
   background: currentColor;
+  flex-shrink: 0;
 }
 
 .filter-all .filter-btn-dot { background: #1A3C2B; }
@@ -87,17 +92,52 @@
   color: inherit;
 }
 
+/* Tablet screens (≤768px) */
 @media (max-width: 768px) {
   .plot-filter-panel {
-    top: 60px;
-    left: 14px;
-    right: auto;
-    max-width: calc(100vw - 28px);
-    overflow-x: auto;
-    border-radius: 12px;
+    top: 56px;
+    left: 10px;
+    right: 10px;
+    border-radius: 16px;
+    padding: 6px 10px;
+    justify-content: center;
   }
   
   .filter-panel-title {
     display: none;
+  }
+  
+  .filter-panel-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+}
+
+/* Small Mobile Screens (≤500px) */
+@media (max-width: 500px) {
+  .plot-filter-panel {
+    top: 50px;
+    left: 8px;
+    right: 8px;
+    border-radius: 14px;
+    padding: 5px 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .plot-map-filter-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+    gap: 0.25rem;
+  }
+
+  .filter-btn-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .filter-count-badge {
+    font-size: 9px;
+    padding: 0 4px;
   }
 }
