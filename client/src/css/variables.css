@@ -1,0 +1,40 @@
+:root {
+  /* Colors */
+  --bg-primary: #F7F7F5;
+  --color-primary: #1A3C2B;
+  --color-primary-dark: #0F241A;
+  --color-primary-light: #24523B;
+  --color-secondary: #D4AF37;
+  --color-secondary-light: #E4C358;
+  --color-accent: #F4D35E;
+  --color-text: #2D2D2D;
+  --color-text-light: #666666;
+  --color-border: rgba(58, 58, 56, 0.18);
+  --color-border-light: rgba(58, 58, 56, 0.08);
+  --color-white: #FFFFFF;
+  --color-white-translucent: rgba(255, 255, 255, 0.92);
+
+  /* Typography */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'General Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Border Radii */
+  --radius-card: 1rem;
+  --radius-button: 0.5rem;
+  --radius-input: 0.5rem;
+  --radius-image: 1rem;
+  --radius-pill: 6.25rem;
+
+  /* Shadows (Flat/Minimal - Subtle elevation only) */
+  --shadow-sm: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 0.5rem 1.5rem rgba(26, 60, 43, 0.06);
+  --shadow-lg: 0 1rem 2.5rem rgba(26, 60, 43, 0.08);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Blueprint Grid Pattern SVG */
+  --bg-blueprint: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg stroke='%231A3C2B' stroke-width='0.5' stroke-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}

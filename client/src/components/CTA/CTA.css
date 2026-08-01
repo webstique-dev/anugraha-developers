@@ -1,0 +1,161 @@
+.cta-section {
+  position: relative;
+}
+
+.cta-card {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-secondary);
+  padding: 4rem;
+  color: var(--color-white);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cta-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  background-color: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  align-self: flex-start;
+}
+
+.cta-heading {
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.cta-heading span.gold {
+  color: var(--color-secondary);
+}
+
+.cta-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.cta-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-bullet-icon {
+  color: var(--color-secondary);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* Enquiry Form Styling */
+.enquiry-form-container {
+  background-color: var(--color-white);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  color: var(--color-text);
+  box-shadow: var(--shadow-md);
+}
+
+.form-header {
+  margin-bottom: 1.5rem;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.form-subtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--color-border);
+  background-color: var(--bg-primary);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--color-secondary);
+  background-color: var(--color-white);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 5.5rem;
+}
+
+@media (max-width: 992px) {
+  .cta-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .cta-heading {
+    font-size: 2.25rem;
+  }
+}
