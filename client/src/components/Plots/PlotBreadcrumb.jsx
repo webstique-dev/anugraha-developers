@@ -31,14 +31,14 @@ const PlotBreadcrumb = ({ layoutTitle = 'Appanaikenpatty Phase 1' }) => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          {/* <li>
             <ChevronRight size={11} className="bc-sep" />
             <Link to="/#projects">Layouts</Link>
           </li>
           <li className="bc-current" aria-current="page">
             <ChevronRight size={11} className="bc-sep" />
             <span className="bc-current-text">{layoutTitle}</span>
-          </li>
+          </li> */}
         </ol>
       </nav>
     </div>

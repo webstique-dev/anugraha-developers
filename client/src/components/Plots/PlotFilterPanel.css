@@ -15,7 +15,7 @@
   box-shadow:
     0 4px 14px rgba(26, 60, 43, 0.08),
     0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .filter-panel-title {
@@ -26,6 +26,11 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   flex-shrink: 0;
+}
+
+/* Mobile Accordion Header Button (Hidden on desktop) */
+.filter-accordion-header {
+  display: none;
 }
 
 .filter-panel-buttons {
@@ -92,52 +97,104 @@
   color: inherit;
 }
 
-/* Tablet screens (≤768px) */
+/* ==========================================================
+   MOBILE ACCORDION FILTER DRAWER (Screens <= 768px)
+   ========================================================== */
 @media (max-width: 768px) {
   .plot-filter-panel {
     top: 56px;
-    left: 10px;
-    right: 10px;
-    border-radius: 16px;
-    padding: 6px 10px;
-    justify-content: center;
+    right: 12px;
+    left: auto;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 18px;
+    padding: 6px 12px;
+    gap: 0;
+    width: min(280px, calc(100vw - 24px));
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.12),
+      0 2px 4px rgba(26, 60, 43, 0.06);
   }
-  
+
   .filter-panel-title {
     display: none;
   }
-  
-  .filter-panel-buttons {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.3rem;
-  }
-}
 
-/* Small Mobile Screens (≤500px) */
-@media (max-width: 500px) {
-  .plot-filter-panel {
-    top: 50px;
-    left: 8px;
-    right: 8px;
-    border-radius: 14px;
-    padding: 5px 8px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  /* Show Accordion Trigger Button on Mobile */
+  .filter-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 4px 0;
+    color: #1A3C2B;
+    cursor: pointer;
+  }
+
+  .accordion-title-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .accordion-filter-icon {
+    color: #D4AF37;
+  }
+
+  .accordion-label-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1A3C2B;
+  }
+
+  .accordion-active-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 100px;
+    background: rgba(26, 60, 43, 0.08);
+    color: #1A3C2B;
+  }
+
+  /* Accordion Buttons Container - Collapsed by default */
+  .filter-panel-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.25s ease, margin-top 0.25s ease;
+    margin-top: 0;
+  }
+
+  /* When Accordion is Open */
+  .plot-filter-panel.accordion-open {
+    border-radius: 16px;
+    padding: 10px 12px;
+  }
+
+  .plot-filter-panel.accordion-open .filter-panel-buttons {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(26, 60, 43, 0.1);
   }
 
   .plot-map-filter-btn {
-    padding: 3px 8px;
-    font-size: 11px;
-    gap: 0.25rem;
-  }
-
-  .filter-btn-dot {
-    width: 5px;
-    height: 5px;
-  }
-
-  .filter-count-badge {
-    font-size: 9px;
-    padding: 0 4px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 6px 12px;
+    font-size: 12px;
+    border-radius: 8px;
   }
 }
