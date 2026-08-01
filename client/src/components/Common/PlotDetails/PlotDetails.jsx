@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { MapPin } from 'lucide-react';
+import { Check } from 'lucide-react';
 import './PlotDetails.css';
 
 /**
@@ -19,7 +20,7 @@ const PlotDetails = ({
     <div className="plot-details-wrapper">
       {location && (
         <div className="property-location">
-          <FaMapMarkerAlt />
+          <MapPin size={14} />
           <span>{location}</span>
         </div>
       )}
@@ -40,19 +41,12 @@ const PlotDetails = ({
       {features.length > 0 && (
         <div className="property-features-list">
           {features.map((feat, idx) => (
-            <span key={idx} className="feature-pill">
-              ✓ {feat}
+            <span key={idx} className="feature-pill" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <Check size={11} /> {feat}
             </span>
           ))}
         </div>
       )}
-
-      {/* <div className="plot-details-price-row">
-        <div className="property-price-tag">
-          <span className="price-main">{price}</span>
-          {pricePerSqft && <span className="price-sqft">{pricePerSqft}</span>}
-        </div>
-      </div> */}
     </div>
   );
 };

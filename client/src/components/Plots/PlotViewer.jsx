@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { Compass, Ruler } from 'lucide-react';
 import PlotZoomControls from './PlotZoomControls';
 import PlotInfoCard from './PlotInfoCard';
 import PlotFilterPanel from './PlotFilterPanel';
@@ -393,12 +394,16 @@ const PlotViewer = ({
           }}
         >
           <div className="hover-card-header">
-            <span className="hover-card-title">Plot {hoveredPlot.plotNo}</span>
+            <span className="hover-card-title">{hoveredPlot.plotNo}</span>
             <StatusBadge status={hoveredPlot.status} variant="availability" />
           </div>
           <div className="hover-card-specs">
-            <span>🧭 {hoveredPlot.facing}</span>
-            <span>📐 {hoveredPlot.area}</span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <Compass size={13} /> {hoveredPlot.facing}
+            </span>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+              <Ruler size={13} /> {hoveredPlot.area}
+            </span>
           </div>
         </div>
       )}

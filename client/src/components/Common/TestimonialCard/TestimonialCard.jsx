@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar, FaQuoteRight, FaCheckCircle } from 'react-icons/fa';
+import { MapPin } from 'lucide-react';
 import './TestimonialCard.css';
 
 const TestimonialCard = ({ testimonial }) => {
@@ -31,7 +32,9 @@ const TestimonialCard = ({ testimonial }) => {
         <div className="author-details">
           <span className="author-name">{name}</span>
           <span className="author-meta">{role}</span>
-          <span className="author-city-tag">📍 {city}</span>
+          <span className="author-city-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+            <MapPin size={12} /> {city}
+          </span>
         </div>
       </div>
     </div>

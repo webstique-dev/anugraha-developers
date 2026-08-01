@@ -1,4 +1,5 @@
 import React from 'react';
+import { Compass, Ruler, X } from 'lucide-react';
 import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 import './PlotInfoCard.css';
 
@@ -30,7 +31,7 @@ const PlotInfoCard = ({
       {/* Card Header */}
       <div className="info-header">
         <button id="infoClose" aria-label="Close" onClick={onClose}>
-          ✕
+          <X size={14} />
         </button>
         <div className="info-header-label">Plot No.</div>
         <div className="info-plot-number">{plotNo}</div>
@@ -49,7 +50,9 @@ const PlotInfoCard = ({
         {/* Spec: Facing */}
         <div className="info-spec-row">
           <span className="info-spec-label">
-            <span className="info-spec-icon">🧭</span>
+            <span className="info-spec-icon">
+              <Compass size={13} />
+            </span>
             Facing
           </span>
           <span className="info-spec-value">{facing || '—'}</span>
@@ -58,7 +61,9 @@ const PlotInfoCard = ({
         {/* Spec: Plot Area */}
         <div className="info-spec-row">
           <span className="info-spec-label">
-            <span className="info-spec-icon">📐</span>
+            <span className="info-spec-icon">
+              <Ruler size={13} />
+            </span>
             Plot Area
           </span>
           <span className="info-spec-value">{area}</span>
