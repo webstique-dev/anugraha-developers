@@ -1,4 +1,4 @@
-/* Responsive Root Font Scaling */
+/* Responsive Root Font Scaling & Container Adjustments */
 
 @media (max-width: 1600px) {
   html {
@@ -28,16 +28,7 @@
   html {
     font-size: 13px;
   }
-}
-
-@media (max-width: 576px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-/* Global Container & Section Adjustments for Mobile */
-@media (max-width: 768px) {
+  
   .container {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
@@ -46,5 +37,33 @@
   .section-padding {
     padding-top: 4rem;
     padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 12px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* 320px Screen Width Optimizations */
+@media (max-width: 360px) {
+  html {
+    font-size: 11px;
+  }
+
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }

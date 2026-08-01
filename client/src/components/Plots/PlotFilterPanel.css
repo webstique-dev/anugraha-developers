@@ -70,11 +70,25 @@
   flex-shrink: 0;
 }
 
-.filter-all .filter-btn-dot { background: #1A3C2B; }
-.filter-available .filter-btn-dot { background: #0284c7; }
-.filter-booked .filter-btn-dot { background: #22c55e; }
-.filter-registered .filter-btn-dot { background: #ef4444; }
-.filter-blocked .filter-btn-dot { background: #f59e0b; }
+.filter-all .filter-btn-dot {
+  background: #1A3C2B;
+}
+
+.filter-available .filter-btn-dot {
+  background: #0284c7;
+}
+
+.filter-booked .filter-btn-dot {
+  background: #22c55e;
+}
+
+.filter-registered .filter-btn-dot {
+  background: #ef4444;
+}
+
+.filter-blocked .filter-btn-dot {
+  background: #f59e0b;
+}
 
 .plot-map-filter-btn.active {
   background: #1A3C2B;
@@ -82,10 +96,25 @@
   border-color: #1A3C2B;
 }
 
-.plot-map-filter-btn.filter-available.active { background: #0284c7; border-color: #0284c7; }
-.plot-map-filter-btn.filter-booked.active { background: #16a34a; border-color: #16a34a; }
-.plot-map-filter-btn.filter-registered.active { background: #dc2626; border-color: #dc2626; }
-.plot-map-filter-btn.filter-blocked.active { background: #d97706; border-color: #d97706; }
+.plot-map-filter-btn.filter-available.active {
+  background: #0284c7;
+  border-color: #0284c7;
+}
+
+.plot-map-filter-btn.filter-booked.active {
+  background: #16a34a;
+  border-color: #16a34a;
+}
+
+.plot-map-filter-btn.filter-registered.active {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
+.plot-map-filter-btn.filter-blocked.active {
+  background: #d97706;
+  border-color: #d97706;
+}
 
 .filter-count-badge {
   font-family: 'JetBrains Mono', monospace;
@@ -98,19 +127,19 @@
 }
 
 /* ==========================================================
-   MOBILE ACCORDION FILTER DRAWER (Screens <= 768px)
+   MOBILE RESPONSIVE ACCORDION FILTER DRAWER (<= 768px, 500px, 320px)
    ========================================================== */
 @media (max-width: 768px) {
   .plot-filter-panel {
-    top: 56px;
+    top: 58px;
     right: 12px;
     left: auto;
     flex-direction: column;
     align-items: stretch;
-    border-radius: 18px;
-    padding: 6px 12px;
+    border-radius: 16px;
+    padding: 8px 12px;
     gap: 0;
-    width: min(280px, calc(100vw - 24px));
+    width: min(300px, calc(100vw - 24px));
     box-shadow:
       0 6px 20px rgba(0, 0, 0, 0.12),
       0 2px 4px rgba(26, 60, 43, 0.06);
@@ -128,15 +157,16 @@
     width: 100%;
     background: transparent;
     border: none;
-    padding: 4px 0;
+    padding: 6px 0;
     color: #1A3C2B;
     cursor: pointer;
+    min-height: 38px;
   }
 
   .accordion-title-group {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
   }
 
   .accordion-filter-icon {
@@ -154,21 +184,22 @@
   .accordion-active-chip {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
+    gap: 5px;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     font-weight: 600;
-    padding: 2px 8px;
+    padding: 3px 8px;
     border-radius: 100px;
     background: rgba(26, 60, 43, 0.08);
     color: #1A3C2B;
   }
 
-  /* Accordion Buttons Container - Collapsed by default */
+  /* Vertical Stacked Accordion Buttons Container */
   .filter-panel-buttons {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    width: 100%;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -179,22 +210,68 @@
   /* When Accordion is Open */
   .plot-filter-panel.accordion-open {
     border-radius: 16px;
-    padding: 10px 12px;
+    padding: 10px 14px;
   }
 
   .plot-filter-panel.accordion-open .filter-panel-buttons {
-    max-height: 300px;
+    max-height: 320px;
     opacity: 1;
     margin-top: 8px;
     padding-top: 8px;
     border-top: 1px solid rgba(26, 60, 43, 0.1);
   }
 
+  /* 100% width stacked filter buttons for mobile */
   .plot-map-filter-btn {
     width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 6px 12px;
+    padding: 8px 12px;
     font-size: 12px;
     border-radius: 8px;
+    min-height: 40px;
+  }
+}
+
+/* 500px & 320px Specific Mobile Screen Optimizations */
+@media (max-width: 500px) {
+  .plot-filter-panel {
+    top: 52px;
+    right: 8px;
+    left: auto;
+    width: calc(100vw - 16px);
+    max-width: 320px;
+    padding: 6px 10px;
+  }
+
+  .filter-accordion-header {
+    padding: 4px 0;
+    min-height: 36px;
+  }
+
+  .accordion-active-chip {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .plot-map-filter-btn {
+    padding: 8px 10px;
+    font-size: 11px;
+    min-height: 38px;
+  }
+}
+
+@media (max-width: 340px) {
+  .plot-filter-panel {
+    top: 48px;
+    right: 6px;
+    left: 6px;
+    width: calc(100vw - 12px);
+    padding: 5px 8px;
+  }
+
+  .accordion-label-text {
+    display: none;
   }
 }
