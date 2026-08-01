@@ -33,84 +33,39 @@
 }
 
 .property-card:hover .property-image {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
-.property-badges-left {
+.property-status-badge {
   position: absolute;
   top: 1rem;
   left: 1rem;
+  background-color: var(--color-primary, #1A3C2B);
+  color: var(--color-white, #FFFFFF);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill, 6.25rem);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  box-shadow: var(--shadow-sm, 0 0.125rem 0.5rem rgba(0, 0, 0, 0.04));
   z-index: 2;
-  transition: opacity 0.3s ease;
 }
 
-.property-badges-right {
+.property-category-tag {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  z-index: 2;
-  transition: opacity 0.3s ease;
-}
-
-.property-card:hover .property-badges-left,
-.property-card:hover .property-badges-right {
-  opacity: 0;
-}
-
-/* On-Hover Overlay */
-.property-hover-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 36, 26, 0.6) 0%,
-    rgba(15, 36, 26, 0.85) 100%
-  );
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.property-card:hover .property-hover-overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.hover-status-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.hover-social-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  text-align: center;
-  transform: translateY(12px);
-  transition: transform 0.3s ease;
-}
-
-.property-card:hover .hover-social-actions {
-  transform: translateY(0);
-}
-
-.hover-actions-label {
+  background-color: var(--color-white-translucent, rgba(255, 255, 255, 0.92));
+  color: var(--color-primary-dark, #0F241A);
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: rgba(212, 175, 55, 0.9);
-  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.25rem;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2;
 }
 
 .property-content {
@@ -128,5 +83,21 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  flex-wrap: wrap;
+}
+
+.property-price-tag {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-main {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary, #1A3C2B);
+}
+
+.price-sqft {
+  font-size: 0.75rem;
+  color: var(--color-text-light, #666666);
 }

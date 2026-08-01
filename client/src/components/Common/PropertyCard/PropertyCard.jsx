@@ -2,15 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import Button from '../Button/Button';
-import StatusBadge from '../StatusBadge/StatusBadge';
 import PlotDetails from '../PlotDetails/PlotDetails';
-import SocialActions from '../SocialActions/SocialActions';
 import './PropertyCard.css';
 
 /**
- * Reusable PropertyCard / PlotCard Component
- * Displays plot image with an elegant hover overlay revealing status badges
- * and social action icons (WhatsApp, Call, Share).
+ * Reusable PropertyCard / PlotCard Component for the Homepage
+ * Displays plot image with status/category badges, specs grid, price, and View Layout button.
  */
 const PropertyCard = ({ property }) => {
   if (!property) return null;
@@ -18,7 +15,7 @@ const PropertyCard = ({ property }) => {
   const {
     id,
     title,
-    availability = 'Available',
+    status,
     location,
     price,
     pricePerSqft,
@@ -27,13 +24,10 @@ const PropertyCard = ({ property }) => {
     category,
     image,
     plotlink,
-    contact = {},
     features = []
   } = property;
 
   const targetLink = plotlink || `/layout/${id}`;
-  const phone = contact.phone || '+919715334421';
-  const whatsapp = contact.whatsapp || '919715334421';
 
   return (
     <motion.div
@@ -46,30 +40,11 @@ const PropertyCard = ({ property }) => {
       <div className="property-image-container">
         <img src={image} alt={title} className="property-image" loading="lazy" />
         
-        {/* Availability Badge */}
-        <div className="property-badges-left">
-          <StatusBadge status={availability} variant="availability" />
-        </div>
+        {/* Status Badge */}
+        {status && <span className="property-status-badge">{status}</span>}
 
         {/* Category Tag */}
-        {category && (
-          <div className="property-badges-right">
-            <StatusBadge status={category} variant="category" />
-          </div>
-        )}
-
-        {/* On-Hover Overlay with Status & Social Contact Action Icons */}
-        <div className="property-hover-overlay">
-          <div className="hover-status-header">
-            <StatusBadge status={availability} variant="availability" />
-            {category && <StatusBadge status={category} variant="category" />}
-          </div>
-
-          <div className="hover-social-actions">
-            <span className="hover-actions-label">Quick Contact & Share</span>
-            <SocialActions phone={phone} whatsapp={whatsapp} title={title} size="md" />
-          </div>
-        </div>
+        {category && <span className="property-category-tag">{category}</span>}
       </div>
 
       <div className="property-content">
@@ -84,10 +59,11 @@ const PropertyCard = ({ property }) => {
         />
 
         <div className="property-footer">
-          {/* Social Contact Icons */}
-          <SocialActions phone={phone} whatsapp={whatsapp} title={title} size="sm" />
+          <div className="property-price-tag">
+            <span className="price-main">{price}</span>
+            {pricePerSqft && <span className="price-sqft">{pricePerSqft}</span>}
+          </div>
 
-          {/* View Layout Button */}
           <Button href={targetLink} variant="outline" size="sm" icon={<FaArrowRight />}>
             View Layout
           </Button>
