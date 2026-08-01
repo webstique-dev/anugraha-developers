@@ -7,7 +7,7 @@ import './FloatingWhatsapp.css';
  * Positioned fixed at bottom-left, responsive across mobile, tablet & desktop.
  */
 const FloatingWhatsapp = ({
-  phoneNumber = '919876543210',
+  phoneNumber = '919715334421',
   message = "Hi Anugraha Developers, I'm interested in learning more about your property layouts."
 }) => {
   const cleanNumber = phoneNumber.replace(/\D/g, '');

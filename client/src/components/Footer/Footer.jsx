@@ -73,7 +73,7 @@ const Footer = () => {
               </div>
               <div className="footer-contact-item">
                 <FaPhoneAlt className="contact-icon" />
-                <span>+91 98765 43210 / +91 90000 00000 ()</span>
+                <a href="tel:+919715334421" style={{ color: 'inherit', textDecoration: 'none' }}>+91 97153 34421</a>
               </div>
               <div className="footer-contact-item">
                 <FaEnvelope className="contact-icon" />

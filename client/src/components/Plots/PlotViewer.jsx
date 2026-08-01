@@ -16,8 +16,8 @@ const PlotViewer = ({
   contentW = 725,
   contentH = 840,
   viewBox = '82 193 725 840',
-  phoneNumber = '+919876543210',
-  whatsappNumber = '919876543210'
+  phoneNumber = '+919715334421',
+  whatsappNumber = '919715334421'
 }) => {
   const API_URL = `https://opensheet.elk.sh/${sheetId}/Sheet1`;
 

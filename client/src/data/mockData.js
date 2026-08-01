@@ -10,6 +10,14 @@ export const HERO_DATA = {
   ]
 };
 
+export const CONTACT_INFO = {
+  phone: "+919715334421",
+  phoneDisplay: "+91 97153 34421",
+  whatsapp: "919715334421",
+  email: "info@anugrahadevelopers.com",
+  address: "Coimbatore, Tamil Nadu"
+};
+
 export const STATS_DATA = [
   { count: 500, suffix: "+", label: "Plots Delivered", description: "Across prime urban and suburban hubs" },
   { count: 250, suffix: "+", label: "Happy Clients", description: "Trusting our transparent documentation" },
@@ -32,8 +40,8 @@ export const PROPERTIES_DATA = [
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["Water Supply", "Street Lights", "Gated Entry"]
   },
@@ -51,8 +59,8 @@ export const PROPERTIES_DATA = [
     category: "Gated",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["Clubhouse", "Park Area", "24/7 Security"]
   },
@@ -70,8 +78,8 @@ export const PROPERTIES_DATA = [
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["Underground Drainage", "Solar Lights", "Avenue Trees"]
   },
@@ -89,8 +97,8 @@ export const PROPERTIES_DATA = [
     category: "Commercial",
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["3-Phase Power", "High Speed Fiber Ready", "CCTV"]
   },
@@ -108,8 +116,8 @@ export const PROPERTIES_DATA = [
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1524813686514-a57563d77965?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["Rainwater Harvesting", "Children's Play Park", "Jogging Track"]
   },
@@ -127,8 +135,8 @@ export const PROPERTIES_DATA = [
     category: "Gated",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["Overhead Water Tank", "Landscape Gardens", "Grand Entrance Arch"]
   },
@@ -146,8 +154,8 @@ export const PROPERTIES_DATA = [
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["EB Connection Ready", "Clear Title Deeds", "Clear Compound Wall"]
   },
@@ -165,8 +173,8 @@ export const PROPERTIES_DATA = [
     category: "Gated",
     image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["Mountain View", "Zen Garden", "Surveillance Camera System"]
   },
@@ -184,8 +192,8 @@ export const PROPERTIES_DATA = [
     category: "Commercial",
     image: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["High Footfall Zone", "Heavy Vehicle Access", "Commercial Approval"]
   },
@@ -203,8 +211,8 @@ export const PROPERTIES_DATA = [
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["Gated Perimeter", "LED Street Lighting", "Potable Water Facility"]
   },
@@ -222,8 +230,8 @@ export const PROPERTIES_DATA = [
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1592595896551-12b371d546d5?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["100% Vasthu Compliant", "Walking Path", "Tree Line Avenues"]
   },
@@ -241,8 +249,8 @@ export const PROPERTIES_DATA = [
     category: "Gated",
     image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop",
     contact: {
-      phone: "+919876543210",
-      whatsapp: "919876543210"
+      phone: "+919715334421",
+      whatsapp: "919715334421"
     },
     features: ["Temple Proximity", "Gated Security Guard", "Purified Water Supply"]
   }

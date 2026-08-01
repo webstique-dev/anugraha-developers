@@ -64,9 +64,9 @@ const Navbar = () => {
           </nav>
 
           <div className="navbar-actions">
-            <a href="tel:+919876543210" className="nav-phone-btn">
+            <a href="tel:+919715334421" className="nav-phone-btn">
               <FaPhoneAlt />
-              <span>+91 98765 43210</span>
+              <span>+91 97153 34421</span>
             </a>
 
             <ScrollLink to="contact" smooth={true} offset={-80} duration={400}>
@@ -139,9 +139,9 @@ const Navbar = () => {
               </ul>
 
               <div className="mobile-drawer-actions">
-                <a href="tel:+919876543210" className="nav-phone-btn" style={{ justifyContent: 'center' }}>
+                <a href="tel:+919715334421" className="nav-phone-btn" style={{ justifyContent: 'center' }}>
                   <FaPhoneAlt />
-                  <span>+91 98765 43210</span>
+                  <span>+91 97153 34421</span>
                 </a>
                 <ScrollLink to="contact" smooth={true} offset={-80} duration={400} onClick={() => setMobileOpen(false)}>
                   <Button variant="primary" style={{ width: '100%' }}>

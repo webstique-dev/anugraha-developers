@@ -9,8 +9,8 @@ import './PlotInfoCard.css';
 const PlotInfoCard = ({
   plotData,
   onClose,
-  phoneNumber = '+919876543210',
-  whatsappNumber = '919876543210'
+  phoneNumber = '+919715334421',
+  whatsappNumber = '919715334421'
 }) => {
   if (!plotData) return null;
 

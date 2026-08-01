@@ -7,8 +7,8 @@ import './SocialActions.css';
  * Designed for plot cards and hover cards.
  */
 const SocialActions = ({
-  phone = '+919876543210',
-  whatsapp = '919876543210',
+  phone = '+919715334421',
+  whatsapp = '919715334421',
   title = 'Plot Inquiry',
   size = 'md'
 }) => {

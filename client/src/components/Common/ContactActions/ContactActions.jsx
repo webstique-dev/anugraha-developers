@@ -7,8 +7,8 @@ import './ContactActions.css';
  * Pre-populates custom message with the plot title for seamless user inquiry.
  */
 const ContactActions = ({ contact = {}, title = 'this plot' }) => {
-  const phone = contact.phone || '+919876543210';
-  const rawWhatsapp = contact.whatsapp || '919876543210';
+  const phone = contact.phone || '+919715334421';
+  const rawWhatsapp = contact.whatsapp || '919715334421';
   const cleanWhatsapp = rawWhatsapp.replace(/\D/g, '');
 
   const encodedMessage = encodeURIComponent(

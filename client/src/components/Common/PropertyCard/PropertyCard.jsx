@@ -32,8 +32,8 @@ const PropertyCard = ({ property }) => {
   } = property;
 
   const targetLink = plotlink || `/layout/${id}`;
-  const phone = contact.phone || '+919876543210';
-  const whatsapp = contact.whatsapp || '919876543210';
+  const phone = contact.phone || '+919715334421';
+  const whatsapp = contact.whatsapp || '919715334421';
 
   return (
     <motion.div
