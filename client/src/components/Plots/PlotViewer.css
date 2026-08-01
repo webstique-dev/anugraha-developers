@@ -8,6 +8,32 @@
   overscroll-behavior: none;
 }
 
+/* Responsive Top Bar Grid Container (Default: pass-through for Desktop/Tablet) */
+.plot-top-bar-wrapper {
+  display: contents;
+}
+
+/* Mobile Screens (320px - 500px): Single-Column CSS Grid Layout */
+@media (max-width: 500px) {
+  .plot-top-bar-wrapper {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 950;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    width: calc(100vw - 20px);
+    box-sizing: border-box;
+    pointer-events: none;
+  }
+
+  .plot-top-bar-wrapper > * {
+    pointer-events: auto;
+  }
+}
+
 /* Scrollable viewport that holds the map */
 #viewport {
   width: 100vw;

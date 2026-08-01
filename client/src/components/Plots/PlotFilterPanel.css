@@ -127,7 +127,7 @@
 }
 
 /* ==========================================================
-   MOBILE RESPONSIVE ACCORDION FILTER DRAWER (<= 768px, 500px, 320px)
+   MOBILE RESPONSIVE ACCORDION FILTER DRAWER (<= 768px)
    ========================================================== */
 @media (max-width: 768px) {
   .plot-filter-panel {
@@ -231,23 +231,32 @@
     font-size: 12px;
     border-radius: 8px;
     min-height: 40px;
+    box-sizing: border-box;
   }
 }
 
-/* 500px & 320px Specific Mobile Screen Optimizations */
+/* ==========================================================
+   SINGLE-COLUMN GRID LAYOUT ROW 2 (320px – 500px)
+   ========================================================== */
 @media (max-width: 500px) {
   .plot-filter-panel {
-    top: 52px;
-    right: 8px;
+    position: relative;
+    top: auto;
     left: auto;
-    width: calc(100vw - 16px);
-    max-width: 320px;
-    padding: 6px 10px;
+    right: auto;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 6px 12px;
+    margin: 0;
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.1),
+      0 1px 3px rgba(26, 60, 43, 0.04);
   }
 
   .filter-accordion-header {
     padding: 4px 0;
-    min-height: 36px;
+    min-height: 34px;
   }
 
   .accordion-active-chip {
@@ -255,19 +264,28 @@
     padding: 2px 6px;
   }
 
+  .filter-panel-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
   .plot-map-filter-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 8px 10px;
     font-size: 11px;
     min-height: 38px;
+    border-radius: 8px;
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 340px) {
   .plot-filter-panel {
-    top: 48px;
-    right: 6px;
-    left: 6px;
-    width: calc(100vw - 12px);
     padding: 5px 8px;
   }
 

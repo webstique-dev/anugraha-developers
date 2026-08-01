@@ -350,15 +350,15 @@ const PlotViewer = ({
 
   return (
     <div className="plot-viewer-root">
-      {/* Top Left Breadcrumb */}
-      <PlotBreadcrumb layoutTitle={layoutTitle} />
-
-      {/* Top Right Status Filter Panel */}
-      <PlotFilterPanel
-        activeFilter={activeFilter}
-        onFilterChange={setActiveFilter}
-        statusCounts={statusCounts}
-      />
+      {/* Top Header & Filter Controls Container */}
+      <div className="plot-top-bar-wrapper">
+        <PlotBreadcrumb layoutTitle={layoutTitle} />
+        <PlotFilterPanel
+          activeFilter={activeFilter}
+          onFilterChange={setActiveFilter}
+          statusCounts={statusCounts}
+        />
+      </div>
 
       {/* Scrollable Viewport */}
       <div id="viewport" ref={viewportRef}>

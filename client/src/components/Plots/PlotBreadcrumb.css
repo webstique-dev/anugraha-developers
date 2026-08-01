@@ -168,16 +168,33 @@
   }
 }
 
-/* Mobile Screens (≤500px) */
+/* Mobile Screens (320px–500px): Grid Row 1 (100% Full Width) */
 @media (max-width: 500px) {
   .plot-header-card {
-    top: 8px;
-    left: 8px;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 6px;
-    max-width: calc(100vw - 16px);
+    border-radius: 12px;
+    padding: 6px 12px;
+    margin: 0;
   }
 
   .plot-brand-text {
+    display: flex;
+  }
+
+  .plot-brand-text .brand-title {
+    font-size: 11px;
+  }
+
+  .plot-brand-text .brand-subtitle {
     display: none;
   }
 
