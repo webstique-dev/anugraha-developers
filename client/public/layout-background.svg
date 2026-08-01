@@ -24,8 +24,8 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="5.6097137"
-     inkscape:cx="185.30357"
-     inkscape:cy="345.5613"
+     inkscape:cx="469.45354"
+     inkscape:cy="114.17695"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
@@ -15570,6 +15570,11 @@
     <g
        class="park-scene"
        id="park-scene-4">
+      <path
+         class="park-path"
+         d="m 495.54595,274.53347 39.24116,3.57528 L 574.8,287"
+         id="path445"
+         sodipodi:nodetypes="ccc" />
       <g
          class="tree"
          id="g447">
