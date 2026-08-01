@@ -80,50 +80,29 @@
   opacity: 0.7;
   transition: opacity 0.15s ease;
   stroke: #1a1a1a;
-  stroke-width: 1;
+  stroke-width: 0.5;
   vector-effect: non-scaling-stroke;
 }
 
 .plot-zone:hover {
   opacity: 0.95;
-  stroke: #1A3C2B;
-  stroke-width: 1.5;
 }
 
+/* Matching Status Map Fill Colors */
 .available {
-  fill: var(--status-available-map, #29DBFF);
-  transition: fill 0.2s ease, opacity 0.2s ease;
-}
-
-.available:hover {
-  fill: var(--status-available-hover, #38BDF8);
+  fill: #29dbff;
 }
 
 .booked {
-  fill: var(--status-booked-map, #22C55E);
-  transition: fill 0.2s ease, opacity 0.2s ease;
-}
-
-.booked:hover {
-  fill: var(--status-booked-hover, #4ADE80);
+  fill: #22c55e;
 }
 
 .registered {
-  fill: var(--status-registered-map, #EF4444);
-  transition: fill 0.2s ease, opacity 0.2s ease;
-}
-
-.registered:hover {
-  fill: var(--status-registered-hover, #F87171);
+  fill: #ef4444;
 }
 
 .blocked {
-  fill: var(--status-blocked-map, #F59E0B);
-  transition: fill 0.2s ease, opacity 0.2s ease;
-}
-
-.blocked:hover {
-  fill: var(--status-blocked-hover, #FBBF24);
+  fill: #f59e0b;
 }
 
 /* On-Hover Floating Plot Card Tooltip */
@@ -152,6 +131,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);

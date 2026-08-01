@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import Button from '../Button/Button';
 import PlotDetails from '../PlotDetails/PlotDetails';
-import StatusBadge from '../StatusBadge/StatusBadge';
 import './PropertyCard.css';
 
 /**
@@ -41,12 +40,8 @@ const PropertyCard = ({ property }) => {
       <div className="property-image-container">
         <img src={image} alt={title} className="property-image" loading="lazy" />
         
-        {/* Standardized Status Badge */}
-        {status && (
-          <div className="property-status-badge-wrapper">
-            <StatusBadge status={status} variant="availability" />
-          </div>
-        )}
+        {/* Status Badge */}
+        {status && <span className="property-status-badge">{status}</span>}
 
         {/* Category Tag */}
         {category && <span className="property-category-tag">{category}</span>}
