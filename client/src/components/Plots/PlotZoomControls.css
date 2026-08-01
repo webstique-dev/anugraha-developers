@@ -1,7 +1,7 @@
 #zoomControls {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
+  right: 20px;
+  bottom: 90px;
   z-index: 900;
   display: flex;
   flex-direction: column;
@@ -30,10 +30,10 @@
   transform: scale(0.94);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   #zoomControls {
-    right: 12px;
-    bottom: 12px;
+    right: 16px;
+    bottom: 76px;
   }
 
   #zoomControls button {

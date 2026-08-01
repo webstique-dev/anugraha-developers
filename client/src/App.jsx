@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/Home';
 import Plot1 from './pages/plots/Plot1';
+import FloatingWhatsapp from './components/Common/FloatingWhatsapp/FloatingWhatsapp';
 import './css/global.css';
 import './css/responsive.css';
 
@@ -19,6 +20,9 @@ function App() {
           <Route path="/pages/plots/plot1" element={<Plot1 />} />
           <Route path="*" element={<Home />} />
         </Routes>
+
+        {/* Global Floating WhatsApp Button visible on all pages */}
+        <FloatingWhatsapp />
       </Router>
     </HelmetProvider>
   );
