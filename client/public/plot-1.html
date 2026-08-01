@@ -351,10 +351,143 @@
                 font-size: 18px;
             }
         }
+
+        /* ---- Breadcrumb navigation (fixed top-left) ---- */
+        #breadcrumb {
+            position: fixed;
+            top: 14px;
+            left: 14px;
+            z-index: 950;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(26, 60, 43, 0.1);
+            border-radius: 100px;
+            padding: 6px 14px 6px 8px;
+            box-shadow:
+                0 2px 8px rgba(26, 60, 43, 0.08),
+                0 1px 2px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Back arrow button */
+        #breadcrumb .bc-back {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #1A3C2B;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+            transition: background 0.2s, transform 0.15s;
+            margin-right: 8px;
+        }
+
+        #breadcrumb .bc-back:hover {
+            background: #24523B;
+            transform: translateX(-2px);
+        }
+
+        /* Breadcrumb items */
+        #breadcrumb ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: nowrap;
+        }
+
+        #breadcrumb ol li {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+
+        #breadcrumb ol li a {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        #breadcrumb ol li a:hover {
+            color: #1A3C2B;
+        }
+
+        /* Separator chevron */
+        #breadcrumb ol li .bc-sep {
+            font-size: 11px;
+            color: #D4AF37;
+            font-weight: 700;
+            user-select: none;
+        }
+
+        /* Current page (last crumb) */
+        #breadcrumb ol li.bc-current {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1A3C2B;
+            max-width: 160px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Tablet: shrink current page label */
+        @media (max-width: 640px) {
+            #breadcrumb ol li:not(.bc-current):not(:first-child) {
+                display: none;
+            }
+            #breadcrumb ol li:not(.bc-current):not(:first-child) + li .bc-sep {
+                display: none;
+            }
+            #breadcrumb ol li.bc-current {
+                max-width: 130px;
+            }
+        }
+
+        /* Mobile: hide the middle crumb entirely, show only Home + current */
+        @media (max-width: 420px) {
+            #breadcrumb ol li.bc-current {
+                max-width: 100px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- Breadcrumb navigation -->
+    <nav id="breadcrumb" aria-label="Breadcrumb">
+        <a href="/" class="bc-back" aria-label="Go back to Home">
+            &#8592;
+        </a>
+        <ol>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <span class="bc-sep" aria-hidden="true">›</span>
+                <a href="/#projects">Layouts</a>
+            </li>
+            <li class="bc-current" aria-current="page">
+                <span class="bc-sep" aria-hidden="true">›</span>
+                Appanaikenpatty Phase 1
+            </li>
+        </ol>
+    </nav>
 
     <div id="viewport">
         <div id="mapWrapper">
