@@ -23,15 +23,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="5.6097137"
-     inkscape:cx="537.90623"
-     inkscape:cy="262.49111"
-     inkscape:window-width="1188"
+     inkscape:zoom="1.9833333"
+     inkscape:cx="480.2521"
+     inkscape:cy="265.96639"
+     inkscape:window-width="1196"
      inkscape:window-height="1033"
      inkscape:window-x="-8"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg2446"
+     inkscape:current-layer="roads"
      showguides="true" />
   <title
      id="title1">Land Layout Master Plan</title>
@@ -1681,35 +1681,35 @@
        d="M 522.40 392.08 L 541.84 392.08 L 541.84 362.68 L 522.40 362.68 L 522.40 388.96 Z" />
     <path
        class="plot"
-       id="p37"
+       id="Plot-37"
        d="M 484.60 413.44 L 458.56 413.44 L 455.44 416.68 L 455.44 445.84 L 484.60 445.84 Z" />
     <path
        class="plot"
-       id="p36"
+       id="Plot-36"
        d="M 504.16 413.44 L 484.60 413.44 L 484.60 445.84 L 504.16 445.84 Z" />
     <path
        class="plot"
-       id="p35"
+       id="Plot-35"
        d="M 523.60 413.44 L 504.16 413.44 L 504.16 445.84 L 523.60 445.84 Z" />
     <path
        class="plot"
-       id="p34"
+       id="Plot-34"
        d="M 543.04 413.44 L 523.60 413.44 L 523.60 445.84 L 543.04 445.84 Z" />
     <path
        class="plot"
-       id="p33"
+       id="Plot-33"
        d="M 562.60 413.44 L 543.04 413.44 L 543.04 445.84 L 562.60 445.84 Z" />
     <path
        class="plot"
-       id="p32"
+       id="Plot-32"
        d="M 582.04 413.44 L 562.60 413.44 L 562.60 445.84 L 582.04 445.84 Z" />
     <path
        class="plot"
-       id="p31"
+       id="Plot-31"
        d="M 601.12 413.44 L 582.04 413.44 L 582.04 445.84 L 601.48 445.84 L 601.48 413.44 L 601.36 413.44 Z" />
     <path
        class="plot"
-       id="p38"
+       id="Plot-38"
        d="M 455.44 445.84 L 455.44 471.88 L 458.56 475.12 L 484.60 475.12 L 484.60 445.84 Z" />
     <path
        class="plot"
@@ -1877,27 +1877,27 @@
        d="M 565.24 923.20 L 496.61 945.13 L 565.30 923.46 L 565.30 923.44 Z" />
     <path
        class="plot"
-       id="p30"
+       id="Plot-30"
        d="M 621.04 413.44 L 601.48 413.44 L 601.48 445.84 L 621.04 445.84 Z" />
     <path
        class="plot"
-       id="p29"
+       id="Plot-29"
        d="M 640.48 413.44 L 621.04 413.44 L 621.04 445.84 L 640.48 445.84 Z" />
     <path
        class="plot"
-       id="p28"
+       id="Plot-28"
        d="M 659.92 413.44 L 640.48 413.44 L 640.48 445.84 L 659.92 445.84 Z" />
     <path
        class="plot"
-       id="p27"
+       id="Plot-27"
        d="M 679.48 413.44 L 659.92 413.44 L 659.92 445.84 L 679.48 445.84 Z" />
     <path
        class="plot"
-       id="p26"
+       id="Plot-26"
        d="M 698.92 413.44 L 679.48 413.44 L 679.48 445.84 L 698.92 445.84 Z" />
     <path
        class="plot"
-       id="p25"
+       id="Plot-25"
        d="M 724.00 413.44 L 698.92 413.44 L 698.92 445.84 L 727.12 445.84 L 727.12 416.68 Z" />
     <path
        class="plot"
@@ -1933,47 +1933,48 @@
        d="M 711.99 526.72 L 717.88 497.44 L 715.24 494.32 L 691.12 494.32 L 691.12 526.72 Z" />
     <path
        class="plot"
-       id="p49"
+       id="Plot-49"
        d="M 679.48 475.12 L 698.92 475.12 L 698.92 445.84 L 679.48 445.84 Z" />
     <path
        class="plot"
-       id="p48"
+       id="Plot-48"
        d="M 659.92 475.12 L 679.48 475.12 L 679.48 445.84 L 659.92 445.84 Z" />
     <path
        class="plot"
-       id="p47"
+       id="Plot-47"
        d="M 640.48 475.12 L 659.92 475.12 L 659.92 445.84 L 640.48 445.84 Z" />
     <path
        class="plot"
-       id="p46"
+       id="Plot-46"
        d="M 621.04 475.12 L 640.48 475.12 L 640.48 445.84 L 621.04 445.84 Z" />
     <path
        class="plot"
-       id="p45"
+       id="Plot-45"
        d="M 601.48 475.12 L 621.04 475.12 L 621.04 445.84 L 601.48 445.84 Z" />
     <path
        class="plot"
-       id="p44"
+       id="Plot-44"
        d="M 582.04 475.12 L 601.48 475.12 L 601.48 445.84 L 582.04 445.84 Z" />
     <path
        class="plot"
-       id="p43"
+       id="Plot-43"
        d="M 562.60 475.12 L 582.04 475.12 L 582.04 445.84 L 562.60 445.84 Z" />
     <path
        class="plot"
-       id="p42"
+       id="Plot-42"
        d="M 543.04 475.12 L 562.60 475.12 L 562.60 445.84 L 543.04 445.84 Z" />
     <path
        class="plot"
-       id="p41"
+       id="Plot-41"
        d="M 523.60 475.12 L 543.04 475.12 L 543.04 445.84 L 523.60 445.84 Z" />
     <path
        class="plot"
-       id="p40"
-       d="M 504.16 475.12 L 523.60 475.12 L 523.60 445.84 L 504.16 445.84 Z" />
+       id="Plot-40"
+       d="M 504.16,475.12 H 523.6 V 460.48 445.84 H 504.16 Z"
+       sodipodi:nodetypes="cccccc" />
     <path
        class="plot"
-       id="plot-108"
+       id="Plot-39"
        d="M 484.60 475.12 L 504.16 475.12 L 504.16 445.84 L 484.60 445.84 Z" />
     <path
        class="plot"
@@ -2965,7 +2966,8 @@
     <path
        class="road"
        id="road-4"
-       d="M 322.36 944.08 L 430.82 944.08 L 434.08 947.32 L 434.08 939.16 L 434.27 939.22 L 434.36 938.56 L 434.08 938.14 L 434.08 935.01 L 434.36 934.60 L 434.27 933.94 L 434.08 934.00 L 434.08 925.60 L 430.82 928.84 L 337.72 928.84 L 337.67 932.92 L 323.00 932.92 L 322.96 928.84 L 322.36 928.84 Z M 410.15 933.04 L 410.19 934.22 L 409.00 934.57 L 407.92 934.20 L 407.02 934.52 L 405.96 934.21 L 405.03 934.57 L 403.96 934.20 L 403.00 934.57 L 401.92 934.20 L 401.02 934.52 L 399.96 934.21 L 399.03 934.57 L 397.96 934.20 L 397.00 934.57 L 395.92 934.20 L 395.02 934.52 L 393.96 934.21 L 393.03 934.57 L 391.96 934.20 L 391.06 934.52 L 390.00 934.21 L 389.07 934.57 L 388.00 934.20 L 387.03 934.57 L 385.96 934.20 L 385.06 934.52 L 384.00 934.21 L 383.07 934.57 L 382.00 934.20 L 381.03 934.57 L 379.96 934.20 L 379.06 934.52 L 378.00 934.21 L 377.07 934.57 L 376.00 934.20 L 375.03 934.57 L 373.96 934.20 L 373.06 934.52 L 372.00 934.21 L 371.07 934.57 L 370.00 934.20 L 369.03 934.57 L 367.96 934.20 L 367.06 934.52 L 366.00 934.21 L 365.07 934.57 L 363.96 934.20 L 363.03 934.57 L 362.00 934.21 L 360.94 934.52 L 360.04 934.20 L 358.96 934.57 L 357.96 934.20 L 357.62 934.48 L 357.49 935.64 L 356.64 936.52 L 357.53 937.41 L 357.62 938.67 L 357.96 938.96 L 358.97 938.59 L 360.00 938.96 L 361.06 938.64 L 362.00 938.96 L 362.93 938.59 L 364.04 938.96 L 364.97 938.59 L 366.00 938.96 L 367.06 938.64 L 367.96 938.96 L 368.93 938.59 L 370.00 938.96 L 370.97 938.59 L 372.00 938.96 L 373.06 938.64 L 373.96 938.96 L 374.93 938.59 L 376.00 938.96 L 376.97 938.59 L 378.00 938.96 L 379.06 938.64 L 379.96 938.96 L 380.93 938.59 L 382.00 938.96 L 382.97 938.59 L 384.00 938.96 L 385.06 938.64 L 385.96 938.96 L 386.93 938.59 L 388.00 938.96 L 388.97 938.59 L 390.00 938.96 L 391.06 938.64 L 391.96 938.96 L 392.93 938.59 L 393.96 938.96 L 395.02 938.64 L 395.92 938.96 L 396.89 938.59 L 397.96 938.96 L 398.93 938.59 L 399.96 938.96 L 401.02 938.64 L 401.92 938.96 L 402.89 938.59 L 403.96 938.96 L 404.93 938.59 L 405.96 938.96 L 407.02 938.64 L 407.92 938.96 L 409.00 938.59 L 410.18 938.93 L 410.15 939.64 L 328.36 939.60 L 328.40 933.04 Z" />
+       d="m 322.36,944.08 h 108.46 l 3.26,3.24 v -8.16 l 0.19,0.06 0.09,-0.66 -0.28,-0.42 v -3.13 l 0.28,-0.41 -0.09,-0.66 -0.19,0.06 v -8.4 l -3.26,3.24 h -93.1 l -0.05,4.08 H 323 l -0.04,-4.08 h -0.6 z m 87.79,-11.04 0.04,1.18 -1.19,0.35 -1.08,-0.37 -0.9,0.32 -1.06,-0.31 -0.93,0.36 -1.07,-0.37 -0.96,0.37 -1.08,-0.37 -0.9,0.32 -1.06,-0.31 -0.93,0.36 -1.07,-0.37 -0.96,0.37 -1.08,-0.37 -0.9,0.32 -1.06,-0.31 -0.93,0.36 -1.07,-0.37 -0.9,0.32 -1.06,-0.31 -0.93,0.36 -1.07,-0.37 -0.97,0.37 -1.07,-0.37 -0.9,0.32 -1.06,-0.31 -0.93,0.36 -1.07,-0.37 -0.97,0.37 -1.07,-0.37 -0.9,0.32 -1.06,-0.31 -0.93,0.36 -1.07,-0.37 -0.97,0.37 -1.07,-0.37 -0.9,0.32 -1.06,-0.31 -0.93,0.36 -1.07,-0.37 -0.97,0.37 -1.07,-0.37 -0.9,0.32 -1.06,-0.31 -0.93,0.36 -1.11,-0.37 -0.93,0.37 -1.03,-0.36 -1.06,0.31 -0.9,-0.32 -1.08,0.37 -1,-0.37 -0.34,0.28 -0.13,1.16 -0.85,0.88 0.89,0.89 0.09,1.26 0.34,0.29 1.01,-0.37 1.03,0.37 1.06,-0.32 0.94,0.32 0.93,-0.37 1.11,0.37 0.93,-0.37 1.03,0.37 1.06,-0.32 0.9,0.32 0.97,-0.37 1.07,0.37 0.97,-0.37 1.03,0.37 1.06,-0.32 0.9,0.32 0.97,-0.37 1.07,0.37 0.97,-0.37 1.03,0.37 1.06,-0.32 0.9,0.32 0.97,-0.37 1.07,0.37 0.97,-0.37 1.03,0.37 1.06,-0.32 0.9,0.32 0.97,-0.37 1.07,0.37 0.97,-0.37 1.03,0.37 1.06,-0.32 0.9,0.32 0.97,-0.37 1.03,0.37 1.06,-0.32 0.9,0.32 0.97,-0.37 1.07,0.37 0.97,-0.37 1.03,0.37 1.06,-0.32 0.9,0.32 0.97,-0.37 1.07,0.37 0.97,-0.37 1.03,0.37 1.06,-0.32 0.9,0.32 1.08,-0.37 1.18,0.34 -0.03,0.71 -81.79,-0.04 30.5442,2.26 z"
+       sodipodi:nodetypes="ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc" />
     <path
        class="road"
        id="road-5"
@@ -3131,8 +3133,9 @@
        id="path273" />
     <path
        class="centerline"
-       d="M 412.13 932.78 L 432.08 932.78"
-       id="path274" />
+       d="m 337.67,932.92 94.41,-0.14"
+       id="path274"
+       sodipodi:nodetypes="cc" />
     <path
        class="centerline"
        d="M 324.36 941.86 L 432.08 941.86"
@@ -5937,130 +5940,6 @@
          id="use968" />
     </g>
     <g
-       class="road-label"
-       id="g992">
-      <use
-         xlink:href="#glyph-9-0"
-         x="590.44"
-         y="364.96"
-         id="use969" />
-      <use
-         xlink:href="#glyph-9-16"
-         x="590.44"
-         y="361.69072"
-         id="use970" />
-      <use
-         xlink:href="#glyph-9-2"
-         x="590.44"
-         y="358.42144"
-         id="use971" />
-      <use
-         xlink:href="#glyph-9-16"
-         x="590.44"
-         y="356.7868"
-         id="use972" />
-      <use
-         xlink:href="#glyph-9-1"
-         x="590.44"
-         y="353.51752"
-         id="use973" />
-      <use
-         xlink:href="#glyph-9-3"
-         x="590.44"
-         y="350.24824"
-         id="use974" />
-      <use
-         xlink:href="#glyph-9-4"
-         x="590.44"
-         y="348.6136"
-         id="use975" />
-      <use
-         xlink:href="#glyph-9-3"
-         x="590.44"
-         y="343.71556"
-         id="use976" />
-      <use
-         xlink:href="#glyph-9-5"
-         x="590.44"
-         y="342.08092"
-         id="use977" />
-      <use
-         xlink:href="#glyph-9-6"
-         x="590.44"
-         y="336.5302"
-         id="use978" />
-      <use
-         xlink:href="#glyph-9-7"
-         x="590.44"
-         y="334.89556"
-         id="use979" />
-      <use
-         xlink:href="#glyph-9-8"
-         x="590.44"
-         y="330.6502"
-         id="use980" />
-      <use
-         xlink:href="#glyph-9-3"
-         x="590.44"
-         y="326.72824"
-         id="use981" />
-      <use
-         xlink:href="#glyph-9-9"
-         x="590.44"
-         y="325.0936"
-         id="use982" />
-      <use
-         xlink:href="#glyph-9-10"
-         x="590.44"
-         y="321.82432"
-         id="use983" />
-      <use
-         xlink:href="#glyph-9-11"
-         x="590.44"
-         y="317.90236"
-         id="use984" />
-      <use
-         xlink:href="#glyph-9-12"
-         x="590.44"
-         y="313.9804"
-         id="use985" />
-      <use
-         xlink:href="#glyph-9-13"
-         x="590.44"
-         y="309.40576"
-         id="use986" />
-      <use
-         xlink:href="#glyph-9-14"
-         x="590.44"
-         y="305.1604"
-         id="use987" />
-      <use
-         xlink:href="#glyph-9-3"
-         x="590.44"
-         y="301.56772"
-         id="use988" />
-      <use
-         xlink:href="#glyph-9-15"
-         x="590.44"
-         y="299.93308"
-         id="use989" />
-      <use
-         xlink:href="#glyph-9-12"
-         x="590.44"
-         y="295.68772"
-         id="use990" />
-      <use
-         xlink:href="#glyph-9-10"
-         x="590.44"
-         y="291.11308"
-         id="use991" />
-      <use
-         xlink:href="#glyph-9-7"
-         x="590.44"
-         y="287.19112"
-         id="use992" />
-    </g>
-    <g
        class="dim"
        id="g995">
       <use
@@ -8091,130 +7970,6 @@
          x="273.04"
          y="842.43112"
          id="use1360" />
-    </g>
-    <g
-       class="label"
-       id="g1384">
-      <use
-         xlink:href="#glyph-9-0"
-         x="447.04"
-         y="466"
-         id="use1361" />
-      <use
-         xlink:href="#glyph-9-1"
-         x="447.04"
-         y="462.73072"
-         id="use1362" />
-      <use
-         xlink:href="#glyph-9-2"
-         x="447.04"
-         y="459.46144"
-         id="use1363" />
-      <use
-         xlink:href="#glyph-9-1"
-         x="447.04"
-         y="457.8268"
-         id="use1364" />
-      <use
-         xlink:href="#glyph-9-1"
-         x="447.04"
-         y="454.55752"
-         id="use1365" />
-      <use
-         xlink:href="#glyph-9-3"
-         x="447.04"
-         y="451.28824"
-         id="use1366" />
-      <use
-         xlink:href="#glyph-9-4"
-         x="447.04"
-         y="449.6536"
-         id="use1367" />
-      <use
-         xlink:href="#glyph-9-3"
-         x="447.04"
-         y="444.75556"
-         id="use1368" />
-      <use
-         xlink:href="#glyph-9-5"
-         x="447.04"
-         y="443.12092"
-         id="use1369" />
-      <use
-         xlink:href="#glyph-9-6"
-         x="447.04"
-         y="437.5702"
-         id="use1370" />
-      <use
-         xlink:href="#glyph-9-7"
-         x="447.04"
-         y="435.93556"
-         id="use1371" />
-      <use
-         xlink:href="#glyph-9-8"
-         x="447.04"
-         y="431.6902"
-         id="use1372" />
-      <use
-         xlink:href="#glyph-9-3"
-         x="447.04"
-         y="427.76824"
-         id="use1373" />
-      <use
-         xlink:href="#glyph-9-9"
-         x="447.04"
-         y="426.1336"
-         id="use1374" />
-      <use
-         xlink:href="#glyph-9-10"
-         x="447.04"
-         y="422.86432"
-         id="use1375" />
-      <use
-         xlink:href="#glyph-9-11"
-         x="447.04"
-         y="418.94236"
-         id="use1376" />
-      <use
-         xlink:href="#glyph-9-12"
-         x="447.04"
-         y="415.0204"
-         id="use1377" />
-      <use
-         xlink:href="#glyph-9-13"
-         x="447.04"
-         y="410.44576"
-         id="use1378" />
-      <use
-         xlink:href="#glyph-9-14"
-         x="447.04"
-         y="406.2004"
-         id="use1379" />
-      <use
-         xlink:href="#glyph-9-3"
-         x="447.04"
-         y="402.60772"
-         id="use1380" />
-      <use
-         xlink:href="#glyph-9-15"
-         x="447.04"
-         y="400.97308"
-         id="use1381" />
-      <use
-         xlink:href="#glyph-9-12"
-         x="447.04"
-         y="396.72772"
-         id="use1382" />
-      <use
-         xlink:href="#glyph-9-10"
-         x="447.04"
-         y="392.15308"
-         id="use1383" />
-      <use
-         xlink:href="#glyph-9-7"
-         x="447.04"
-         y="388.23112"
-         id="use1384" />
     </g>
     <g
        class="label"
@@ -12452,7 +12207,8 @@
     </g>
     <g
        class="road-label"
-       id="g2117">
+       id="g2117"
+       transform="translate(3.3885815,-0.33875244)">
       <use
          xlink:href="#glyph-10-16"
          x="329.44"
@@ -12460,17 +12216,17 @@
          id="use2095" />
       <use
          xlink:href="#glyph-10-2"
-         x="332.70928"
+         x="332.70929"
          y="938.44"
          id="use2096" />
       <use
          xlink:href="#glyph-10-22"
-         x="334.34392"
+         x="334.34393"
          y="938.44"
          id="use2097" />
       <use
          xlink:href="#glyph-10-1"
-         x="337.6132"
+         x="337.61319"
          y="938.44"
          id="use2098" />
       <use
@@ -12500,22 +12256,22 @@
          id="use2103" />
       <use
          xlink:href="#glyph-10-7"
-         x="356.23516"
+         x="356.23517"
          y="938.44"
          id="use2104" />
       <use
          xlink:href="#glyph-10-8"
-         x="360.48052"
+         x="360.48053"
          y="938.44"
          id="use2105" />
       <use
          xlink:href="#glyph-10-3"
-         x="364.40248"
+         x="364.40247"
          y="938.44"
          id="use2106" />
       <use
          xlink:href="#glyph-10-9"
-         x="366.03712"
+         x="366.03711"
          y="938.44"
          id="use2107" />
       <use
@@ -12530,32 +12286,32 @@
          id="use2109" />
       <use
          xlink:href="#glyph-10-12"
-         x="377.15032"
+         x="377.15033"
          y="938.44"
          id="use2110" />
       <use
          xlink:href="#glyph-10-13"
-         x="381.72496"
+         x="381.72495"
          y="938.44"
          id="use2111" />
       <use
          xlink:href="#glyph-10-14"
-         x="385.97032"
+         x="385.97031"
          y="938.44"
          id="use2112" />
       <use
          xlink:href="#glyph-10-3"
-         x="389.563"
+         x="389.56299"
          y="938.44"
          id="use2113" />
       <use
          xlink:href="#glyph-10-15"
-         x="391.19764"
+         x="391.19763"
          y="938.44"
          id="use2114" />
       <use
          xlink:href="#glyph-10-12"
-         x="395.443"
+         x="395.44299"
          y="938.44"
          id="use2115" />
       <use
@@ -12565,7 +12321,7 @@
          id="use2116" />
       <use
          xlink:href="#glyph-10-7"
-         x="403.9396"
+         x="403.93961"
          y="938.44"
          id="use2117" />
     </g>
@@ -12903,40 +12659,42 @@
     </g>
     <g
        class="dim"
-       id="g2172">
+       id="g2172"
+       transform="matrix(0.62000686,0,0,0.67971307,254.29123,141.46349)">
       <use
          xlink:href="#glyph-8-3"
          x="663.88"
-         y="454.24"
+         y="454.23999"
          id="use2170" />
       <use
          xlink:href="#glyph-8-7"
-         x="668.81728"
-         y="454.24"
+         x="668.81726"
+         y="454.23999"
          id="use2171" />
       <use
          xlink:href="#glyph-8-9"
-         x="673.75456"
-         y="454.24"
+         x="673.75458"
+         y="454.23999"
          id="use2172" />
     </g>
     <g
        class="dim"
-       id="g2175">
+       id="g2175"
+       transform="matrix(0.63061383,0,0,0.60952994,251.15845,165.71735)">
       <use
          xlink:href="#glyph-11-6"
          x="679.12"
-         y="435.4"
+         y="435.39999"
          id="use2173" />
       <use
          xlink:href="#glyph-11-1"
          x="679.12"
-         y="430.46272"
+         y="430.46271"
          id="use2174" />
       <use
          xlink:href="#glyph-11-2"
          x="679.12"
-         y="425.52544"
+         y="425.52545"
          id="use2175" />
     </g>
     <g
@@ -12977,20 +12735,6 @@
          y="473.56"
          id="use2181" />
     </g>
-    <g
-       class="label"
-       id="g2183">
-      <use
-         xlink:href="#glyph-10-22"
-         x="709.84"
-         y="432.4"
-         id="use2182" />
-      <use
-         xlink:href="#glyph-10-30"
-         x="713.10928"
-         y="432.4"
-         id="use2183" />
-    </g>
     <use
        xlink:href="#glyph-10-30"
        x="709.84003"
@@ -12999,7 +12743,7 @@
        style="fill:#0b0e12" />
     <path
        class="plot"
-       id="p50"
+       id="Plot-50"
        d="m 725.36,445.4 -26.44,0.44 v 29.28 h 20.15 c 0.90014,-1.06093 3.00215,-0.64944 3.85,-3.13 2.33843,-6.84151 4.2,-21.11 4.2,-26.15 z"
        style="fill:#fbfaf7;stroke:#12151a;stroke-width:0.32;stroke-linejoin:round"
        sodipodi:nodetypes="ccccscc" />
@@ -14335,33 +14079,7 @@
     </g>
     <g
        class="label"
-       id="g2397">
-      <use
-         xlink:href="#glyph-10-27"
-         x="468.04"
-         y="432.4"
-         id="use2396" />
-      <use
-         xlink:href="#glyph-10-16"
-         x="471.30927"
-         y="432.39999"
-         style="display:inline"
-         id="use2397" />
-    </g>
-    <g
-       class="label"
-       id="g2399">
-      <use
-         xlink:href="#glyph-10-27"
-         x="468.04"
-         y="462.04"
-         id="use2398" />
-      <use
-         xlink:href="#glyph-10-17"
-         x="471.30928"
-         y="462.04"
-         id="use2399" />
-    </g>
+       id="g2399" />
     <g
        class="label"
        id="g2402">
@@ -14663,14 +14381,14 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#1a1a1a;stroke:#1a1a1a;stroke-width:0.8;stroke-linecap:square;stroke-miterlimit:4.7;paint-order:markers fill stroke;opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;writing-mode:lr-tb;direction:ltr;text-anchor:end;opacity:1;fill:#1a1a1a;stroke:#1a1a1a;stroke-width:0.8;stroke-linecap:square;stroke-miterlimit:4.7;paint-order:markers fill stroke"
        x="714.80176"
        y="459.94766"
        id="text2446"><tspan
          sodipodi:role="line"
          id="tspan2446"
          x="714.80176"
-         y="459.94766">50</tspan></text>
+         y="459.94766" /></text>
   </g>
   <g
      id="park-details">
