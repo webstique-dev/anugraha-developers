@@ -22,6 +22,7 @@ export const PROPERTIES_DATA = [
     id: 1,
     title: "Appanaikenpatty Phase 1",
     status: "DTCP Approved",
+    availability: "Available",
     location: "Sulur Road, Coimbatore",
     plotlink: "/plot-1.html",
     price: "₹18.5 Lakhs",
@@ -30,12 +31,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "40 Feet Blacktop",
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["Water Supply", "Street Lights", "Gated Entry"]
   },
   {
     id: 2,
     title: "Anugraha Emerald Enclave",
     status: "RERA Registered",
+    availability: "Booked",
     location: "Saravanampatti, Coimbatore",
     plotlink: "/plot-2.html",
     price: "₹32.0 Lakhs",
@@ -44,12 +50,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "50 Feet Avenue",
     category: "Gated",
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["Clubhouse", "Park Area", "24/7 Security"]
   },
   {
     id: 3,
     title: "Golden Palms Residency",
     status: "Ready for Construction",
+    availability: "Available",
     location: "Avinashi Road, Peelamedu",
     plotlink: "/plot-3.html",
     price: "₹45.5 Lakhs",
@@ -58,12 +69,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "60 Feet Main Road",
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["Underground Drainage", "Solar Lights", "Avenue Trees"]
   },
   {
     id: 4,
     title: "Anugraha Smart Tech Park Layout",
     status: "Commercial & Residential",
+    availability: "Reserved",
     location: "Kovilpalayam, Coimbatore",
     plotlink: "/plot-4.html",
     price: "₹24.0 Lakhs",
@@ -72,12 +88,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "40 Feet Road",
     category: "Commercial",
     image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["3-Phase Power", "High Speed Fiber Ready", "CCTV"]
   },
   {
     id: 5,
     title: "Pine Grove Eco Meadows",
     status: "DTCP Approved",
+    availability: "Sold",
     location: "Pollachi Main Road, Eachanari",
     plotlink: "/plot-5.html",
     price: "₹28.0 Lakhs",
@@ -86,12 +107,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "40 Feet Tar Road",
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1524813686514-a57563d77965?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["Rainwater Harvesting", "Children's Play Park", "Jogging Track"]
   },
   {
     id: 6,
     title: "Anugraha Horizon Heights",
     status: "Luxury Gated Community",
+    availability: "Available",
     location: "Kalapatti Bypass, Coimbatore",
     plotlink: "/plot-6.html",
     price: "₹52.0 Lakhs",
@@ -100,12 +126,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "50 Feet Broad Road",
     category: "Gated",
     image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["Overhead Water Tank", "Landscape Gardens", "Grand Entrance Arch"]
   },
   {
     id: 7,
     title: "Royal Oak Valley Plots",
     status: "DTCP Approved",
+    availability: "Booked",
     location: "Thudiyalur, Coimbatore",
     plotlink: "/plot-7.html",
     price: "₹22.5 Lakhs",
@@ -114,12 +145,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "33 Feet Tar Road",
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["EB Connection Ready", "Clear Title Deeds", "Clear Compound Wall"]
   },
   {
     id: 8,
     title: "Anugraha Serene Sanctuary",
     status: "RERA Approved",
+    availability: "Available",
     location: "Kovaipudur, Coimbatore",
     plotlink: "/plot-8.html",
     price: "₹36.0 Lakhs",
@@ -128,12 +164,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "40 Feet Road",
     category: "Gated",
     image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["Mountain View", "Zen Garden", "Surveillance Camera System"]
   },
   {
     id: 9,
     title: "Vanguard Business Bay",
     status: "Commercial Plot Layout",
+    availability: "Available",
     location: "Trichy Road, Singanallur",
     plotlink: "/plot-9.html",
     price: "₹75.0 Lakhs",
@@ -142,12 +183,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "80 Feet Highway Access",
     category: "Commercial",
     image: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["High Footfall Zone", "Heavy Vehicle Access", "Commercial Approval"]
   },
   {
     id: 10,
     title: "Anugraha Sunrise Boulevard",
     status: "DTCP Approved",
+    availability: "Reserved",
     location: "Vadavalli, Coimbatore",
     plotlink: "/plot-10.html",
     price: "₹41.0 Lakhs",
@@ -156,12 +202,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "40 Feet Avenue",
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["Gated Perimeter", "LED Street Lighting", "Potable Water Facility"]
   },
   {
     id: 11,
     title: "Crestview Heritage Estate",
     status: "Ready for Possession",
+    availability: "Sold",
     location: "Kinathukadavu, Coimbatore",
     plotlink: "/plot-11.html",
     price: "₹16.8 Lakhs",
@@ -170,12 +221,17 @@ export const PROPERTIES_DATA = [
     roadWidth: "33 Feet Internal Road",
     category: "DTCP Approved",
     image: "https://images.unsplash.com/photo-1592595896551-12b371d546d5?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["100% Vasthu Compliant", "Walking Path", "Tree Line Avenues"]
   },
   {
     id: 12,
     title: "Anugraha Paramount Enclave",
     status: "Premium Residential",
+    availability: "Available",
     location: "Perur Main Road, Coimbatore",
     plotlink: "/plot-12.html",
     price: "₹34.5 Lakhs",
@@ -184,6 +240,10 @@ export const PROPERTIES_DATA = [
     roadWidth: "40 Feet Tar Road",
     category: "Gated",
     image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200&auto=format&fit=crop",
+    contact: {
+      phone: "+919876543210",
+      whatsapp: "919876543210"
+    },
     features: ["Temple Proximity", "Gated Security Guard", "Purified Water Supply"]
   }
 ];

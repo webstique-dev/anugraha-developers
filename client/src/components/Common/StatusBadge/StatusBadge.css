@@ -1,0 +1,87 @@
+.status-badge-component {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill, 6.25rem);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.status-badge-component .badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* Status variants */
+.badge-available {
+  background-color: rgba(41, 219, 255, 0.15);
+  color: #0284c7;
+  border: 1px solid rgba(41, 219, 255, 0.5);
+}
+.badge-available .badge-dot {
+  background-color: #0284c7;
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.6);
+}
+
+.badge-booked {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  border: 1px solid rgba(245, 158, 11, 0.5);
+}
+.badge-booked .badge-dot {
+  background-color: #d97706;
+}
+
+.badge-sold {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+}
+.badge-sold .badge-dot {
+  background-color: #dc2626;
+}
+
+.badge-reserved {
+  background-color: rgba(168, 85, 247, 0.15);
+  color: #9333ea;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+}
+.badge-reserved .badge-dot {
+  background-color: #9333ea;
+}
+
+.badge-approved {
+  background-color: var(--color-primary, #1A3C2B);
+  color: var(--color-white, #FFFFFF);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+}
+
+.badge-default {
+  background-color: rgba(26, 60, 43, 0.1);
+  color: var(--color-primary, #1A3C2B);
+  border: 1px solid var(--color-border-light, rgba(58, 58, 56, 0.15));
+}
+.badge-default .badge-dot {
+  background-color: var(--color-primary, #1A3C2B);
+}
+
+/* Category variant style */
+.category-variant {
+  background-color: var(--color-white-translucent, rgba(255, 255, 255, 0.92));
+  color: var(--color-primary-dark, #0F241A);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.35rem;
+  border: 1px solid rgba(26, 60, 43, 0.12);
+}

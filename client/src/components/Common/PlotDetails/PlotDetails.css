@@ -1,0 +1,91 @@
+.plot-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.property-location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--color-secondary, #D4AF37);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.property-title {
+  font-size: 1.3rem;
+  color: var(--color-primary, #1A3C2B);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.property-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--bg-primary, #F7F7F5);
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border-light, rgba(58, 58, 56, 0.08));
+  margin-bottom: 1.25rem;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-label {
+  font-size: 0.75rem;
+  color: var(--color-text-light, #666666);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  margin-bottom: 0.15rem;
+}
+
+.spec-value {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text, #2D2D2D);
+}
+
+.property-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.feature-pill {
+  font-size: 0.75rem;
+  color: var(--color-text-light, #666666);
+  background-color: rgba(26, 60, 43, 0.05);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.25rem;
+}
+
+.plot-details-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.property-price-tag {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-main {
+  font-family: var(--font-heading, 'Space Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary, #1A3C2B);
+}
+
+.price-sqft {
+  font-size: 0.75rem;
+  color: var(--color-text-light, #666666);
+}

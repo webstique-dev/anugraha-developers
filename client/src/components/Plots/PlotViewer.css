@@ -1,0 +1,79 @@
+.plot-viewer-root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #f0f0f0;
+  font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+  overscroll-behavior: none;
+}
+
+/* Scrollable viewport that holds the map */
+#viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+  background: #ffffff;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+}
+
+#viewport.dragging {
+  cursor: grabbing;
+}
+
+#mapWrapper {
+  transform-origin: 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#mapWrapper object,
+#mapWrapper svg {
+  display: block;
+}
+
+#mapWrapper object {
+  pointer-events: none;
+}
+
+.plot-label {
+  position: relative;
+  top: 15px;
+  left: 4px;
+  font-size: 6px;
+  fill: #302f2f;
+  pointer-events: none;
+  user-select: none;
+}
+
+.plot-zone {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s ease;
+  stroke: #1a1a1a;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.plot-zone:hover {
+  opacity: 0.95;
+}
+
+.available {
+  fill: #29dbff;
+}
+
+.booked {
+  fill: #00ff00;
+}
+
+.registered {
+  fill: #ef4444;
+}
+
+.blocked {
+  fill: #f59e0b;
+}

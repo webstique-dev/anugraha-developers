@@ -1,0 +1,109 @@
+.global-floating-whatsapp {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.global-floating-whatsapp:hover {
+  transform: scale(1.08) translateY(-2px);
+}
+
+.whatsapp-icon-wrapper {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 4px 14px rgba(37, 211, 102, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+}
+
+.whatsapp-svg-icon {
+  font-size: 28px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+}
+
+.whatsapp-pulse-ring {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.6);
+  animation: whatsappPulse 2s infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.whatsapp-hover-label {
+  font-family: 'Plus Jakarta Sans', var(--font-body, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: #1A3C2B;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(26, 60, 43, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-8px);
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.global-floating-whatsapp:hover .whatsapp-hover-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 640px) {
+  .global-floating-whatsapp {
+    bottom: 18px;
+    left: 18px;
+  }
+
+  .whatsapp-icon-wrapper {
+    width: 46px;
+    height: 46px;
+  }
+
+  .whatsapp-svg-icon {
+    font-size: 24px;
+  }
+
+  .whatsapp-hover-label {
+    display: none;
+  }
+}

@@ -1,0 +1,103 @@
+.plot-filter-panel {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 60, 43, 0.1);
+  border-radius: 100px;
+  padding: 6px 14px 6px 12px;
+  box-shadow:
+    0 2px 8px rgba(26, 60, 43, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.filter-panel-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #1A3C2B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.filter-panel-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.plot-map-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  background: rgba(26, 60, 43, 0.05);
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.plot-map-filter-btn:hover {
+  background: rgba(26, 60, 43, 0.1);
+  color: #1A3C2B;
+}
+
+.filter-btn-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.filter-all .filter-btn-dot { background: #1A3C2B; }
+.filter-available .filter-btn-dot { background: #0284c7; }
+.filter-booked .filter-btn-dot { background: #22c55e; }
+.filter-registered .filter-btn-dot { background: #ef4444; }
+.filter-blocked .filter-btn-dot { background: #f59e0b; }
+
+.plot-map-filter-btn.active {
+  background: #1A3C2B;
+  color: #ffffff;
+  border-color: #1A3C2B;
+}
+
+.plot-map-filter-btn.filter-available.active { background: #0284c7; border-color: #0284c7; }
+.plot-map-filter-btn.filter-booked.active { background: #16a34a; border-color: #16a34a; }
+.plot-map-filter-btn.filter-registered.active { background: #dc2626; border-color: #dc2626; }
+.plot-map-filter-btn.filter-blocked.active { background: #d97706; border-color: #d97706; }
+
+.filter-count-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  color: inherit;
+}
+
+@media (max-width: 768px) {
+  .plot-filter-panel {
+    top: 60px;
+    left: 14px;
+    right: auto;
+    max-width: calc(100vw - 28px);
+    overflow-x: auto;
+    border-radius: 12px;
+  }
+  
+  .filter-panel-title {
+    display: none;
+  }
+}

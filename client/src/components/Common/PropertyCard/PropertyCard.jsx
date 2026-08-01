@@ -1,14 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import Button from '../Button/Button';
+import StatusBadge from '../StatusBadge/StatusBadge';
+import ContactActions from '../ContactActions/ContactActions';
+import PlotDetails from '../PlotDetails/PlotDetails';
 import './PropertyCard.css';
 
+/**
+ * Reusable PropertyCard / PlotCard Component
+ * Assembles image thumbnail, status badge, category tag, plot details,
+ * contact actions (WhatsApp / Call), and layout action button.
+ */
 const PropertyCard = ({ property }) => {
+  if (!property) return null;
+
   const {
     id,
     title,
     status,
+    availability = 'Available',
     location,
     price,
     pricePerSqft,
@@ -17,6 +28,7 @@ const PropertyCard = ({ property }) => {
     category,
     image,
     plotlink,
+    contact = {},
     features = []
   } = property;
 
@@ -32,45 +44,36 @@ const PropertyCard = ({ property }) => {
     >
       <div className="property-image-container">
         <img src={image} alt={title} className="property-image" loading="lazy" />
-        <span className="property-status-badge">{status}</span>
-        {category && <span className="property-category-tag">{category}</span>}
+        
+        {/* Availability Badge */}
+        <div className="property-badges-left">
+          <StatusBadge status={availability} variant="availability" />
+        </div>
+
+        {/* Category Tag */}
+        {category && (
+          <div className="property-badges-right">
+            <StatusBadge status={category} variant="category" />
+          </div>
+        )}
       </div>
 
       <div className="property-content">
-        <div className="property-location">
-          <FaMapMarkerAlt />
-          <span>{location}</span>
-        </div>
-
-        <h3 className="property-title">{title}</h3>
-
-        <div className="property-specs-grid">
-          <div className="spec-item">
-            <span className="spec-label">PLOT AREA</span>
-            <span className="spec-value">{area}</span>
-          </div>
-          <div className="spec-item">
-            <span className="spec-label">ROAD WIDTH</span>
-            <span className="spec-value">{roadWidth}</span>
-          </div>
-        </div>
-
-        {features.length > 0 && (
-          <div className="property-features-list">
-            {features.map((feat, idx) => (
-              <span key={idx} className="feature-pill">
-                ✓ {feat}
-              </span>
-            ))}
-          </div>
-        )}
+        <PlotDetails
+          title={title}
+          location={location}
+          area={area}
+          roadWidth={roadWidth}
+          price={price}
+          pricePerSqft={pricePerSqft}
+          features={features}
+        />
 
         <div className="property-footer">
-          <div className="property-price-tag">
-            <span className="price-main">{price}</span>
-            <span className="price-sqft">{pricePerSqft}</span>
-          </div>
+          {/* Contact Action Icons (WhatsApp & Call) */}
+          <ContactActions contact={contact} title={title} />
 
+          {/* View Layout Button */}
           <Button href={targetLink} variant="outline" size="sm" icon={<FaArrowRight />}>
             View Layout
           </Button>
@@ -80,4 +83,5 @@ const PropertyCard = ({ property }) => {
   );
 };
 
+export { PropertyCard as PlotCard };
 export default PropertyCard;

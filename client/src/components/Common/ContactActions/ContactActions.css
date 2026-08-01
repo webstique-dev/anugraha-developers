@@ -1,0 +1,66 @@
+.contact-actions-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-button, 0.5rem);
+  text-decoration: none;
+  transition: all var(--transition-fast, 0.2s ease);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.contact-action-btn .contact-icon {
+  font-size: 0.9rem;
+}
+
+.contact-action-btn.whatsapp-btn {
+  background-color: rgba(37, 211, 102, 0.1);
+  color: #128c7e;
+  border-color: rgba(37, 211, 102, 0.3);
+}
+
+.contact-action-btn.whatsapp-btn:hover {
+  background-color: #25d366;
+  color: #ffffff;
+  border-color: #25d366;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.contact-action-btn.call-btn {
+  background-color: rgba(26, 60, 43, 0.08);
+  color: var(--color-primary, #1A3C2B);
+  border-color: rgba(26, 60, 43, 0.2);
+}
+
+.contact-action-btn.call-btn:hover {
+  background-color: var(--color-primary, #1A3C2B);
+  color: #ffffff;
+  border-color: var(--color-primary, #1A3C2B);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 60, 43, 0.2);
+}
+
+@media (max-width: 480px) {
+  .contact-btn-text {
+    display: none;
+  }
+  
+  .contact-action-btn {
+    padding: 0.45rem 0.55rem;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+  }
+}
