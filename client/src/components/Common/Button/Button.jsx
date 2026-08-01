@@ -28,8 +28,10 @@ const Button = ({
   );
 
   if (targetPath) {
-    const isInternal = targetPath.startsWith('/') || targetPath.startsWith('#');
-    if (isInternal && !targetPath.includes('.html')) {
+    const isInternalRoute = targetPath.startsWith('/');
+    const isHashAnchor = targetPath.startsWith('#');
+
+    if (isInternalRoute) {
       return (
         <motion.div
           whileHover={{ y: -2 }}
