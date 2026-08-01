@@ -73,23 +73,25 @@
 }
 
 .filter-btn.status-btn-available.active {
-  background-color: #0284c7;
-  border-color: #0284c7;
+  background-color: var(--status-available-main, #0284C7);
+  border-color: var(--status-available-main, #0284C7);
 }
 
 .filter-btn.status-btn-booked.active {
-  background-color: #d97706;
-  border-color: #d97706;
+  background-color: var(--status-booked-main, #16A34A);
+  border-color: var(--status-booked-main, #16A34A);
 }
 
+.filter-btn.status-btn-registered.active,
 .filter-btn.status-btn-sold.active {
-  background-color: #dc2626;
-  border-color: #dc2626;
+  background-color: var(--status-registered-main, #DC2626);
+  border-color: var(--status-registered-main, #DC2626);
 }
 
+.filter-btn.status-btn-blocked.active,
 .filter-btn.status-btn-reserved.active {
-  background-color: #9333ea;
-  border-color: #9333ea;
+  background-color: var(--status-blocked-main, #D97706);
+  border-color: var(--status-blocked-main, #D97706);
 }
 
 .projects-grid {

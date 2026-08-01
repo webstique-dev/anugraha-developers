@@ -71,49 +71,49 @@
 }
 
 .filter-all .filter-btn-dot {
-  background: #1A3C2B;
+  background: var(--color-primary, #1A3C2B);
 }
 
 .filter-available .filter-btn-dot {
-  background: #0284c7;
+  background: var(--status-available-main, #0284C7);
 }
 
 .filter-booked .filter-btn-dot {
-  background: #22c55e;
+  background: var(--status-booked-main, #16A34A);
 }
 
 .filter-registered .filter-btn-dot {
-  background: #ef4444;
+  background: var(--status-registered-main, #DC2626);
 }
 
 .filter-blocked .filter-btn-dot {
-  background: #f59e0b;
+  background: var(--status-blocked-main, #D97706);
 }
 
 .plot-map-filter-btn.active {
-  background: #1A3C2B;
+  background: var(--color-primary, #1A3C2B);
   color: #ffffff;
-  border-color: #1A3C2B;
+  border-color: var(--color-primary, #1A3C2B);
 }
 
 .plot-map-filter-btn.filter-available.active {
-  background: #0284c7;
-  border-color: #0284c7;
+  background: var(--status-available-main, #0284C7);
+  border-color: var(--status-available-main, #0284C7);
 }
 
 .plot-map-filter-btn.filter-booked.active {
-  background: #16a34a;
-  border-color: #16a34a;
+  background: var(--status-booked-main, #16A34A);
+  border-color: var(--status-booked-main, #16A34A);
 }
 
 .plot-map-filter-btn.filter-registered.active {
-  background: #dc2626;
-  border-color: #dc2626;
+  background: var(--status-registered-main, #DC2626);
+  border-color: var(--status-registered-main, #DC2626);
 }
 
 .plot-map-filter-btn.filter-blocked.active {
-  background: #d97706;
-  border-color: #d97706;
+  background: var(--status-blocked-main, #D97706);
+  border-color: var(--status-blocked-main, #D97706);
 }
 
 .filter-count-badge {

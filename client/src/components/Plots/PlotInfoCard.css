@@ -30,36 +30,6 @@
   max-height: calc(100vh - 32px);
   overflow: hidden;
   animation: slideUpIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* Status Active Borders for Selected Plot Card */
-.plot-info-card-container.status-card-registered {
-  border: 1.5px solid #b91c1c;
-  box-shadow:
-    0 4px 14px rgba(185, 28, 28, 0.22),
-    0 12px 32px rgba(26, 60, 43, 0.12);
-}
-
-.plot-info-card-container.status-card-available {
-  border: 1.5px solid #0284c7;
-  box-shadow:
-    0 4px 14px rgba(2, 132, 199, 0.15),
-    0 12px 32px rgba(26, 60, 43, 0.12);
-}
-
-.plot-info-card-container.status-card-booked {
-  border: 1.5px solid #16a34a;
-  box-shadow:
-    0 4px 14px rgba(22, 163, 74, 0.15),
-    0 12px 32px rgba(26, 60, 43, 0.12);
-}
-
-.plot-info-card-container.status-card-blocked {
-  border: 1.5px solid #d97706;
-  box-shadow:
-    0 4px 14px rgba(217, 119, 6, 0.15),
-    0 12px 32px rgba(26, 60, 43, 0.12);
 }
 
 /* Card Header */
@@ -138,48 +108,30 @@
   padding: 4px 10px;
   border-radius: 100px;
   text-transform: uppercase;
-  transition: all 0.2s ease;
 }
 
 .info-status-badge.status-available {
-  background: rgba(41, 219, 255, 0.12);
-  color: #0284c7;
-  border: 1px solid rgba(41, 219, 255, 0.4);
-}
-.info-status-badge.status-available:hover {
-  background: rgba(41, 219, 255, 0.22);
-  border-color: #0284c7;
+  background: var(--status-available-bg, rgba(2, 132, 199, 0.12));
+  color: var(--status-available-main, #0284C7);
+  border: 1px solid var(--status-available-border, rgba(2, 132, 199, 0.35));
 }
 
 .info-status-badge.status-booked {
-  background: rgba(34, 197, 94, 0.12);
-  color: #16a34a;
-  border: 1px solid rgba(34, 197, 94, 0.4);
-}
-.info-status-badge.status-booked:hover {
-  background: rgba(34, 197, 94, 0.22);
-  border-color: #16a34a;
+  background: var(--status-booked-bg, rgba(22, 163, 74, 0.12));
+  color: var(--status-booked-main, #16A34A);
+  border: 1px solid var(--status-booked-border, rgba(22, 163, 74, 0.35));
 }
 
-/* REGISTERED STATUS BADGE - DARK CRIMSON RED COLOR (NOT BLUE) */
 .info-status-badge.status-registered {
-  background: rgba(185, 28, 28, 0.12);
-  color: #b91c1c;
-  border: 1px solid rgba(185, 28, 28, 0.5);
-}
-.info-status-badge.status-registered:hover {
-  background: rgba(185, 28, 28, 0.24);
-  border-color: #b91c1c;
+  background: var(--status-registered-bg, rgba(220, 38, 38, 0.12));
+  color: var(--status-registered-main, #DC2626);
+  border: 1px solid var(--status-registered-border, rgba(220, 38, 38, 0.35));
 }
 
 .info-status-badge.status-blocked {
-  background: rgba(245, 158, 11, 0.12);
-  color: #d97706;
-  border: 1px solid rgba(245, 158, 11, 0.4);
-}
-.info-status-badge.status-blocked:hover {
-  background: rgba(245, 158, 11, 0.22);
-  border-color: #d97706;
+  background: var(--status-blocked-bg, rgba(217, 119, 6, 0.12));
+  color: var(--status-blocked-main, #D97706);
+  border: 1px solid var(--status-blocked-border, rgba(217, 119, 6, 0.35));
 }
 
 .status-dot {
@@ -190,23 +142,22 @@
 }
 
 .status-available .status-dot {
-  background: #0ea5e9;
-  box-shadow: 0 0 6px rgba(14, 165, 233, 0.6);
+  background: var(--status-available-main, #0284C7);
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.6);
 }
 
 .status-booked .status-dot {
-  background: #16a34a;
+  background: var(--status-booked-main, #16A34A);
   box-shadow: 0 0 6px rgba(22, 163, 74, 0.6);
 }
 
-/* REGISTERED STATUS DOT - DARK CRIMSON RED (NOT BLUE) */
 .status-registered .status-dot {
-  background: #b91c1c;
-  box-shadow: 0 0 6px rgba(185, 28, 28, 0.7);
+  background: var(--status-registered-main, #DC2626);
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.6);
 }
 
 .status-blocked .status-dot {
-  background: #d97706;
+  background: var(--status-blocked-main, #D97706);
   box-shadow: 0 0 6px rgba(217, 119, 6, 0.6);
 }
 
@@ -219,83 +170,83 @@
   border-bottom: 1px solid rgba(26, 60, 43, 0.07);
 }
 
-.info-spec-row:last-of-type {
+.info-spec-row:last-child {
   border-bottom: none;
-  padding-bottom: 16px;
 }
 
 .info-spec-label {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  color: #666666;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #999;
 }
 
 .info-spec-icon {
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  color: #1A3C2B;
+  font-size: 13px;
+  opacity: 0.7;
 }
 
 .info-spec-value {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: #1A3C2B;
 }
 
-/* Action buttons */
+/* Quick Action Buttons */
 .info-actions-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(26, 60, 43, 0.08);
 }
 
 .info-action-btn {
-  display: flex;
+  flex: 1;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: 10px;
+  gap: 6px;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
   text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-
-.info-action-btn:active {
-  transform: scale(0.97);
+  transition: all 0.2s ease;
 }
 
 .info-whatsapp-btn {
-  background: #25D366;
+  background: #25d366;
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
 }
 
 .info-whatsapp-btn:hover {
-  background: #20bd5a;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.45);
+  background: #128c7e;
+  transform: translateY(-1px);
 }
 
 .info-call-btn {
-  background: #1A3C2B;
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(26, 60, 43, 0.25);
+  background: rgba(26, 60, 43, 0.08);
+  color: #1A3C2B;
+  border: 1px solid rgba(26, 60, 43, 0.15);
 }
 
 .info-call-btn:hover {
-  background: #24523B;
-  box-shadow: 0 4px 12px rgba(26, 60, 43, 0.4);
+  background: #1A3C2B;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
   .plot-info-card-container {
     width: calc(100vw - 24px);
     left: 12px;

@@ -36,19 +36,10 @@
   transform: scale(1.06);
 }
 
-.property-status-badge {
+.property-status-badge-wrapper {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background-color: var(--color-primary, #1A3C2B);
-  color: var(--color-white, #FFFFFF);
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.35rem 0.8rem;
-  border-radius: var(--radius-pill, 6.25rem);
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  box-shadow: var(--shadow-sm, 0 0.125rem 0.5rem rgba(0, 0, 0, 0.04));
   z-index: 2;
 }
 

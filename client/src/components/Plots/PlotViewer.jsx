@@ -289,20 +289,14 @@ const PlotViewer = ({
       const facing = plot.FACING || plot.facing || plot.Facing || '—';
       const area = plot.AREA || plot.area || plot.Area || '1500 Sq.ft';
 
-      let statusKey = 'available';
-      if (statusLower.includes('registered')) statusKey = 'registered';
-      else if (statusLower.includes('booked')) statusKey = 'booked';
-      else if (statusLower.includes('sold')) statusKey = 'registered';
-      else if (statusLower.includes('blocked') || statusLower.includes('reserved')) statusKey = 'blocked';
-
       // Check status filter
-      if (activeFilter !== 'all' && statusKey !== activeFilter) {
+      if (activeFilter !== 'all' && statusLower !== activeFilter) {
         return;
       }
 
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', pathData);
-      path.setAttribute('class', `plot-zone ${statusKey}`);
+      path.setAttribute('class', `plot-zone ${statusLower}`);
       path.dataset.plotno = plotNo;
       path.dataset.plotid = plotId;
       path.dataset.status = rawStatus;
@@ -331,8 +325,6 @@ const PlotViewer = ({
 
       path.addEventListener('click', () => {
         if (dragRef.current.dragMoved) return;
-        overlay.querySelectorAll('.plot-zone').forEach((p) => p.classList.remove('selected'));
-        path.classList.add('selected');
         setSelectedPlot({
           plotNo,
           plotId,

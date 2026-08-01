@@ -14,6 +14,35 @@
   --color-white: #FFFFFF;
   --color-white-translucent: rgba(255, 255, 255, 0.92);
 
+  /* Centralized Status Color System (Available, Booked, Registered, Blocked) */
+  /* 1. Available: Sky Blue (#0284C7) */
+  --status-available-main: #0284C7;
+  --status-available-bg: rgba(2, 132, 199, 0.12);
+  --status-available-border: rgba(2, 132, 199, 0.35);
+  --status-available-map: #29DBFF;
+  --status-available-hover: #38BDF8;
+
+  /* 2. Booked: Green (#16A34A) */
+  --status-booked-main: #16A34A;
+  --status-booked-bg: rgba(22, 163, 74, 0.12);
+  --status-booked-border: rgba(22, 163, 74, 0.35);
+  --status-booked-map: #22C55E;
+  --status-booked-hover: #4ADE80;
+
+  /* 3. Registered: Red (#DC2626) */
+  --status-registered-main: #DC2626;
+  --status-registered-bg: rgba(220, 38, 38, 0.12);
+  --status-registered-border: rgba(220, 38, 38, 0.35);
+  --status-registered-map: #EF4444;
+  --status-registered-hover: #F87171;
+
+  /* 4. Blocked: Amber / Orange (#D97706) */
+  --status-blocked-main: #D97706;
+  --status-blocked-bg: rgba(217, 119, 6, 0.12);
+  --status-blocked-border: rgba(217, 119, 6, 0.35);
+  --status-blocked-map: #F59E0B;
+  --status-blocked-hover: #FBBF24;
+
   /* Typography */
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Plus Jakarta Sans', 'General Sans', sans-serif;
@@ -26,7 +55,7 @@
   --radius-image: 1rem;
   --radius-pill: 6.25rem;
 
-  /* Shadows (Flat/Minimal - Subtle elevation only) */
+  /* Shadows */
   --shadow-sm: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.04);
   --shadow-md: 0 0.5rem 1.5rem rgba(26, 60, 43, 0.06);
   --shadow-lg: 0 1rem 2.5rem rgba(26, 60, 43, 0.08);

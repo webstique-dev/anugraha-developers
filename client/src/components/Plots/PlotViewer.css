@@ -86,37 +86,44 @@
 
 .plot-zone:hover {
   opacity: 0.95;
-}
-
-/* Active / Selected Plot Border Highlight */
-.plot-zone.selected,
-.plot-zone:active {
-  stroke: #D4AF37;
-  stroke-width: 3;
-  stroke-dasharray: none;
-  opacity: 1;
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.9));
+  stroke: #1A3C2B;
+  stroke-width: 1.5;
 }
 
 .available {
-  fill: #29dbff;
-  stroke: #0284c7;
+  fill: var(--status-available-map, #29DBFF);
+  transition: fill 0.2s ease, opacity 0.2s ease;
+}
+
+.available:hover {
+  fill: var(--status-available-hover, #38BDF8);
 }
 
 .booked {
-  fill: #22c55e;
-  stroke: #16a34a;
+  fill: var(--status-booked-map, #22C55E);
+  transition: fill 0.2s ease, opacity 0.2s ease;
 }
 
-.registered,
-.sold {
-  fill: #ef4444;
-  stroke: #dc2626;
+.booked:hover {
+  fill: var(--status-booked-hover, #4ADE80);
+}
+
+.registered {
+  fill: var(--status-registered-map, #EF4444);
+  transition: fill 0.2s ease, opacity 0.2s ease;
+}
+
+.registered:hover {
+  fill: var(--status-registered-hover, #F87171);
 }
 
 .blocked {
-  fill: #f59e0b;
-  stroke: #d97706;
+  fill: var(--status-blocked-map, #F59E0B);
+  transition: fill 0.2s ease, opacity 0.2s ease;
+}
+
+.blocked:hover {
+  fill: var(--status-blocked-hover, #FBBF24);
 }
 
 /* On-Hover Floating Plot Card Tooltip */
