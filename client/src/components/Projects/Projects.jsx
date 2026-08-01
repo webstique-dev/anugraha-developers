@@ -53,7 +53,7 @@ const Projects = () => {
           </div>
 
           {/* Status Filter */}
-          <div className="filter-group">
+          {/* <div className="filter-group">
             <span className="filter-group-label">Status:</span>
             <div className="projects-filter-bar status-filter-bar">
               {statusFilters.map((status, idx) => (
@@ -67,7 +67,7 @@ const Projects = () => {
                 </button>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Projects Grid */}

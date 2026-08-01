@@ -133,11 +133,3 @@
   font-weight: 600;
   color: #666;
 }
-
-.hover-card-actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-top: 4px;
-  border-top: 1px solid rgba(26, 60, 43, 0.08);
-}

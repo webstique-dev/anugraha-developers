@@ -400,14 +400,6 @@ const PlotViewer = ({
             <span>🧭 {hoveredPlot.facing}</span>
             <span>📐 {hoveredPlot.area}</span>
           </div>
-          <div className="hover-card-actions">
-            <SocialActions
-              phone={phoneNumber}
-              whatsapp={whatsappNumber}
-              title={`Plot ${hoveredPlot.plotNo}`}
-              size="sm"
-            />
-          </div>
         </div>
       )}
 

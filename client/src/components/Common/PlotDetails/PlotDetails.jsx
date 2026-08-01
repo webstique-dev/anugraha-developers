@@ -47,12 +47,12 @@ const PlotDetails = ({
         </div>
       )}
 
-      <div className="plot-details-price-row">
+      {/* <div className="plot-details-price-row">
         <div className="property-price-tag">
           <span className="price-main">{price}</span>
           {pricePerSqft && <span className="price-sqft">{pricePerSqft}</span>}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
