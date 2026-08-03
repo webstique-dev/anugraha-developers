@@ -1,6 +1,7 @@
 import React from 'react';
-import { Compass, Ruler, Maximize2, ArrowUpDown, X } from 'lucide-react';
+import { Compass, Ruler, Maximize2, ArrowUpDown, X, Edit3 } from 'lucide-react';
 import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
+import { useAuth } from '../../context/AuthContext';
 import './PlotInfoCard.css';
 
 /**
@@ -10,9 +11,11 @@ import './PlotInfoCard.css';
 const PlotInfoCard = ({
   plotData,
   onClose,
+  onOpenEdit,
   phoneNumber = '+919715334421',
   whatsappNumber = '919715334421'
 }) => {
+  const { isAuthenticated } = useAuth();
   if (!plotData) return null;
 
   const {
@@ -51,7 +54,7 @@ const PlotInfoCard = ({
         <button id="infoClose" aria-label="Close" onClick={onClose}>
           <X size={14} />
         </button>
-        <div className="info-plot-number">{plotNo}</div>
+        <div className="info-plot-number">Plot No {plotNo}</div>
       </div>
 
       {/* Card Body */}
@@ -107,6 +110,18 @@ const PlotInfoCard = ({
           </span>
           <span className="info-spec-value">{area || '—'}</span>
         </div>
+
+        {/* Admin Mode Edit Control */}
+        {isAuthenticated && onOpenEdit && (
+          <button
+            className="info-admin-edit-btn"
+            onClick={() => onOpenEdit(plotData)}
+            title="Edit Plot Data"
+          >
+            <Edit3 size={14} />
+            <span>Edit Plot Data</span>
+          </button>
+        )}
 
         {/* Quick Action Buttons */}
         <div className="info-actions-row">

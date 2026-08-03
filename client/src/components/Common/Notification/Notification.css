@@ -1,0 +1,152 @@
+/* Top-Left Notification Container */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  max-width: 400px;
+  width: calc(100vw - 40px);
+}
+
+/* Individual Toast Item Card */
+.notification-item {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  border: 1px solid rgba(26, 60, 43, 0.1);
+  box-shadow:
+    0 10px 30px rgba(15, 36, 26, 0.14),
+    0 2px 6px rgba(0, 0, 0, 0.05);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.notification-item:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 36px rgba(15, 36, 26, 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Content Group */
+.notif-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.notif-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.notif-icon-success {
+  color: #16a34a;
+}
+
+.notif-icon-error {
+  color: #dc2626;
+}
+
+.notif-icon-warning {
+  color: #d97706;
+}
+
+.notif-icon-info {
+  color: #1A3C2B;
+}
+
+.notif-message {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+/* Close (×) Button */
+.notif-close-btn {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.notif-close-btn:hover {
+  background: rgba(0, 0, 0, 0.12);
+  color: #0f172a;
+  transform: scale(1.1);
+}
+
+/* Status Variants (Border Left Accent) */
+.notif-success {
+  border-left: 4px solid #16a34a;
+}
+
+.notif-error {
+  border-left: 4px solid #dc2626;
+}
+
+.notif-warning {
+  border-left: 4px solid #d97706;
+}
+
+.notif-info {
+  border-left: 4px solid #1A3C2B;
+}
+
+/* Timer Progress Line */
+.notif-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2.5px;
+  width: 100%;
+  background: linear-gradient(90deg, #1A3C2B 0%, #D4AF37 100%);
+  opacity: 0.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .notification-container {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    width: calc(100vw - 24px);
+    max-width: none;
+  }
+
+  .notification-item {
+    padding: 10px 14px;
+    border-radius: 12px;
+  }
+
+  .notif-message {
+    font-size: 12px;
+  }
+}

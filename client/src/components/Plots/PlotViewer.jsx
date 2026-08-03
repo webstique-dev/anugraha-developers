@@ -1,11 +1,21 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Compass, Ruler, Maximize2, ArrowUpDown } from 'lucide-react';
+import { Compass, Ruler, Maximize2, ArrowUpDown, ShieldCheck, Eye, Plus, Edit3 } from 'lucide-react';
 import PlotZoomControls from './PlotZoomControls';
 import PlotInfoCard from './PlotInfoCard';
 import PlotFilterPanel from './PlotFilterPanel';
 import PlotBreadcrumb from './PlotBreadcrumb';
+import PlotEditorDrawer from './PlotEditorDrawer';
 import StatusBadge from '../Common/StatusBadge/StatusBadge';
 import SocialActions from '../Common/SocialActions/SocialActions';
+import { useAuth } from '../../context/AuthContext';
+import { toast } from '../Common/Notification/NotificationProvider';
+import {
+  fetchPlotsFromAppsScript,
+  fetchPlotFromSheet,
+  updatePlotRecord,
+  createPlotRecord,
+  softDeletePlotRecord
+} from '../../services/plotService';
 import './PlotViewer.css';
 
 const DEFAULT_SHEET_ID = '1n1puqY0m1MtqG8652yhWAChj6pYxP8b5ASDXQjpCp70';
@@ -21,6 +31,7 @@ const PlotViewer = ({
   whatsappNumber = '919715334421'
 }) => {
   const API_URL = `https://opensheet.elk.sh/${sheetId}/Sheet1`;
+  const { isAuthenticated, user, token, openAuthModal } = useAuth();
 
   const viewportRef = useRef(null);
   const mapWrapperRef = useRef(null);
@@ -38,6 +49,11 @@ const PlotViewer = ({
     registered: 0,
     blocked: 0
   });
+
+  // Admin Plot Management Drawer State
+  const [editorDrawerOpen, setEditorDrawerOpen] = useState(false);
+  const [editorMode, setEditorMode] = useState('edit'); // 'edit' | 'create'
+  const [editingPlotData, setEditingPlotData] = useState(null);
 
   const MIN_SCALE = 0.5;
   const MAX_SCALE = 5;
@@ -237,31 +253,32 @@ const PlotViewer = ({
     };
   }, []);
 
-  // Fetch Plot Data from Google Sheets
+  // Fetch Plot Data from Google Apps Script Web App / Google Sheets
   useEffect(() => {
     async function loadPlots() {
       try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
+        const data = await fetchPlotsFromAppsScript(sheetId);
         setPlotsData(data);
-
-        // Count statuses
-        const counts = { all: 0, available: 0, booked: 0, registered: 0, blocked: 0 };
-        data.forEach((plot) => {
-          counts.all++;
-          const statusKey = (plot.STATUS || plot.status || 'available').toLowerCase();
-          if (counts[statusKey] !== undefined) {
-            counts[statusKey]++;
-          }
-        });
-        setStatusCounts(counts);
       } catch (err) {
-        console.error('Error loading Google Sheet plot data:', err);
+        console.error('Error loading plot data via Apps Script integration:', err);
       }
     }
 
     loadPlots();
-  }, [API_URL]);
+  }, [sheetId]);
+
+  // Recalculate status counts whenever plotsData changes
+  useEffect(() => {
+    const counts = { all: 0, available: 0, booked: 0, registered: 0, blocked: 0 };
+    plotsData.forEach((plot) => {
+      counts.all++;
+      const statusKey = (plot.STATUS || plot.status || 'available').toString().toLowerCase();
+      if (counts[statusKey] !== undefined) {
+        counts[statusKey]++;
+      }
+    });
+    setStatusCounts(counts);
+  }, [plotsData]);
 
   // Initial center on mount & window resize
   useEffect(() => {
@@ -270,6 +287,132 @@ const PlotViewer = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [centerMapView]);
+
+  // Handlers for Plot Editor Drawer
+  const handleOpenEditDrawer = async (plotDataToEdit) => {
+    if (!isAuthenticated) return;
+    const targetId = plotDataToEdit.plotId || plotDataToEdit.ID || plotDataToEdit.id;
+    // Fetch latest data directly from Google Sheets using Unique ID
+    const latestData = await fetchPlotFromSheet(sheetId, targetId);
+    setEditingPlotData(latestData || plotDataToEdit);
+    setEditorMode('edit');
+    setEditorDrawerOpen(true);
+  };
+
+  const handleOpenCreateDrawer = () => {
+    if (!isAuthenticated) return;
+    setEditingPlotData(null);
+    setEditorMode('create');
+    setEditorDrawerOpen(true);
+  };
+
+  const handleSavePlot = async (formData, mode) => {
+    if (mode === 'edit') {
+      const res = await updatePlotRecord(token, {
+        sheetId,
+        id: formData.id,
+        plotNo: formData.plotNo,
+        status: formData.status,
+        length: formData.length,
+        width: formData.width,
+        facing: formData.facing,
+        svgPath: formData.svgPath
+      });
+
+      if (res.success && res.updatedPlot) {
+        toast.success(`Plot ${formData.plotNo} updated successfully!`);
+
+        // Live state update: Refresh modified plot without reloading page
+        setPlotsData((prevPlots) =>
+          prevPlots.map((p) => {
+            const pId = (p.ID || p.id || p.Id || '').toString();
+            if (pId === formData.id.toString()) {
+              const l = parseFloat(formData.length || 0);
+              const w = parseFloat(formData.width || 0);
+              return {
+                ...p,
+                PLOTNO: formData.plotNo,
+                STATUS: formData.status,
+                LENGTH: formData.length,
+                WIDTH: formData.width,
+                FACING: formData.facing,
+                SVGPATH: formData.svgPath,
+                AREA: l && w ? `${(l * w).toFixed(2)} sq ft` : p.AREA
+              };
+            }
+            return p;
+          })
+        );
+
+        if (selectedPlot && (selectedPlot.plotId === formData.id || selectedPlot.id === formData.id)) {
+          const l = parseFloat(formData.length || 0);
+          const w = parseFloat(formData.width || 0);
+          setSelectedPlot((prev) => ({
+            ...prev,
+            plotNo: formData.plotNo,
+            status: formData.status,
+            length: formData.length,
+            width: formData.width,
+            facing: formData.facing,
+            svgPath: formData.svgPath,
+            area: l && w ? `${(l * w).toFixed(2)} sq ft` : prev.area
+          }));
+        }
+      }
+    } else {
+      // Create new plot
+      const res = await createPlotRecord(token, {
+        sheetId,
+        plotNo: formData.plotNo,
+        status: formData.status,
+        length: formData.length,
+        width: formData.width,
+        facing: formData.facing,
+        svgPath: formData.svgPath
+      });
+
+      if (res.success && res.newPlot) {
+        toast.success(`New Plot ${res.newPlot.PLOTNO} created successfully!`);
+
+        const l = parseFloat(res.newPlot.LENGTH || 0);
+        const w = parseFloat(res.newPlot.WIDTH || 0);
+        setPlotsData((prev) => [
+          ...prev,
+          {
+            ID: res.newPlot.ID,
+            PLOTNO: res.newPlot.PLOTNO,
+            STATUS: res.newPlot.STATUS,
+            LENGTH: res.newPlot.LENGTH,
+            WIDTH: res.newPlot.WIDTH,
+            FACING: res.newPlot.FACING,
+            SVGPATH: res.newPlot.SVGPATH,
+            AREA: l && w ? `${(l * w).toFixed(2)} sq ft` : '1500.00 sq ft'
+          }
+        ]);
+      }
+    }
+  };
+
+  const handleSoftDeletePlot = async (plotId) => {
+    const res = await softDeletePlotRecord(token, plotId);
+    if (res.success) {
+      toast.success(`Plot ${plotId} soft-deleted (status set to Blocked)`);
+
+      setPlotsData((prevPlots) =>
+        prevPlots.map((p) => {
+          const pId = (p.ID || p.id || p.Id || '').toString();
+          if (pId === plotId.toString()) {
+            return { ...p, STATUS: 'Blocked' };
+          }
+          return p;
+        })
+      );
+
+      if (selectedPlot && (selectedPlot.plotId === plotId || selectedPlot.id === plotId)) {
+        setSelectedPlot((prev) => (prev ? { ...prev, status: 'Blocked' } : null));
+      }
+    }
+  };
 
   // Render SVG plot paths and dynamic labels into overlay
   useEffect(() => {
@@ -292,7 +435,15 @@ const PlotViewer = ({
       // Column D -> Width, Column E -> Length, Column F -> Area
       const width = (plot.WIDTH || plot.width || plot.Width || '').toString().trim();
       const length = (plot.LENGTH || plot.length || plot.Length || '').toString().trim();
-      const area = (plot.AREA || plot.area || plot.Area || '').toString().trim();
+      let area = (plot.AREA || plot.area || plot.Area || '').toString().trim();
+
+      if (!area && width && length) {
+        const lNum = parseFloat(length);
+        const wNum = parseFloat(width);
+        if (!isNaN(lNum) && !isNaN(wNum)) {
+          area = `${(lNum * wNum).toFixed(2)} sq ft`;
+        }
+      }
 
       // Check status filter
       if (activeFilter !== 'all' && statusLower !== activeFilter) {
@@ -319,6 +470,7 @@ const PlotViewer = ({
           area,
           width,
           length,
+          svgPath: pathData,
           x: e.clientX,
           y: e.clientY
         });
@@ -341,7 +493,8 @@ const PlotViewer = ({
           facing,
           area,
           width,
-          length
+          length,
+          svgPath: pathData
         });
       });
 
@@ -386,15 +539,15 @@ const PlotViewer = ({
         overlay.appendChild(lengthLabel);
       }
 
-      // 3. Center Label: Plot ID (Centered inside plot boundary)
-      const idLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      idLabel.setAttribute('x', bx + bw / 2);
-      idLabel.setAttribute('y', by + bh / 2);
-      idLabel.setAttribute('text-anchor', 'middle');
-      idLabel.setAttribute('class', 'plot-label plot-label-id');
-      idLabel.setAttribute('font-size', `${centerFontSize * 1.1}px`);
-      idLabel.textContent = plotId;
-      overlay.appendChild(idLabel);
+      // 3. Center Label: Plot No (Centered inside plot boundary)
+      const plotNoLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      plotNoLabel.setAttribute('x', bx + bw / 2);
+      plotNoLabel.setAttribute('y', by + bh / 2);
+      plotNoLabel.setAttribute('text-anchor', 'middle');
+      plotNoLabel.setAttribute('class', 'plot-label plot-label-no plot-label-id');
+      plotNoLabel.setAttribute('font-size', `${centerFontSize * 1.1}px`);
+      plotNoLabel.textContent = plotNo;
+      overlay.appendChild(plotNoLabel);
     });
   }, [plotsData, activeFilter]);
 
@@ -408,6 +561,31 @@ const PlotViewer = ({
           onFilterChange={setActiveFilter}
           statusCounts={statusCounts}
         />
+        {isAuthenticated ? (
+          <div className="map-admin-controls-strip">
+            <button
+              className="admin-add-plot-btn"
+              onClick={handleOpenCreateDrawer}
+              title="Create New Plot in Layout"
+            >
+              <Plus size={14} />
+              <span>Add Plot</span>
+            </button>
+            <div className="map-mode-indicator admin-mode" title={`Admin Session Active (${user?.email})`}>
+              <ShieldCheck size={14} />
+              <span>Admin Mode</span>
+            </div>
+          </div>
+        ) : (
+          <button
+            className="map-mode-indicator view-only-mode"
+            onClick={() => openAuthModal('login')}
+            title="Click to log in as Admin"
+          >
+            <Eye size={14} />
+            <span>View-Only Mode</span>
+          </button>
+        )}
       </div>
 
       {/* Scrollable Viewport */}
@@ -482,10 +660,22 @@ const PlotViewer = ({
         <PlotInfoCard
           plotData={selectedPlot}
           onClose={() => setSelectedPlot(null)}
+          onOpenEdit={handleOpenEditDrawer}
           phoneNumber={phoneNumber}
           whatsappNumber={whatsappNumber}
         />
       )}
+
+      {/* Reusable Admin Plot Editor Drawer */}
+      <PlotEditorDrawer
+        isOpen={editorDrawerOpen}
+        mode={editorMode}
+        initialPlotData={editingPlotData}
+        sheetId={sheetId}
+        onClose={() => setEditorDrawerOpen(false)}
+        onSavePlot={handleSavePlot}
+        onDeletePlot={handleSoftDeletePlot}
+      />
     </div>
   );
 };

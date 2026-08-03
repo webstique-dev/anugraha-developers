@@ -194,6 +194,32 @@
   color: #1A3C2B;
 }
 
+.info-admin-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 8px 12px;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #1A3C2B 0%, #0F241A 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  color: #D4AF37;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.info-admin-edit-btn:hover {
+  background: #1A3C2B;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 60, 43, 0.25);
+}
+
 /* Quick Action Buttons */
 .info-actions-row {
   display: flex;

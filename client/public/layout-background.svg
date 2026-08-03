@@ -23,15 +23,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="591.22966"
-     inkscape:cy="148.40404"
+     inkscape:zoom="8"
+     inkscape:cx="378.6875"
+     inkscape:cy="130.9375"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="labels"
+     inkscape:current-layer="svg2446"
      showguides="true"
      showgrid="false" />
   <title
@@ -1531,10 +1531,11 @@
      style="fill:#000000;stroke:#000000;stroke-width:0.3" />
   <path
      class="plot"
-     id="plot-29-1"
+     id="plot-01"
      d="m 435.46,322.15 0.04,-29.165 c -9.15868,2.44915 -10.97004,2.86557 -30.19,8.945 -2.57667,4.29667 -2.74667,10.98667 -0.51,20.07 z"
      style="fill:#fbfaf7;stroke:#12151a;stroke-width:0.32;stroke-linejoin:round"
-     sodipodi:nodetypes="ccccc" />
+     sodipodi:nodetypes="ccccc"
+     inkscape:label="W-plot-01" />
   <g
      id="parks">
     <path
@@ -10139,18 +10140,7 @@
     </g>
     <g
        class="label"
-       id="g1807">
-      <use
-         xlink:href="#glyph-10-1"
-         x="417.16"
-         y="310.6"
-         id="use1806" />
-      <use
-         xlink:href="#glyph-10-0"
-         x="420.42928"
-         y="310.6"
-         id="use1807" />
-    </g>
+       id="g1807" />
     <g
        class="label"
        id="g1809">

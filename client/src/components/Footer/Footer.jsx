@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaCertificate, FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube, FaPaperPlane } from 'react-icons/fa';
-import toast from 'react-hot-toast';
+import { toast } from '../Common/Notification/NotificationProvider';
 import logoPng from '../../assets/logo/logo.png';
 import Button from '../Common/Button/Button';
 import './Footer.css';

@@ -72,7 +72,8 @@
   dominant-baseline: central;
 }
 
-.plot-label-id {
+.plot-label-id,
+.plot-label-no {
   font-weight: 700;
   fill: #0f172a;
 }
@@ -172,4 +173,81 @@
   font-size: 11px;
   font-weight: 600;
   color: #666;
+}
+
+/* Map Mode Indicator Badge */
+.map-admin-controls-strip {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.map-mode-indicator {
+  position: relative;
+  bottom: auto;
+  right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.admin-add-plot-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #1A3C2B 0%, #0F241A 100%);
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(15, 36, 26, 0.25);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-add-plot-btn:hover {
+  background: #D4AF37;
+  color: #0F241A;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+.map-mode-indicator.admin-mode {
+  background: rgba(26, 60, 43, 0.9);
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.map-mode-indicator.view-only-mode {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #64748b;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  cursor: pointer;
+}
+
+.map-mode-indicator.view-only-mode:hover {
+  background: #ffffff;
+  color: #1A3C2B;
+  border-color: #1A3C2B;
+  transform: translateY(-1px);
 }

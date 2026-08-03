@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPhoneAlt, FaBars, FaTimes, FaArrowRight } from 'react-icons/fa';
+import { FaPhoneAlt, FaBars, FaTimes, FaArrowRight, FaUserShield, FaSignOutAlt } from 'react-icons/fa';
 import Button from '../Common/Button/Button';
+import { useAuth } from '../../context/AuthContext';
 import logoPng from '../../assets/logo/logo.png';
 import './Navbar.css';
 
@@ -18,6 +19,8 @@ const navItems = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { isAuthenticated, user, openAuthModal, logout } = useAuth();
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,6 +77,48 @@ const Navbar = () => {
                 Book Visit
               </Button>
             </ScrollLink>
+
+            {/* Admin Authentication Action Button */}
+            {isAuthenticated ? (
+              <div className="admin-user-menu-wrapper">
+                <button
+                  className="admin-badge-btn"
+                  onClick={() => setUserDropdownOpen(!userDropdownOpen)}
+                  title={`Logged in as ${user?.name || 'Admin'}`}
+                >
+                  <FaUserShield className="admin-icon" />
+                  <span className="admin-name">{user?.name?.split(' ')[0] || 'Admin'}</span>
+                </button>
+
+                {userDropdownOpen && (
+                  <div className="admin-dropdown-menu">
+                    <div className="admin-dropdown-header">
+                      <div className="dropdown-user-name">{user?.name}</div>
+                      <div className="dropdown-user-email">{user?.email}</div>
+                    </div>
+                    <button
+                      className="admin-logout-btn"
+                      onClick={() => {
+                        setUserDropdownOpen(false);
+                        logout();
+                      }}
+                    >
+                      <FaSignOutAlt />
+                      <span>Log Out</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                className="admin-icon-btn"
+                onClick={() => openAuthModal('login')}
+                aria-label="Admin Login Portal"
+                title="Admin Login Portal"
+              >
+                <FaUserShield />
+              </button>
+            )}
 
             <button
               className="mobile-toggle-btn"
@@ -148,6 +193,29 @@ const Navbar = () => {
                     Book Site Visit
                   </Button>
                 </ScrollLink>
+                {isAuthenticated ? (
+                  <button
+                    className="mobile-admin-btn"
+                    onClick={() => {
+                      setMobileOpen(false);
+                      logout();
+                    }}
+                  >
+                    <FaSignOutAlt />
+                    <span>Log Out ({user?.name?.split(' ')[0]})</span>
+                  </button>
+                ) : (
+                  <button
+                    className="mobile-admin-btn"
+                    onClick={() => {
+                      setMobileOpen(false);
+                      openAuthModal('login');
+                    }}
+                  >
+                    <FaUserShield />
+                    <span>Admin Portal</span>
+                  </button>
+                )}
               </div>
             </motion.div>
           </>

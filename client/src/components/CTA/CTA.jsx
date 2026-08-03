@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCheckCircle, FaPaperPlane } from 'react-icons/fa';
-import toast, { Toaster } from 'react-hot-toast';
+import { toast } from '../Common/Notification/NotificationProvider';
 import Button from '../Common/Button/Button';
 import './CTA.css';
 
@@ -45,7 +45,6 @@ const CTA = () => {
 
   return (
     <section id="contact" className="section-padding cta-section">
-      <Toaster position="top-right" />
       <div className="container">
         <div className="cta-card">
           <div className="cta-grid">
