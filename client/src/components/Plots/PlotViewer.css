@@ -66,13 +66,25 @@
 }
 
 .plot-label {
-  position: relative;
-  top: 15px;
-  left: 4px;
-  font-size: 6px;
-  fill: #302f2f;
   pointer-events: none;
   user-select: none;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  dominant-baseline: central;
+}
+
+.plot-label-id {
+  font-weight: 700;
+  fill: #0f172a;
+}
+
+.plot-label-width,
+.plot-label-length {
+  font-weight: 600;
+  fill: #334155;
+}
+
+.plot-label-area {
+  display: none;
 }
 
 .plot-zone {

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Compass, Ruler } from 'lucide-react';
+import { Compass, Ruler, Maximize2, ArrowUpDown } from 'lucide-react';
 import PlotZoomControls from './PlotZoomControls';
 import PlotInfoCard from './PlotInfoCard';
 import PlotFilterPanel from './PlotFilterPanel';
@@ -237,7 +237,7 @@ const PlotViewer = ({
     };
   }, []);
 
-  // Fetch Plot Data
+  // Fetch Plot Data from Google Sheets
   useEffect(() => {
     async function loadPlots() {
       try {
@@ -271,7 +271,7 @@ const PlotViewer = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [centerMapView]);
 
-  // Render SVG plot paths into overlay
+  // Render SVG plot paths and dynamic labels into overlay
   useEffect(() => {
     const overlay = overlayRef.current;
     if (!overlay || !plotsData.length) return;
@@ -287,7 +287,12 @@ const PlotViewer = ({
       const plotNo = plot.PLOTNO || plot.plotno || plot.PlotNo || '—';
       const plotId = plot.ID || plot.id || plot.Id || '—';
       const facing = plot.FACING || plot.facing || plot.Facing || '—';
-      const area = plot.AREA || plot.area || plot.Area || '1500 Sq.ft';
+
+      // Dimensions mapping from Google Sheets:
+      // Column D -> Width, Column E -> Length, Column F -> Area
+      const width = (plot.WIDTH || plot.width || plot.Width || '').toString().trim();
+      const length = (plot.LENGTH || plot.length || plot.Length || '').toString().trim();
+      const area = (plot.AREA || plot.area || plot.Area || '').toString().trim();
 
       // Check status filter
       if (activeFilter !== 'all' && statusLower !== activeFilter) {
@@ -302,6 +307,8 @@ const PlotViewer = ({
       path.dataset.status = rawStatus;
       path.dataset.facing = facing;
       path.dataset.area = area;
+      path.dataset.width = width;
+      path.dataset.length = length;
 
       path.addEventListener('mouseenter', (e) => {
         setHoveredPlot({
@@ -310,6 +317,8 @@ const PlotViewer = ({
           status: rawStatus,
           facing,
           area,
+          width,
+          length,
           x: e.clientX,
           y: e.clientY
         });
@@ -330,21 +339,62 @@ const PlotViewer = ({
           plotId,
           status: rawStatus,
           facing,
-          area
+          area,
+          width,
+          length
         });
       });
 
       overlay.appendChild(path);
 
-      // Plot label
+      // Render Dynamic Labels inside plot boundary
       const bbox = path.getBBox();
-      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      label.setAttribute('x', bbox.x + bbox.width / 2);
-      label.setAttribute('y', bbox.y + 16);
-      label.setAttribute('text-anchor', 'middle');
-      label.setAttribute('class', 'plot-label');
-      label.textContent = plotId;
-      overlay.appendChild(label);
+      const bw = bbox.width;
+      const bh = bbox.height;
+      const bx = bbox.x;
+      const by = bbox.y;
+
+      // Auto-adjust font size for smaller plots based on bounding box
+      const minDim = Math.min(bw, bh);
+      const baseFontSize = Math.max(2.4, Math.min(4.5, minDim * 0.15));
+      const centerFontSize = Math.max(2.8, Math.min(5.5, minDim * 0.18));
+
+      // 1. Width Label (Column D - Top horizontal edge)
+      if (width) {
+        const widthLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        widthLabel.setAttribute('x', bx + bw / 2);
+        widthLabel.setAttribute('y', by + baseFontSize + 1);
+        widthLabel.setAttribute('text-anchor', 'middle');
+        widthLabel.setAttribute('class', 'plot-label plot-label-width');
+        widthLabel.setAttribute('font-size', `${baseFontSize}px`);
+        widthLabel.textContent = width;
+        overlay.appendChild(widthLabel);
+      }
+
+      // 2. Length Label (Column E - Left vertical edge, rotated -90deg)
+      if (length) {
+        const lx = bx + baseFontSize + 1;
+        const ly = by + bh / 2;
+        const lengthLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        lengthLabel.setAttribute('x', lx);
+        lengthLabel.setAttribute('y', ly);
+        lengthLabel.setAttribute('text-anchor', 'middle');
+        lengthLabel.setAttribute('transform', `rotate(-90 ${lx} ${ly})`);
+        lengthLabel.setAttribute('class', 'plot-label plot-label-length');
+        lengthLabel.setAttribute('font-size', `${baseFontSize}px`);
+        lengthLabel.textContent = length;
+        overlay.appendChild(lengthLabel);
+      }
+
+      // 3. Center Label: Plot ID (Centered inside plot boundary)
+      const idLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      idLabel.setAttribute('x', bx + bw / 2);
+      idLabel.setAttribute('y', by + bh / 2);
+      idLabel.setAttribute('text-anchor', 'middle');
+      idLabel.setAttribute('class', 'plot-label plot-label-id');
+      idLabel.setAttribute('font-size', `${centerFontSize * 1.1}px`);
+      idLabel.textContent = plotId;
+      overlay.appendChild(idLabel);
     });
   }, [plotsData, activeFilter]);
 
@@ -389,7 +439,7 @@ const PlotViewer = ({
         <div
           className="map-hover-card"
           style={{
-            left: `${Math.min(window.innerWidth - 220, hoveredPlot.x + 15)}px`,
+            left: `${Math.min(window.innerWidth - 240, hoveredPlot.x + 15)}px`,
             top: `${Math.min(window.innerHeight - 150, hoveredPlot.y + 15)}px`
           }}
         >
@@ -401,9 +451,21 @@ const PlotViewer = ({
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
               <Compass size={13} /> {hoveredPlot.facing}
             </span>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-              <Ruler size={13} /> {hoveredPlot.area}
-            </span>
+            {hoveredPlot.width && (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <Maximize2 size={12} /> W: {hoveredPlot.width}
+              </span>
+            )}
+            {hoveredPlot.length && (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <ArrowUpDown size={12} /> L: {hoveredPlot.length}
+              </span>
+            )}
+            {hoveredPlot.area && (
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                <Ruler size={12} /> {hoveredPlot.area}
+              </span>
+            )}
           </div>
         </div>
       )}

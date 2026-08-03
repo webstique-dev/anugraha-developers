@@ -23,16 +23,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="4"
-     inkscape:cx="660.625"
-     inkscape:cy="62.625"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="591.22966"
+     inkscape:cy="148.40404"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2446"
-     showguides="true" />
+     inkscape:current-layer="labels"
+     showguides="true"
+     showgrid="false" />
   <title
      id="title1">Land Layout Master Plan</title>
   <style
@@ -5882,45 +5883,6 @@
          id="use965" />
     </g>
     <g
-       class="dim"
-       id="g968"
-       transform="matrix(0.75296456,0,0,0.71999857,163.07391,100.97782)">
-      <use
-         xlink:href="#glyph-8-3"
-         x="651.03998"
-         y="363.16"
-         id="use966" />
-      <use
-         xlink:href="#glyph-8-7"
-         x="655.97729"
-         y="363.16"
-         id="use967" />
-      <use
-         xlink:href="#glyph-8-9"
-         x="660.91455"
-         y="363.16"
-         id="use968" />
-    </g>
-    <g
-       class="dim"
-       id="g995">
-      <use
-         xlink:href="#glyph-8-4"
-         x="552.64"
-         y="370.6"
-         id="use993" />
-      <use
-         xlink:href="#glyph-8-6"
-         x="557.57728"
-         y="370.6"
-         id="use994" />
-      <use
-         xlink:href="#glyph-8-9"
-         x="562.51456"
-         y="370.6"
-         id="use995" />
-    </g>
-    <g
        class="road-label"
        id="g999">
       <use
@@ -6170,129 +6132,7 @@
     </g>
     <g
        class="dim"
-       id="g1042">
-      <use
-         xlink:href="#glyph-11-6"
-         x="573.16"
-         y="352.24"
-         id="use1040" />
-      <use
-         xlink:href="#glyph-11-1"
-         x="573.16"
-         y="347.30272"
-         id="use1041" />
-      <use
-         xlink:href="#glyph-11-2"
-         x="573.16"
-         y="342.36544"
-         id="use1042" />
-    </g>
-    <g
-       class="dim"
-       id="g1048">
-      <use
-         xlink:href="#glyph-11-7"
-         x="539.92"
-         y="388.6"
-         id="use1043" />
-      <use
-         xlink:href="#glyph-11-6"
-         x="539.92"
-         y="383.66272"
-         id="use1044" />
-      <use
-         xlink:href="#glyph-11-2"
-         x="539.92"
-         y="378.72544"
-         id="use1045" />
-      <use
-         xlink:href="#glyph-11-8"
-         x="539.92"
-         y="377.02936"
-         id="use1046" />
-      <use
-         xlink:href="#glyph-11-0"
-         x="539.92"
-         y="374.07232"
-         id="use1047" />
-      <use
-         xlink:href="#glyph-11-9"
-         x="539.92"
-         y="369.13504"
-         id="use1048" />
-    </g>
-    <g
-       class="dim"
-       id="g1051">
-      <use
-         xlink:href="#glyph-8-3"
-         x="526.36"
-         y="361.96"
-         id="use1049" />
-      <use
-         xlink:href="#glyph-8-7"
-         x="531.29728"
-         y="361.96"
-         id="use1050" />
-      <use
-         xlink:href="#glyph-8-9"
-         x="536.23456"
-         y="361.96"
-         id="use1051" />
-    </g>
-    <g
-       class="dim"
-       id="g1054">
-      <use
-         xlink:href="#glyph-11-6"
-         x="501.16"
-         y="352.24"
-         id="use1052" />
-      <use
-         xlink:href="#glyph-11-1"
-         x="501.16"
-         y="347.30272"
-         id="use1053" />
-      <use
-         xlink:href="#glyph-11-2"
-         x="501.16"
-         y="342.36544"
-         id="use1054" />
-    </g>
-    <g
-       class="dim"
-       id="g1060">
-      <use
-         xlink:href="#glyph-8-4"
-         x="547"
-         y="338.92"
-         id="use1055" />
-      <use
-         xlink:href="#glyph-8-7"
-         x="551.93728"
-         y="338.92"
-         id="use1056" />
-      <use
-         xlink:href="#glyph-8-9"
-         x="556.87456"
-         y="338.92"
-         id="use1057" />
-      <use
-         xlink:href="#glyph-8-10"
-         x="558.57064"
-         y="338.92"
-         id="use1058" />
-      <use
-         xlink:href="#glyph-8-11"
-         x="561.52768"
-         y="338.92"
-         id="use1059" />
-      <use
-         xlink:href="#glyph-8-12"
-         x="566.46496"
-         y="338.92"
-         id="use1060" />
-    </g>
+       id="g1051" />
     <g
        class="label"
        id="g1063">
@@ -6727,79 +6567,6 @@
          x="647.19136"
          y="301.12"
          id="use1144" />
-    </g>
-    <g
-       class="dim"
-       id="g1147">
-      <use
-         xlink:href="#glyph-11-6"
-         x="684.64"
-         y="352.24"
-         id="use1145" />
-      <use
-         xlink:href="#glyph-11-1"
-         x="684.64"
-         y="347.30272"
-         id="use1146" />
-      <use
-         xlink:href="#glyph-11-2"
-         x="684.64"
-         y="342.36544"
-         id="use1147" />
-    </g>
-    <g
-       class="dim"
-       id="g1153"
-       transform="matrix(0.83983595,0,0,0.5368125,104.97112,175.61487)">
-      <use
-         xlink:href="#glyph-11-7"
-         x="645.40002"
-         y="388.60001"
-         id="use1148" />
-      <use
-         xlink:href="#glyph-11-6"
-         x="645.40002"
-         y="383.66272"
-         id="use1149" />
-      <use
-         xlink:href="#glyph-11-2"
-         x="645.40002"
-         y="378.72543"
-         id="use1150" />
-      <use
-         xlink:href="#glyph-11-8"
-         x="645.40002"
-         y="377.02936"
-         id="use1151" />
-      <use
-         xlink:href="#glyph-11-0"
-         x="645.40002"
-         y="374.07233"
-         id="use1152" />
-      <use
-         xlink:href="#glyph-11-9"
-         x="645.40002"
-         y="369.13504"
-         id="use1153" />
-    </g>
-    <g
-       class="dim"
-       id="g1156">
-      <use
-         xlink:href="#glyph-8-3"
-         x="709.48"
-         y="390.4"
-         id="use1154" />
-      <use
-         xlink:href="#glyph-8-7"
-         x="714.41728"
-         y="390.4"
-         id="use1155" />
-      <use
-         xlink:href="#glyph-8-9"
-         x="719.35456"
-         y="390.4"
-         id="use1156" />
     </g>
     <g
        class="dim"

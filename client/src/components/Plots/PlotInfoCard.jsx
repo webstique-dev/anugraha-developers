@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Ruler, X } from 'lucide-react';
+import { Compass, Ruler, Maximize2, ArrowUpDown, X } from 'lucide-react';
 import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 import './PlotInfoCard.css';
 
@@ -15,12 +15,30 @@ const PlotInfoCard = ({
 }) => {
   if (!plotData) return null;
 
-  const { plotNo = '—', status = 'Available', facing = '—', area = '1500 Sq.ft' } = plotData;
+  const {
+    plotNo = '—',
+    status = 'Available',
+    facing = '—',
+    area = '—',
+    width = '—',
+    length = '—'
+  } = plotData;
+
   const normalizedStatus = status.toLowerCase();
 
   const cleanWhatsapp = whatsappNumber.replace(/\D/g, '');
+  const inquiryDetails = [
+    `Status: ${status}`,
+    `Facing: ${facing}`,
+    width && width !== '—' ? `Width: ${width}` : null,
+    length && length !== '—' ? `Length: ${length}` : null,
+    area && area !== '—' ? `Area: ${area}` : null
+  ]
+    .filter(Boolean)
+    .join(', ');
+
   const inquiryMessage = encodeURIComponent(
-    `Hello Anugraha Developers, I am interested in Plot No: ${plotNo} (Status: ${status}, Facing: ${facing}, Area: ${area}). Please share availability and pricing.`
+    `Hello Anugraha Developers, I am interested in Plot No: ${plotNo} (${inquiryDetails}). Please share availability and pricing.`
   );
 
   const whatsappUrl = `https://wa.me/${cleanWhatsapp}?text=${inquiryMessage}`;
@@ -33,7 +51,6 @@ const PlotInfoCard = ({
         <button id="infoClose" aria-label="Close" onClick={onClose}>
           <X size={14} />
         </button>
-        {/* <div className="info-header-label">Plot No.</div> */}
         <div className="info-plot-number">{plotNo}</div>
       </div>
 
@@ -58,15 +75,37 @@ const PlotInfoCard = ({
           <span className="info-spec-value">{facing || '—'}</span>
         </div>
 
+        {/* Spec: Width */}
+        <div className="info-spec-row">
+          <span className="info-spec-label">
+            <span className="info-spec-icon">
+              <Maximize2 size={13} />
+            </span>
+            Width
+          </span>
+          <span className="info-spec-value">{width || '—'}</span>
+        </div>
+
+        {/* Spec: Length */}
+        <div className="info-spec-row">
+          <span className="info-spec-label">
+            <span className="info-spec-icon">
+              <ArrowUpDown size={13} />
+            </span>
+            Length
+          </span>
+          <span className="info-spec-value">{length || '—'}</span>
+        </div>
+
         {/* Spec: Plot Area */}
         <div className="info-spec-row">
           <span className="info-spec-label">
             <span className="info-spec-icon">
               <Ruler size={13} />
             </span>
-            Plot Area
+            Area
           </span>
-          <span className="info-spec-value">{area}</span>
+          <span className="info-spec-value">{area || '—'}</span>
         </div>
 
         {/* Quick Action Buttons */}
