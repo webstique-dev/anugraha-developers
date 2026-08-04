@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { getApiBaseUrl } from './apiConfig';
 
-const RAW_API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const RAW_API_URL = getApiBaseUrl();
 const PLOTS_API_URL = `${RAW_API_URL.replace(/\/$/, '')}/plots`;
 
 const plotApi = axios.create({
@@ -8,7 +9,7 @@ const plotApi = axios.create({
   headers: {
     'Content-Type': 'application/json'
   },
-  timeout: 8000
+  timeout: 30000 // 30s timeout for Render cold starts
 });
 
 const APPS_SCRIPT_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || '';

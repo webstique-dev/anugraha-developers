@@ -11,10 +11,17 @@ const generateToken = (id) => {
 };
 
 /**
- * @route   POST /api/auth/register
- * @desc    Register a new Admin account in MongoDB (password salted & hashed via bcryptjs)
+ * @route   GET /api/auth/health
+ * @desc    Health check for auth service
  * @access  Public
  */
+router.get('/health', (req, res) => {
+  return res.json({
+    success: true,
+    message: 'Auth service is operational'
+  });
+});
+
 /**
  * @route   POST /api/auth/register
  * @desc    Register a new Admin account in MongoDB (password salted & hashed via bcryptjs)
