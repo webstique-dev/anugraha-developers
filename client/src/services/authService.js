@@ -26,20 +26,7 @@ export const loginAdmin = async (email, password) => {
     }
     // Fallback demo mode if backend server is unreachable
     if (err.code === 'ERR_NETWORK' || err.code === 'ECONNABORTED' || !err.response) {
-      console.warn('Backend server unreachable at http://localhost:5000/api/auth. Using fallback admin auth mode.');
-      if (email === 'admin@anugraha.com' && password === 'admin123') {
-        return {
-          success: true,
-          token: 'demo-jwt-token-anugraha-2026',
-          user: {
-            id: 'demo-admin-id-1',
-            name: 'Anugraha Admin',
-            email: 'admin@anugraha.com',
-            role: 'admin'
-          }
-        };
-      }
-      throw new Error('Server Unreachable: Use email "admin@anugraha.com" and password "admin123" for demo mode, or start backend server (npm start in /server).');
+      throw new Error('Unable to connect to the server. Please check your connection and try again.');
     }
     throw new Error(err.message || 'Error connecting to auth server');
   }
