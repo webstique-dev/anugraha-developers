@@ -141,6 +141,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .mobile-drawer-header {
@@ -184,14 +185,66 @@
   z-index: 1000;
 }
 
-@media (max-width: 992px) {
+/* Responsive Styles for Navbar */
+
+/* Small desktop / laptop optimization (1025px - 1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .navbar-nav {
+    gap: 1.25rem;
+  }
+
+  .nav-link {
+    font-size: 0.88rem;
+  }
+
+  .navbar-actions {
+    gap: 0.75rem;
+  }
+
+  .nav-phone-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet & Mobile Breakpoint (1024px and below) */
+@media (max-width: 1024px) {
   .navbar-nav,
   .navbar-actions .nav-phone-btn {
     display: none;
   }
 
   .mobile-toggle-btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Medium mobile / portrait tablet optimization (<= 768px) */
+@media (max-width: 768px) {
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.55rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .navbar-logo-img {
+    height: 2.2rem;
+  }
+}
+
+/* Extra small mobile screens (<= 480px) */
+@media (max-width: 480px) {
+  .nav-book-btn-wrapper {
+    display: none;
+  }
+
+  .navbar-actions {
+    gap: 0.5rem;
   }
 }
 

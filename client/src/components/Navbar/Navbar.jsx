@@ -72,7 +72,7 @@ const Navbar = () => {
               <span>+91 97153 34421</span>
             </a>
 
-            <ScrollLink to="contact" smooth={true} offset={-80} duration={400}>
+            <ScrollLink to="contact" smooth={true} offset={-80} duration={400} className="nav-book-btn-wrapper">
               <Button variant="primary" size="sm" icon={<FaArrowRight />}>
                 Book Visit
               </Button>
