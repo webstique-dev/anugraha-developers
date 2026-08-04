@@ -95,7 +95,7 @@ const LoginForm = () => {
         )}
       </button>
 
-      <div className="auth-switch-footer">
+      {/* <div className="auth-switch-footer">
         <span>Don't have an admin account?</span>{' '}
         <button
           type="button"
@@ -104,7 +104,7 @@ const LoginForm = () => {
         >
           Create Account
         </button>
-      </div>
+      </div> */}
     </form>
   );
 };

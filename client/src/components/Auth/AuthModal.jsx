@@ -59,13 +59,13 @@ const AuthModal = () => {
               <FaSignInAlt />
               <span>Log In</span>
             </button>
-            <button
+            {/* <button
               className={`auth-tab-btn ${authTab === 'register' ? 'active' : ''}`}
               onClick={() => setAuthTab('register')}
             >
               <FaUserPlus />
               <span>Create Account</span>
-            </button>
+            </button> */}
           </div>
 
           {/* Tab Form Content */}
