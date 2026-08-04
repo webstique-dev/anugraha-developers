@@ -28,14 +28,14 @@ const Testimonials = () => {
             style={{ marginBottom: 0 }}
           />
 
-          <div className="swiper-nav-buttons">
+          {/* <div className="swiper-nav-buttons">
             <button ref={prevRef} className="swiper-nav-btn" aria-label="Previous Testimonial">
               <FaChevronLeft />
             </button>
             <button ref={nextRef} className="swiper-nav-btn" aria-label="Next Testimonial">
               <FaChevronRight />
             </button>
-          </div>
+          </div> */}
         </div>
 
         <div className="testimonials-swiper-container">
