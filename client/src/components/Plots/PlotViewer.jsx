@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { Compass, Ruler, Maximize2, ArrowUpDown, ShieldCheck, Eye, Plus, Edit3 } from 'lucide-react';
+import { Compass, Ruler, Maximize2, ArrowUpDown, ShieldCheck, Eye, Plus, Edit3, LogOut } from 'lucide-react';
 import PlotZoomControls from './PlotZoomControls';
 import PlotInfoCard from './PlotInfoCard';
 import PlotFilterPanel from './PlotFilterPanel';
 import PlotBreadcrumb from './PlotBreadcrumb';
-import PlotEditorDrawer from './PlotEditorDrawer';
+import PlotEditorModal from './PlotEditorModal';
 import StatusBadge from '../Common/StatusBadge/StatusBadge';
 import SocialActions from '../Common/SocialActions/SocialActions';
+import LogoPreloader from '../Common/Preloader/LogoPreloader';
 import { useAuth } from '../../context/AuthContext';
 import { toast } from '../Common/Notification/NotificationProvider';
 import {
@@ -17,6 +18,7 @@ import {
   softDeletePlotRecord
 } from '../../services/plotService';
 import './PlotViewer.css';
+import '../Common/Skeleton/Skeleton.css';
 
 const DEFAULT_SHEET_ID = '1n1puqY0m1MtqG8652yhWAChj6pYxP8b5ASDXQjpCp70';
 
@@ -31,17 +33,25 @@ const PlotViewer = ({
   whatsappNumber = '919715334421'
 }) => {
   const API_URL = `https://opensheet.elk.sh/${sheetId}/Sheet1`;
-  const { isAuthenticated, user, token, openAuthModal } = useAuth();
+  const { isAuthenticated, user, token, openAuthModal, logout } = useAuth();
 
   const viewportRef = useRef(null);
   const mapWrapperRef = useRef(null);
   const overlayRef = useRef(null);
+  const adminMenuRef = useRef(null);
 
   const [scale, setScale] = useState(1);
   const [selectedPlot, setSelectedPlot] = useState(null);
   const [hoveredPlot, setHoveredPlot] = useState(null);
   const [activeFilter, setActiveFilter] = useState('all');
   const [plotsData, setPlotsData] = useState([]);
+  const [adminMenuOpen, setAdminMenuOpen] = useState(false);
+
+  // Real-time Loading Readiness States for Preloader
+  const [isDataLoading, setIsDataLoading] = useState(true);
+  const [isBgSvgLoaded, setIsBgSvgLoaded] = useState(false);
+  const [isPreloaderFinished, setIsPreloaderFinished] = useState(false);
+
   const [statusCounts, setStatusCounts] = useState({
     all: 0,
     available: 0,
@@ -49,6 +59,19 @@ const PlotViewer = ({
     registered: 0,
     blocked: 0
   });
+
+  // Close Admin popover menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (adminMenuRef.current && !adminMenuRef.current.contains(event.target)) {
+        setAdminMenuOpen(false);
+      }
+    };
+    if (adminMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [adminMenuOpen]);
 
   // Admin Plot Management Drawer State
   const [editorDrawerOpen, setEditorDrawerOpen] = useState(false);
@@ -253,19 +276,59 @@ const PlotViewer = ({
     };
   }, []);
 
-  // Fetch Plot Data from Google Apps Script Web App / Google Sheets
+  // Preload Background SVG Layout Asset
   useEffect(() => {
+    let isMounted = true;
+    setIsBgSvgLoaded(false);
+
+    const img = new Image();
+    img.src = bgSvgUrl;
+    img.onload = () => {
+      if (isMounted) setIsBgSvgLoaded(true);
+    };
+    img.onerror = () => {
+      if (isMounted) setIsBgSvgLoaded(true);
+    };
+
+    if (img.complete) {
+      if (isMounted) setIsBgSvgLoaded(true);
+    }
+
+    const svgSafetyTimer = setTimeout(() => {
+      if (isMounted) setIsBgSvgLoaded(true);
+    }, 3000);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(svgSafetyTimer);
+    };
+  }, [bgSvgUrl]);
+
+  // Fetch Plot Data from Google Apps Script Web App / Google Sheets / MongoDB Fallback
+  useEffect(() => {
+    let isMounted = true;
     async function loadPlots() {
+      if (isMounted) setIsDataLoading(true);
       try {
         const data = await fetchPlotsFromAppsScript(sheetId);
-        setPlotsData(data);
+        if (isMounted) setPlotsData(data || []);
       } catch (err) {
-        console.error('Error loading plot data via Apps Script integration:', err);
+        console.error('Error loading plot data:', err);
+        if (isMounted) {
+          toast.error('Could not load plot data from Google Sheets or MongoDB database.');
+        }
+      } finally {
+        if (isMounted) setIsDataLoading(false);
       }
     }
 
     loadPlots();
+    return () => {
+      isMounted = false;
+    };
   }, [sheetId]);
+
+  const isAppReady = !isDataLoading && isBgSvgLoaded;
 
   // Recalculate status counts whenever plotsData changes
   useEffect(() => {
@@ -288,15 +351,28 @@ const PlotViewer = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [centerMapView]);
 
-  // Handlers for Plot Editor Drawer
-  const handleOpenEditDrawer = async (plotDataToEdit) => {
+  // Handlers for Plot Editor Drawer (Opens instantly, updates sheet data asynchronously)
+  const handleOpenEditDrawer = (plotDataToEdit) => {
     if (!isAuthenticated) return;
-    const targetId = plotDataToEdit.plotId || plotDataToEdit.ID || plotDataToEdit.id;
-    // Fetch latest data directly from Google Sheets using Unique ID
-    const latestData = await fetchPlotFromSheet(sheetId, targetId);
-    setEditingPlotData(latestData || plotDataToEdit);
+
+    // 1. Open modal INSTANTLY (0ms delay) with existing map plot data
+    setEditingPlotData(plotDataToEdit);
     setEditorMode('edit');
     setEditorDrawerOpen(true);
+
+    // 2. Fetch fresh plot data from Google Sheets in background
+    const targetId = plotDataToEdit.plotId || plotDataToEdit.ID || plotDataToEdit.id;
+    if (targetId) {
+      fetchPlotFromSheet(sheetId, targetId)
+        .then((latestData) => {
+          if (latestData) {
+            setEditingPlotData((prev) => (prev ? { ...prev, ...latestData } : latestData));
+          }
+        })
+        .catch((err) => {
+          console.warn('[PlotViewer] Async sheet fetch error:', err.message);
+        });
+    }
   };
 
   const handleOpenCreateDrawer = () => {
@@ -462,6 +538,7 @@ const PlotViewer = ({
       path.dataset.length = length;
 
       path.addEventListener('mouseenter', (e) => {
+        if (window.innerWidth <= 768) return;
         setHoveredPlot({
           plotNo,
           plotId,
@@ -477,6 +554,7 @@ const PlotViewer = ({
       });
 
       path.addEventListener('mousemove', (e) => {
+        if (window.innerWidth <= 768) return;
         setHoveredPlot((prev) => (prev ? { ...prev, x: e.clientX, y: e.clientY } : null));
       });
 
@@ -553,39 +631,92 @@ const PlotViewer = ({
 
   return (
     <div className="plot-viewer-root">
-      {/* Top Header & Filter Controls Container */}
+      {/* Real-time Preloader: Remains active until plot data & background SVG are loaded */}
+      <LogoPreloader isLoading={!isAppReady} onFinished={() => setIsPreloaderFinished(true)} />
+
+      {/* Top Action Bar Wrapper */}
       <div className="plot-top-bar-wrapper">
-        <PlotBreadcrumb layoutTitle={layoutTitle} />
-        <PlotFilterPanel
-          activeFilter={activeFilter}
-          onFilterChange={setActiveFilter}
-          statusCounts={statusCounts}
+        <PlotBreadcrumb
+          layoutTitle={layoutTitle}
+          filterPanel={
+            <PlotFilterPanel
+              activeFilter={activeFilter}
+              onFilterChange={setActiveFilter}
+              statusCounts={statusCounts}
+            />
+          }
+          adminControls={
+            isAuthenticated ? (
+              <div className="admin-controls-icon-group" ref={adminMenuRef}>
+                {/* 1. Add New Plot Icon Button (Icon only) */}
+                <button
+                  type="button"
+                  className="admin-icon-pill-btn add-plot-icon-btn"
+                  onClick={handleOpenCreateDrawer}
+                  title="Create New Plot"
+                  aria-label="Add New Plot"
+                >
+                  <Plus size={15} />
+                </button>
+
+                {/* 2. Admin Menu Icon Button (Icon only) */}
+                <button
+                  type="button"
+                  className="admin-icon-pill-btn admin-menu-icon-btn"
+                  onClick={() => setAdminMenuOpen(!adminMenuOpen)}
+                  title={`Admin Session (${user?.name || user?.email || 'Admin'})`}
+                  aria-label="Admin Menu"
+                  aria-expanded={adminMenuOpen}
+                >
+                  <ShieldCheck size={15} className="admin-pill-icon" />
+                </button>
+
+                {/* Dropdown Menu when clicking Admin Icon */}
+                {adminMenuOpen && (
+                  <div className="admin-popover-menu">
+                    <div className="admin-popover-header">
+                      <div className="admin-popover-avatar">
+                        <ShieldCheck size={16} />
+                      </div>
+                      <div className="admin-popover-user-info">
+                        <span className="admin-user-name">{user?.name || 'Administrator'}</span>
+                        <span className="admin-user-email">{user?.email || 'admin@anugraha.com'}</span>
+                      </div>
+                    </div>
+
+                    <div className="admin-popover-divider" />
+
+                    <div className="admin-popover-actions">
+                      {/* <button
+                        type="button"
+                        className="admin-popover-item primary-item"
+                        onClick={() => {
+                          setAdminMenuOpen(false);
+                          handleOpenCreateDrawer();
+                        }}
+                      >
+                        <Plus size={14} />
+                        <span>Add New Plot</span>
+                      </button> */}
+
+                      <button
+                        type="button"
+                        className="admin-popover-item logout-item"
+                        onClick={() => {
+                          setAdminMenuOpen(false);
+                          logout();
+                        }}
+                      >
+                        <LogOut size={14} />
+                        <span>Log Out</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : null
+          }
         />
-        {isAuthenticated ? (
-          <div className="map-admin-controls-strip">
-            <button
-              className="admin-add-plot-btn"
-              onClick={handleOpenCreateDrawer}
-              title="Create New Plot in Layout"
-            >
-              <Plus size={14} />
-              <span>Add Plot</span>
-            </button>
-            <div className="map-mode-indicator admin-mode" title={`Admin Session Active (${user?.email})`}>
-              <ShieldCheck size={14} />
-              <span>Admin Mode</span>
-            </div>
-          </div>
-        ) : (
-          <button
-            className="map-mode-indicator view-only-mode"
-            onClick={() => openAuthModal('login')}
-            title="Click to log in as Admin"
-          >
-            <Eye size={14} />
-            <span>View-Only Mode</span>
-          </button>
-        )}
       </div>
 
       {/* Scrollable Viewport */}
@@ -666,8 +797,8 @@ const PlotViewer = ({
         />
       )}
 
-      {/* Reusable Admin Plot Editor Drawer */}
-      <PlotEditorDrawer
+      {/* Reusable Admin Plot Editor Modal */}
+      <PlotEditorModal
         isOpen={editorDrawerOpen}
         mode={editorMode}
         initialPlotData={editingPlotData}

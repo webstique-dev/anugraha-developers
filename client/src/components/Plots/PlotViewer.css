@@ -8,12 +8,111 @@
   overscroll-behavior: none;
 }
 
-/* Responsive Top Bar Grid Container (Default: pass-through for Desktop/Tablet) */
+/* Top Bar Action Wrapper Container (Desktop / Tablet) */
 .plot-top-bar-wrapper {
   display: contents;
 }
 
-/* Mobile Screens (320px - 500px): Single-Column CSS Grid Layout */
+/* Top Right Action Bar Group (Admin controls & Filter panel aligned side-by-side) */
+.plot-top-right-bar-group {
+  position: fixed;
+  top: 14px;
+  right: 16px;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+/* Admin Controls Strip */
+.map-admin-controls-strip {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  z-index: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Add Plot Button */
+.admin-add-plot-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  background: linear-gradient(135deg, #1A3C2B 0%, #0F241A 100%);
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(15, 36, 26, 0.2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.admin-add-plot-btn:hover {
+  background: #D4AF37;
+  color: #0F241A;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+/* Map Mode Indicator Pills (Admin Mode & View-Only Mode) */
+.map-mode-indicator {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  height: 36px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.map-mode-indicator.admin-mode {
+  background: rgba(26, 60, 43, 0.9);
+  color: #D4AF37;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.map-mode-indicator.view-only-mode {
+  background: rgba(255, 255, 255, 0.92);
+  color: #475569;
+  border: 1px solid rgba(26, 60, 43, 0.12);
+  cursor: pointer;
+}
+
+.map-mode-indicator.view-only-mode:hover {
+  background: #ffffff;
+  color: #1A3C2B;
+  border-color: #1A3C2B;
+  transform: translateY(-1px);
+}
+
+/* Mobile Screens (<= 500px): Clean Stacked Grid Layout inside top-bar-wrapper */
 @media (max-width: 500px) {
   .plot-top-bar-wrapper {
     position: fixed;
@@ -21,8 +120,8 @@
     left: 10px;
     right: 10px;
     z-index: 950;
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 8px;
     width: calc(100vw - 20px);
     box-sizing: border-box;
@@ -31,6 +130,50 @@
 
   .plot-top-bar-wrapper > * {
     pointer-events: auto;
+  }
+
+  .plot-top-right-bar-group {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: auto;
+  }
+
+  .map-admin-controls-strip {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .admin-add-plot-btn {
+    flex: 1;
+    justify-content: center;
+    width: 100%;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 11.5px;
+  }
+
+  .map-mode-indicator.admin-mode {
+    flex: 1;
+    justify-content: center;
+    width: 100%;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 11px;
+  }
+
+  .map-mode-indicator.view-only-mode {
+    width: 100%;
+    justify-content: center;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 11.5px;
   }
 }
 
@@ -139,6 +282,13 @@
   animation: fadeInTooltip 0.15s ease;
 }
 
+/* Hide plotinfo hover card on mobile/tablet screens <= 768px */
+@media (max-width: 768px) {
+  .map-hover-card {
+    display: none !important;
+  }
+}
+
 @keyframes fadeInTooltip {
   from {
     opacity: 0;
@@ -173,81 +323,4 @@
   font-size: 11px;
   font-weight: 600;
   color: #666;
-}
-
-/* Map Mode Indicator Badge */
-.map-admin-controls-strip {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 900;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.map-mode-indicator {
-  position: relative;
-  bottom: auto;
-  right: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 100px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-}
-
-.admin-add-plot-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 100px;
-  background: linear-gradient(135deg, #1A3C2B 0%, #0F241A 100%);
-  color: #D4AF37;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 14px rgba(15, 36, 26, 0.25);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.admin-add-plot-btn:hover {
-  background: #D4AF37;
-  color: #0F241A;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
-}
-
-.map-mode-indicator.admin-mode {
-  background: rgba(26, 60, 43, 0.9);
-  color: #D4AF37;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-}
-
-.map-mode-indicator.view-only-mode {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #64748b;
-  border: 1px solid rgba(100, 116, 139, 0.2);
-  cursor: pointer;
-}
-
-.map-mode-indicator.view-only-mode:hover {
-  background: #ffffff;
-  color: #1A3C2B;
-  border-color: #1A3C2B;
-  transform: translateY(-1px);
 }

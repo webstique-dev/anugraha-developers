@@ -1,63 +1,102 @@
+/* Container for Zoom Controls Card */
 #zoomControls {
   position: fixed;
-  right: 24px;
-  bottom: 88px;
+  bottom: max(84px, calc(env(safe-area-inset-bottom) + 60px));
+  right: max(24px, env(safe-area-inset-right));
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 60, 43, 0.14);
+  border-radius: 100px;
+  padding: 4px;
+  box-shadow:
+    0 4px 20px rgba(15, 36, 26, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+  user-select: none;
 }
 
 #zoomControls button {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(26, 60, 43, 0.12);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.1),
-    0 2px 6px rgba(26, 60, 43, 0.06);
+  border: 1px solid transparent;
+  background: rgba(26, 60, 43, 0.05);
   color: #1A3C2B;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-              background 0.2s ease,
-              box-shadow 0.2s ease,
-              color 0.2s ease;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 #zoomControls button:hover {
-  transform: scale(1.08) translateY(-2px);
   background: #1A3C2B;
-  color: #ffffff;
-  box-shadow: 0 6px 16px rgba(26, 60, 43, 0.25);
+  color: #D4AF37;
+  border-color: #1A3C2B;
+  transform: scale(1.06);
+  box-shadow: 0 4px 12px rgba(26, 60, 43, 0.25);
 }
 
 #zoomControls button:active {
-  transform: scale(0.95);
+  transform: scale(0.92);
+  background: #0F241A;
+  color: #ffffff;
 }
 
 .zoom-icon {
   stroke-width: 2.2;
+  flex-shrink: 0;
 }
 
-@media (max-width: 640px) {
+/* ==========================================================
+   RESPONSIVE SCALING FOR MOBILE (600px, 480px, 375px, 320px)
+   ========================================================== */
+@media (max-width: 600px) {
   #zoomControls {
-    right: 18px;
-    bottom: 72px;
-    gap: 6px;
+    bottom: max(68px, calc(env(safe-area-inset-bottom) + 54px));
+    right: max(14px, env(safe-area-inset-right));
+    padding: 3px;
+    gap: 3px;
   }
 
   #zoomControls button {
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
-  
-  .zoom-icon {
-    stroke-width: 2;
+}
+
+@media (max-width: 375px) {
+  #zoomControls {
+    bottom: max(62px, calc(env(safe-area-inset-bottom) + 52px));
+    right: max(10px, env(safe-area-inset-right));
+  }
+}
+
+@media (max-width: 320px) {
+  #zoomControls {
+    bottom: max(60px, calc(env(safe-area-inset-bottom) + 50px));
+    right: max(8px, env(safe-area-inset-right));
+    padding: 2px;
+    gap: 2px;
+  }
+
+  #zoomControls button {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
   }
 }

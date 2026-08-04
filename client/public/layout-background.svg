@@ -23,9 +23,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="8"
-     inkscape:cx="378.6875"
-     inkscape:cy="130.9375"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="245.54283"
+     inkscape:cy="175.9812"
      inkscape:window-width="1920"
      inkscape:window-height="1051"
      inkscape:window-x="-9"
@@ -4381,23 +4381,7 @@
     </g>
     <g
        class="dim"
-       id="g682">
-      <use
-         xlink:href="#glyph-11-0"
-         x="434.92"
-         y="337.48"
-         id="use680" />
-      <use
-         xlink:href="#glyph-11-1"
-         x="434.92"
-         y="332.54272"
-         id="use681" />
-      <use
-         xlink:href="#glyph-11-2"
-         x="434.92"
-         y="327.60544"
-         id="use682" />
-    </g>
+       id="g682" />
     <g
        class="label"
        id="g686">
@@ -10143,18 +10127,7 @@
        id="g1807" />
     <g
        class="label"
-       id="g1809">
-      <use
-         xlink:href="#glyph-10-1"
-         x="416.92"
-         y="379.6"
-         id="use1808" />
-      <use
-         xlink:href="#glyph-10-29"
-         x="420.18928"
-         y="379.6"
-         id="use1809" />
-    </g>
+       id="g1809" />
     <g
        class="label"
        id="g1829">
@@ -10319,42 +10292,10 @@
     </g>
     <g
        class="dim"
-       id="g1842">
-      <use
-         xlink:href="#glyph-8-1"
-         x="413.8"
-         y="362.68"
-         id="use1840" />
-      <use
-         xlink:href="#glyph-8-4"
-         x="418.73728"
-         y="362.68"
-         id="use1841" />
-      <use
-         xlink:href="#glyph-8-9"
-         x="423.67456"
-         y="362.68"
-         id="use1842" />
-    </g>
+       id="g1842" />
     <g
        class="dim"
-       id="g1845">
-      <use
-         xlink:href="#glyph-11-0"
-         x="434.92"
-         y="337.48"
-         id="use1843" />
-      <use
-         xlink:href="#glyph-11-1"
-         x="434.92"
-         y="332.54272"
-         id="use1844" />
-      <use
-         xlink:href="#glyph-11-2"
-         x="434.92"
-         y="327.60544"
-         id="use1845" />
-    </g>
+       id="g1845" />
     <g
        class="road-label"
        id="g1849">
@@ -14043,18 +13984,7 @@
     </g>
     <g
        class="label"
-       id="g2446">
-      <use
-         xlink:href="#glyph-10-1"
-         x="368.56"
-         y="379.6"
-         id="use2445" />
-      <use
-         xlink:href="#glyph-10-31"
-         x="371.82928"
-         y="379.6"
-         id="use2446" />
-    </g>
+       id="g2446" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.33333px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:end;writing-mode:lr-tb;direction:ltr;text-anchor:end;opacity:1;fill:#1a1a1a;stroke:#1a1a1a;stroke-width:0.8;stroke-linecap:square;stroke-miterlimit:4.7;paint-order:markers fill stroke"

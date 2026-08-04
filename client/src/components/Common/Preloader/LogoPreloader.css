@@ -1,0 +1,248 @@
+:root {
+  /* --gold: #1A3C2B; */
+  --gold-accent: #D4AF37;
+  --bg-light-gradient: linear-gradient(135deg, #FAFBF9 0%, #F2F6F3 50%, #E9F1EA 100%);
+  --ease-glide: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---------- PRELOADER OVERLAY (LIGHT GRADIENT THEME) ---------- */
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FAFBF9 0%, #F2F6F3 50%, #E9F1EA 100%);
+  z-index: 99999;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.7s;
+  touch-action: none;
+  overscroll-behavior: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.preloader-overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Ambient glow behind mark */
+.preloader-overlay .glow {
+  position: absolute;
+  width: 70vmin;
+  height: 70vmin;
+  max-width: 520px;
+  max-height: 520px;
+  background: radial-gradient(circle, rgba(26, 60, 43, 0.12) 0%, rgba(212, 175, 55, 0.06) 45%, rgba(255, 255, 255, 0) 70%);
+  animation: breatheGlow 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes breatheGlow {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(0.94);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.preloader-overlay .stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.preloader-overlay .mark-wrap {
+  width: clamp(100px, 24vw, 220px);
+  aspect-ratio: 316 / 281;
+  filter: drop-shadow(0 4px 12px rgba(26, 60, 43, 0.12));
+  animation: idleBreathe 2.6s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.preloader-overlay .mark-wrap.assembling {
+  animation-play-state: paused;
+}
+
+.preloader-overlay .mark-wrap.idle {
+  animation-play-state: running;
+}
+
+@keyframes idleBreathe {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 4px 12px rgba(26, 60, 43, 0.15));
+  }
+
+  50% {
+    filter: drop-shadow(0 8px 24px rgba(26, 60, 43, 0.32));
+  }
+}
+
+.preloader-overlay .mark-wrap.flash {
+  animation: flashPulse 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes flashPulse {
+  0% {
+    filter: drop-shadow(0 4px 12px rgba(26, 60, 43, 0.2));
+    transform: scale(1);
+  }
+
+  35% {
+    filter: drop-shadow(0 12px 36px rgba(212, 175, 55, 0.6));
+    transform: scale(1.07);
+  }
+
+  100% {
+    filter: drop-shadow(0 6px 16px rgba(26, 60, 43, 0.25));
+    transform: scale(1);
+  }
+}
+
+.preloader-overlay svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.preloader-overlay .piece {
+  fill: #D4AF37;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transition: fill 0.3s ease;
+}
+
+/* Individual Entrance Choreography */
+.preloader-overlay .p-leftRoof {
+  animation: flyLeftRoof 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0s forwards;
+}
+
+.preloader-overlay .p-rightRoof {
+  animation: flyRightRoof 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+}
+
+.preloader-overlay .p-leftLeg {
+  animation: flyLeftLeg 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.preloader-overlay .p-rightLeg {
+  animation: flyRightLeg 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.42s forwards;
+}
+
+.preloader-overlay .p-crossbar {
+  animation: flyCrossbar 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+  fill: #D4AF37;
+}
+
+.preloader-overlay .p-spike {
+  animation: flySpike 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.72s forwards;
+}
+
+@keyframes flyLeftRoof {
+  0% {
+    opacity: 0;
+    transform: translate(-46vmin, -34vmin) rotate(-65deg) scale(0.35);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flyRightRoof {
+  0% {
+    opacity: 0;
+    transform: translate(46vmin, -34vmin) rotate(65deg) scale(0.35);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flyLeftLeg {
+  0% {
+    opacity: 0;
+    transform: translate(-40vmin, 30vmin) rotate(85deg) scale(0.35);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flyRightLeg {
+  0% {
+    opacity: 0;
+    transform: translate(40vmin, 30vmin) rotate(-85deg) scale(0.35);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flyCrossbar {
+  0% {
+    opacity: 0;
+    transform: scale(0.1) rotate(-200deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flySpike {
+  0% {
+    opacity: 0;
+    transform: translateY(48vmin) rotate(170deg) scale(0.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.preloader-overlay .eyebrow {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #D4AF37;
+  opacity: 0.95;
+  height: 14px;
+}
+
+/* Responsiveness down to 320px */
+@media (max-width: 480px) {
+  .preloader-overlay .mark-wrap {
+    width: clamp(90px, 35vw, 150px);
+  }
+
+  .preloader-overlay .eyebrow {
+    font-size: 9.5px;
+    letter-spacing: 0.25em;
+  }
+}

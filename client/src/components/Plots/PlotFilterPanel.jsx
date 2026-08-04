@@ -64,7 +64,11 @@ const PlotFilterPanel = ({ activeFilter, onFilterChange, statusCounts = {} }) =>
             >
               <span className="filter-btn-dot" />
               <span>{opt.label}</span>
-              {count !== null && <span className="filter-count-badge">{count}</span>}
+              {count !== null ? (
+                <span className="filter-count-badge">{count}</span>
+              ) : (
+                <span className="filter-count-badge skeleton-box" style={{ width: '18px', height: '13px', display: 'inline-block' }} />
+              )}
             </button>
           );
         })}

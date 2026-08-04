@@ -10,13 +10,14 @@ import './PlotInfoCard.css';
  */
 const PlotInfoCard = ({
   plotData,
+  isLoading = false,
   onClose,
   onOpenEdit,
   phoneNumber = '+919715334421',
   whatsappNumber = '919715334421'
 }) => {
   const { isAuthenticated } = useAuth();
-  if (!plotData) return null;
+  if (!plotData && !isLoading) return null;
 
   const {
     plotNo = '—',

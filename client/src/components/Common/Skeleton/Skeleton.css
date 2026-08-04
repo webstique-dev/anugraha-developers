@@ -1,0 +1,32 @@
+/* Reusable Skeleton Loader Styles */
+.skeleton-box,
+.skeleton-line,
+.skeleton-badge,
+.skeleton-circle {
+  background: linear-gradient(
+    90deg,
+    rgba(26, 60, 43, 0.06) 25%,
+    rgba(26, 60, 43, 0.14) 50%,
+    rgba(26, 60, 43, 0.06) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s infinite linear;
+  border-radius: 6px;
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-badge {
+  border-radius: 100px;
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
