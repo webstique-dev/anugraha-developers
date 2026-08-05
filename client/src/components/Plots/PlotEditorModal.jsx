@@ -248,8 +248,8 @@ const PlotEditorModal = ({
                   {isLoadingPlotData
                     ? 'Loading Plot Details...'
                     : mode === 'edit'
-                    ? `Edit Plot ${formData.plotNo}`
-                    : 'Add New Layout Plot'}
+                      ? `Edit Plot ${formData.plotNo}`
+                      : 'Add New Layout Plot'}
                 </h2>
               </div>
               <button
@@ -428,7 +428,7 @@ const PlotEditorModal = ({
                     </button>
                   </div>
 
-                  {mode === 'edit' && (
+                  {/* {mode === 'edit' && (
                     <button
                       type="button"
                       className="modal-delete-btn"
@@ -438,7 +438,7 @@ const PlotEditorModal = ({
                       <Trash2 size={14} />
                       <span>Soft Delete</span>
                     </button>
-                  )}
+                  )} */}
                 </div>
               </form>
             )}
