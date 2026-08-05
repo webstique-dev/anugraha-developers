@@ -7,13 +7,16 @@ import {
   AlertTriangle,
   Layers,
   Compass,
+  Ruler,
   Maximize2,
   ArrowUpDown,
   Code2,
   Tag,
-  Loader2
+  Loader2,
+  RefreshCw
 } from 'lucide-react';
 import { toast } from '../Common/Notification/NotificationProvider';
+import { SkeletonEditPlotForm, SkeletonLine, SkeletonBadge } from '../Common/Skeleton/Skeleton';
 import './PlotEditorModal.css';
 
 /**
@@ -30,6 +33,9 @@ const PlotEditorModal = ({
   isOpen,
   mode = 'edit', // 'edit' | 'create'
   initialPlotData = null,
+  isLoadingPlotData: externalIsLoading = false,
+  fetchError = null,
+  onRetryFetch,
   sheetId,
   onClose,
   onSavePlot,
@@ -51,7 +57,7 @@ const PlotEditorModal = ({
   const [showUnsavedConfirm, setShowUnsavedConfirm] = useState(false);
   const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 728);
 
-  const isLoadingPlotData = mode === 'edit' && !initialPlotData;
+  const isLoadingPlotData = mode === 'edit' && (externalIsLoading || (!initialPlotData && !fetchError));
 
   // Responsive breakpoint listener for <728px mobile bottom sheet vs >=728px desktop modal
   useEffect(() => {
@@ -221,7 +227,7 @@ const PlotEditorModal = ({
           onClick={handleCloseAttempt}
         />
 
-        {/* Modal Container: Centered Modal (Desktop >=728px) vs Bottom Sheet (Mobile <728px) */}
+        {/* Modal Container */}
         <div className={`plot-modal-wrapper ${isMobile ? 'mobile-sheet-wrapper' : 'desktop-modal-wrapper'}`}>
           <motion.div
             className={`plot-modal-card ${isMobile ? 'mobile-bottom-sheet' : 'desktop-centered-card'}`}
@@ -242,14 +248,26 @@ const PlotEditorModal = ({
             <div className="plot-modal-header">
               <div className="header-title-group">
                 <span className="header-badge">
-                  {isLoadingPlotData ? 'LOADING...' : mode === 'edit' ? `PLOT ID: ${formData.id}` : 'NEW PLOT'}
+                  {isLoadingPlotData ? (
+                    <SkeletonBadge width="80px" height="16px" />
+                  ) : fetchError ? (
+                    'ERROR'
+                  ) : mode === 'edit' ? (
+                    `PLOT ID: ${formData.id}`
+                  ) : (
+                    'NEW PLOT'
+                  )}
                 </span>
                 <h2 className="header-title">
-                  {isLoadingPlotData
-                    ? 'Loading Plot Details...'
-                    : mode === 'edit'
-                      ? `Edit Plot ${formData.plotNo}`
-                      : 'Add New Layout Plot'}
+                  {isLoadingPlotData ? (
+                    <SkeletonLine width="180px" height="22px" style={{ marginTop: '4px' }} />
+                  ) : fetchError ? (
+                    'Failed to Load Plot'
+                  ) : mode === 'edit' ? (
+                    `Edit Plot ${formData.plotNo}`
+                  ) : (
+                    'Add New Layout Plot'
+                  )}
                 </h2>
               </div>
               <button
@@ -263,34 +281,62 @@ const PlotEditorModal = ({
               </button>
             </div>
 
-            {/* Scrollable Form Body or Skeleton Loader */}
+            {/* Scrollable Form Body, Skeleton Loader or Error State */}
             {isLoadingPlotData ? (
-              <div className="modal-skeleton-body">
-                <div className="skeleton-field">
-                  <div className="skeleton-label" />
-                  <div className="skeleton-input" />
+              <motion.div
+                key="skeleton"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                style={{ padding: '24px 28px' }}
+              >
+                <SkeletonEditPlotForm />
+              </motion.div>
+            ) : fetchError ? (
+              <motion.div
+                key="error"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                style={{
+                  padding: '36px 28px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  textAlign: 'center',
+                  gap: '16px'
+                }}
+              >
+                <AlertTriangle size={36} style={{ color: '#ef4444' }} />
+                <div>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#111827', marginBottom: '4px' }}>
+                    Data Fetch Failed
+                  </h3>
+                  <p style={{ fontSize: '0.85rem', color: '#6b7280', maxWidth: '300px' }}>
+                    {fetchError || 'Unable to retrieve plot details from the server.'}
+                  </p>
                 </div>
-                <div className="skeleton-field">
-                  <div className="skeleton-label" />
-                  <div className="skeleton-input" />
-                </div>
-                <div className="skeleton-row">
-                  <div className="skeleton-field">
-                    <div className="skeleton-label" />
-                    <div className="skeleton-input" />
-                  </div>
-                  <div className="skeleton-field">
-                    <div className="skeleton-label" />
-                    <div className="skeleton-input" />
-                  </div>
-                </div>
-                <div className="skeleton-field">
-                  <div className="skeleton-label" />
-                  <div className="skeleton-textarea" />
-                </div>
-              </div>
+                {onRetryFetch && (
+                  <button
+                    type="button"
+                    className="modal-submit-btn"
+                    onClick={onRetryFetch}
+                    style={{ width: 'auto', padding: '10px 20px', display: 'inline-flex', gap: '8px', alignItems: 'center' }}
+                  >
+                    <RefreshCw size={15} />
+                    <span>Retry Loading</span>
+                  </button>
+                )}
+              </motion.div>
             ) : (
-              <form className="plot-modal-form-body" onSubmit={handleSubmit}>
+              <motion.form
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.22 }}
+                className="plot-modal-form-body"
+                onSubmit={handleSubmit}
+              >
                 {/* Field: Plot Number */}
                 <div className="modal-form-group">
                   <label className="modal-label">
@@ -440,7 +486,7 @@ const PlotEditorModal = ({
                     </button>
                   )} */}
                 </div>
-              </form>
+              </motion.form>
             )}
           </motion.div>
         </div>

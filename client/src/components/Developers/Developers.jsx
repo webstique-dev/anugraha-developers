@@ -1,10 +1,11 @@
 import React from 'react';
 import SectionTitle from '../Common/SectionTitle/SectionTitle';
 import DeveloperCard from '../Common/DeveloperCard/DeveloperCard';
+import { SkeletonDeveloperCard } from '../Common/Skeleton/Skeleton';
 import { DEVELOPERS_DATA } from '../../data/mockData';
 import './Developers.css';
 
-const Developers = () => {
+const Developers = ({ isLoading = false }) => {
   return (
     <section id="developers" className="section-padding developers-section">
       <div className="container">
@@ -15,9 +16,11 @@ const Developers = () => {
         />
 
         <div className="developers-grid">
-          {DEVELOPERS_DATA.map((developer) => (
-            <DeveloperCard key={developer.id} developer={developer} />
-          ))}
+          {isLoading
+            ? Array.from({ length: 4 }).map((_, idx) => <SkeletonDeveloperCard key={idx} />)
+            : DEVELOPERS_DATA.map((developer) => (
+                <DeveloperCard key={developer.id} developer={developer} />
+              ))}
         </div>
       </div>
     </section>

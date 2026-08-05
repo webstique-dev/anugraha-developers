@@ -2,6 +2,7 @@ import React from 'react';
 import { Compass, Ruler, Maximize2, ArrowUpDown, X, Edit3 } from 'lucide-react';
 import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
+import { SkeletonDetailsPanel } from '../Common/Skeleton/Skeleton';
 import './PlotInfoCard.css';
 
 /**
@@ -17,7 +18,16 @@ const PlotInfoCard = ({
   whatsappNumber = '919715334421'
 }) => {
   const { isAuthenticated } = useAuth();
-  if (!plotData && !isLoading) return null;
+
+  if (isLoading) {
+    return (
+      <div id="info" className="plot-info-card-container">
+        <SkeletonDetailsPanel />
+      </div>
+    );
+  }
+
+  if (!plotData) return null;
 
   const {
     plotNo = '—',

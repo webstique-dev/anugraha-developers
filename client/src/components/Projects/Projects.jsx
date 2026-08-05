@@ -2,27 +2,30 @@ import React, { useState } from 'react';
 import SectionTitle from '../Common/SectionTitle/SectionTitle';
 import PropertyCard from '../Common/PropertyCard/PropertyCard';
 import Button from '../Common/Button/Button';
+import { SkeletonPropertyCard } from '../Common/Skeleton/Skeleton';
 import { PROPERTIES_DATA } from '../../data/mockData';
 import './Projects.css';
 
 const categoryFilters = ['All Layouts', 'DTCP Approved', 'Gated', 'Commercial'];
-const statusFilters = ['All Statuses', 'Available', 'Booked', 'Sold', 'Reserved'];
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('All Layouts');
-  const [activeStatus, setActiveStatus] = useState('All Statuses');
+  const [isFilterLoading, setIsFilterLoading] = useState(false);
 
-  // Dynamic filtering based on both Category and Availability Status
+  const handleCategoryChange = (category) => {
+    if (category === activeCategory) return;
+    setIsFilterLoading(true);
+    setActiveCategory(category);
+    setTimeout(() => {
+      setIsFilterLoading(false);
+    }, 220);
+  };
+
   const filteredProperties = PROPERTIES_DATA.filter((item) => {
-    const matchesCategory =
+    return (
       activeCategory === 'All Layouts' ||
-      item.category.toLowerCase().includes(activeCategory.toLowerCase());
-
-    const matchesStatus =
-      activeStatus === 'All Statuses' ||
-      (item.availability && item.availability.toLowerCase() === activeStatus.toLowerCase());
-
-    return matchesCategory && matchesStatus;
+      item.category.toLowerCase().includes(activeCategory.toLowerCase())
+    );
   });
 
   return (
@@ -34,9 +37,8 @@ const Projects = () => {
           subtitle="Explore our handpicked selection of DTCP & RERA-approved premium land layouts in Coimbatore's highest appreciation growth corridors."
         />
 
-        {/* Dual Filter Controls: Category & Availability Status */}
+        {/* Dual Filter Controls: Category */}
         <div className="projects-filter-wrapper">
-          {/* Category Filter */}
           <div className="filter-group">
             <span className="filter-group-label">Category:</span>
             <div className="projects-filter-bar">
@@ -44,34 +46,23 @@ const Projects = () => {
                 <button
                   key={idx}
                   className={`filter-btn ${activeCategory === filter ? 'active' : ''}`}
-                  onClick={() => setActiveCategory(filter)}
+                  onClick={() => handleCategoryChange(filter)}
                 >
                   {filter}
                 </button>
               ))}
             </div>
           </div>
-
-          {/* Status Filter */}
-          {/* <div className="filter-group">
-            <span className="filter-group-label">Status:</span>
-            <div className="projects-filter-bar status-filter-bar">
-              {statusFilters.map((status, idx) => (
-                <button
-                  key={idx}
-                  className={`filter-btn status-btn ${activeStatus === status ? 'active' : ''} status-btn-${status.toLowerCase().replace(/\s+/g, '-')}`}
-                  onClick={() => setActiveStatus(status)}
-                >
-                  {status !== 'All Statuses' && <span className="filter-status-dot" />}
-                  {status}
-                </button>
-              ))}
-            </div>
-          </div> */}
         </div>
 
         {/* Projects Grid */}
-        {filteredProperties.length > 0 ? (
+        {isFilterLoading ? (
+          <div className="projects-grid">
+            {Array.from({ length: 4 }).map((_, idx) => (
+              <SkeletonPropertyCard key={idx} />
+            ))}
+          </div>
+        ) : filteredProperties.length > 0 ? (
           <div className="projects-grid">
             {filteredProperties.map((property) => (
               <PropertyCard key={property.id} property={property} />
@@ -82,10 +73,7 @@ const Projects = () => {
             <p>No plots match the selected status and category filters.</p>
             <button
               className="reset-filters-btn"
-              onClick={() => {
-                setActiveCategory('All Layouts');
-                setActiveStatus('All Statuses');
-              }}
+              onClick={() => handleCategoryChange('All Layouts')}
             >
               Reset Filters
             </button>

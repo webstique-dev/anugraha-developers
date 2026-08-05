@@ -48,6 +48,13 @@ const PlotViewer = ({
   const [plotsData, setPlotsData] = useState([]);
   const [adminMenuOpen, setAdminMenuOpen] = useState(false);
 
+  // Plot Editor Drawer & Skeleton Fetching state
+  const [editorDrawerOpen, setEditorDrawerOpen] = useState(false);
+  const [editorMode, setEditorMode] = useState('edit');
+  const [editingPlotData, setEditingPlotData] = useState(null);
+  const [isFetchingPlotData, setIsFetchingPlotData] = useState(false);
+  const [plotFetchError, setPlotFetchError] = useState(null);
+
   // Real-time Loading Readiness States for Preloader
   const [isDataLoading, setIsDataLoading] = useState(true);
   const [isBgSvgLoaded, setIsBgSvgLoaded] = useState(false);
@@ -73,11 +80,6 @@ const PlotViewer = ({
     }
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [adminMenuOpen]);
-
-  // Admin Plot Management Drawer State
-  const [editorDrawerOpen, setEditorDrawerOpen] = useState(false);
-  const [editorMode, setEditorMode] = useState('edit'); // 'edit' | 'create'
-  const [editingPlotData, setEditingPlotData] = useState(null);
 
   const MIN_SCALE = 0.5;
   const MAX_SCALE = 5;
@@ -352,27 +354,33 @@ const PlotViewer = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [centerMapView]);
 
-  // Handlers for Plot Editor Drawer (Opens instantly, updates sheet data asynchronously)
-  const handleOpenEditDrawer = (plotDataToEdit) => {
+  const handleOpenEditDrawer = async (plotDataToEdit) => {
     if (!isAuthenticated) return;
 
-    // 1. Open modal INSTANTLY (0ms delay) with existing map plot data
-    setEditingPlotData(plotDataToEdit);
     setEditorMode('edit');
     setEditorDrawerOpen(true);
+    setIsFetchingPlotData(true);
+    setPlotFetchError(null);
+    setEditingPlotData(null);
 
-    // 2. Fetch fresh plot data from Google Sheets in background
-    const targetId = plotDataToEdit.plotId || plotDataToEdit.ID || plotDataToEdit.id;
-    if (targetId) {
-      fetchPlotFromSheet(sheetId, targetId)
-        .then((latestData) => {
-          if (latestData) {
-            setEditingPlotData((prev) => (prev ? { ...prev, ...latestData } : latestData));
-          }
-        })
-        .catch((err) => {
-          console.warn('[PlotViewer] Async sheet fetch error:', err.message);
-        });
+    const targetId = plotDataToEdit?.plotId || plotDataToEdit?.ID || plotDataToEdit?.id || plotDataToEdit?.plotNo;
+    try {
+      let latestData = null;
+      if (targetId) {
+        latestData = await fetchPlotFromSheet(sheetId, targetId);
+      }
+      const finalData = latestData || plotDataToEdit;
+      setEditingPlotData(finalData);
+      setIsFetchingPlotData(false);
+    } catch (err) {
+      console.warn('[PlotViewer] Async plot fetch error:', err.message);
+      if (plotDataToEdit && (plotDataToEdit.plotNo || plotDataToEdit.PLOTNO)) {
+        setEditingPlotData(plotDataToEdit);
+        setIsFetchingPlotData(false);
+      } else {
+        setPlotFetchError(err.message || 'Failed to fetch plot details');
+        setIsFetchingPlotData(false);
+      }
     }
   };
 
@@ -380,6 +388,8 @@ const PlotViewer = ({
     if (!isAuthenticated) return;
     setEditingPlotData(null);
     setEditorMode('create');
+    setIsFetchingPlotData(false);
+    setPlotFetchError(null);
     setEditorDrawerOpen(true);
   };
 
@@ -815,6 +825,9 @@ const PlotViewer = ({
         isOpen={editorDrawerOpen}
         mode={editorMode}
         initialPlotData={editingPlotData}
+        isLoadingPlotData={isFetchingPlotData}
+        fetchError={plotFetchError}
+        onRetryFetch={() => handleOpenEditDrawer(selectedPlot || editingPlotData)}
         sheetId={sheetId}
         onClose={() => setEditorDrawerOpen(false)}
         onSavePlot={handleSavePlot}

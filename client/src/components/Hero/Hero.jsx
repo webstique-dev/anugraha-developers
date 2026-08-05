@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link as ScrollLink } from 'react-scroll';
 import { FaShieldAlt, FaCheckCircle, FaAward, FaArrowRight } from 'react-icons/fa';
 import Button from '../Common/Button/Button';
+import { SkeletonImage } from '../Common/Skeleton/Skeleton';
 import { HERO_DATA } from '../../data/mockData';
 import './Hero.css';
 
@@ -62,10 +63,11 @@ const Hero = () => {
           transition={{ duration: 0.4, delay: 0.1 }}
         >
           <div className="hero-image-wrapper">
-            <img
+            <SkeletonImage
               src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
               alt="Anugraha Luxury Real Estate Property Layout"
-              className="hero-main-img"
+              imageClassName="hero-main-img"
+              aspectRatio="16 / 10"
             />
           </div>
 

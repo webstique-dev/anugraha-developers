@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import Button from '../Button/Button';
 import PlotDetails from '../PlotDetails/PlotDetails';
+import { SkeletonImage } from '../Skeleton/Skeleton';
 import './PropertyCard.css';
 
 /**
@@ -38,7 +39,12 @@ const PropertyCard = ({ property }) => {
       transition={{ duration: 0.4 }}
     >
       <div className="property-image-container">
-        <img src={image} alt={title} className="property-image" loading="lazy" />
+        <SkeletonImage
+          src={image}
+          alt={title}
+          imageClassName="property-image"
+          aspectRatio="16 / 10"
+        />
         
         {/* Status Badge */}
         {status && <span className="property-status-badge">{status}</span>}

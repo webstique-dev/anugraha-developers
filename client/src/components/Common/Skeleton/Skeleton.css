@@ -1,32 +1,204 @@
-/* Reusable Skeleton Loader Styles */
+/* Global Reusable Skeleton Loading System Styles */
+
+.skeleton-base,
 .skeleton-box,
 .skeleton-line,
 .skeleton-badge,
-.skeleton-circle {
+.skeleton-circle,
+.skeleton-button,
+.skeleton-input {
   background: linear-gradient(
     90deg,
     rgba(26, 60, 43, 0.06) 25%,
-    rgba(26, 60, 43, 0.14) 50%,
+    rgba(26, 60, 43, 0.15) 50%,
     rgba(26, 60, 43, 0.06) 75%
   );
   background-size: 200% 100%;
   animation: skeletonShimmer 1.5s infinite linear;
-  border-radius: 6px;
+  border-radius: 8px;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
 }
 
 .skeleton-circle {
-  border-radius: 50%;
+  border-radius: 50% !important;
 }
 
 .skeleton-badge {
-  border-radius: 100px;
+  border-radius: 9999px !important;
 }
 
+.skeleton-button {
+  border-radius: 8px;
+  height: 44px;
+}
+
+.skeleton-input {
+  border-radius: 8px;
+  height: 44px;
+  width: 100%;
+}
+
+.skeleton-line {
+  height: 14px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.skeleton-line:last-child {
+  margin-bottom: 0;
+}
+
+/* Skeleton Fade In/Out Transition Wrapper */
+.skeleton-fade-enter {
+  opacity: 0;
+}
+.skeleton-fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+}
+.skeleton-fade-exit {
+  opacity: 1;
+}
+.skeleton-fade-exit-active {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+/* Layout Specific Skeleton Cards */
+
+/* Property Card Skeleton */
+.skeleton-property-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(58, 58, 56, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+}
+.skeleton-property-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px 16px 0 0;
+}
+.skeleton-property-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+.skeleton-property-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(58, 58, 56, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Developer Card Skeleton */
+.skeleton-developer-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(58, 58, 56, 0.12);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.skeleton-developer-banner {
+  height: 7.5rem;
+  width: 100%;
+}
+.skeleton-developer-avatar {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 1rem;
+  margin-top: -3rem;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  border: 3px solid #ffffff;
+}
+.skeleton-developer-body {
+  padding: 0 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Stats Card Skeleton */
+.skeleton-stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+}
+
+/* Testimonial Card Skeleton */
+.skeleton-testimonial-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(58, 58, 56, 0.12);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+.skeleton-testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Details Panel Skeleton */
+.skeleton-details-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 1.25rem;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+/* Image Skeleton Wrapper */
+.skeleton-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+.skeleton-image-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Keyframe Shimmer */
 @keyframes skeletonShimmer {
   0% {
     background-position: 200% 0;
   }
   100% {
     background-position: -200% 0;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-base,
+  .skeleton-box,
+  .skeleton-line,
+  .skeleton-badge,
+  .skeleton-circle,
+  .skeleton-button,
+  .skeleton-input {
+    animation: none !important;
+    background: rgba(26, 60, 43, 0.08) !important;
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaBuilding, FaMapMarkerAlt, FaStar, FaArrowRight } from 'react-icons/fa';
 import Button from '../Button/Button';
+import { SkeletonImage } from '../Skeleton/Skeleton';
 import logoPng from '../../../assets/logo/logo.png';
 import './DeveloperCard.css';
 
@@ -31,7 +32,7 @@ const DeveloperCard = ({ developer }) => {
       )}
 
       <div className="developer-banner">
-        <img src={image} alt={name} className="developer-banner-img" loading="lazy" />
+        <SkeletonImage src={image} alt={name} imageClassName="developer-banner-img" aspectRatio="16 / 7" />
       </div>
 
       <div className="developer-avatar-wrapper">

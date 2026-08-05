@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaSignInAlt, FaSpinner } from 'react-icons/fa';
+import { FaEnvelope, FaLock, FaEye, FaEyeSlash, FaSignInAlt } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
+import { SkeletonButton } from '../Common/Skeleton/Skeleton';
 
 const LoginForm = () => {
   const { login, loading, setAuthTab } = useAuth();
@@ -35,6 +36,7 @@ const LoginForm = () => {
             placeholder="admin@anugraha.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={loading}
             required
             autoComplete="email"
           />
@@ -56,6 +58,7 @@ const LoginForm = () => {
             placeholder="••••••••"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            disabled={loading}
             required
             autoComplete="current-password"
           />
@@ -64,6 +67,7 @@ const LoginForm = () => {
             className="password-toggle-btn"
             onClick={() => setShowPassword(!showPassword)}
             aria-label={showPassword ? 'Hide password' : 'Show password'}
+            disabled={loading}
           >
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
@@ -76,24 +80,20 @@ const LoginForm = () => {
             type="checkbox"
             checked={rememberMe}
             onChange={(e) => setRememberMe(e.target.checked)}
+            disabled={loading}
           />
           <span>Remember session</span>
         </label>
       </div>
 
-      <button type="submit" className="auth-submit-btn" disabled={loading}>
-        {loading ? (
-          <>
-            <FaSpinner className="spinner-icon" />
-            <span>Authenticating...</span>
-          </>
-        ) : (
-          <>
-            <FaSignInAlt />
-            <span>Log In to Admin Portal</span>
-          </>
-        )}
-      </button>
+      {loading ? (
+        <SkeletonButton width="100%" height="48px" style={{ borderRadius: '10px' }} />
+      ) : (
+        <button type="submit" className="auth-submit-btn" disabled={loading}>
+          <FaSignInAlt />
+          <span>Log In to Admin Portal</span>
+        </button>
+      )}
 
       {/* <div className="auth-switch-footer">
         <span>Don't have an admin account?</span>{' '}
