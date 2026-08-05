@@ -754,14 +754,9 @@ const PlotViewer = ({
 
           {/* First-Time Interactive Plot Guide */}
           <PlotOnboardingGuide
-            plotsData={plotsData}
             isPreloaderFinished={isPreloaderFinished}
             isAuthenticated={isAuthenticated}
-            overlayRef={overlayRef}
-            mapWrapperRef={mapWrapperRef}
             selectedPlot={selectedPlot}
-            hoveredPlot={hoveredPlot}
-            scale={scale}
           />
         </div>
       </div>
