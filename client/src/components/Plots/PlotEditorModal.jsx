@@ -78,13 +78,18 @@ const PlotEditorModal = ({
   useEffect(() => {
     if (isOpen) {
       if (mode === 'edit' && initialPlotData) {
+        const rawFacing = (initialPlotData.facing || initialPlotData.FACING || 'North').toString().trim();
+        const facingOptions = ['East', 'West', 'North', 'South'];
+        const matchedFacing = facingOptions.find((dir) => dir.toLowerCase() === rawFacing.toLowerCase());
+        const loadedFacing = matchedFacing || rawFacing || 'North';
+
         const loaded = {
           id: (initialPlotData.plotId || initialPlotData.ID || initialPlotData.id || '').toString(),
           plotNo: (initialPlotData.plotNo || initialPlotData.PLOTNO || initialPlotData.plotno || '').toString(),
           status: (initialPlotData.status || initialPlotData.STATUS || 'Available').toString(),
           length: (initialPlotData.length || initialPlotData.LENGTH || '').toString(),
           width: (initialPlotData.width || initialPlotData.WIDTH || '').toString(),
-          facing: (initialPlotData.facing || initialPlotData.FACING || 'North').toString(),
+          facing: loadedFacing,
           svgPath: (initialPlotData.svgPath || initialPlotData.SVGPATH || initialPlotData.svgpath || '').toString()
         };
         setFormData(loaded);
@@ -356,14 +361,20 @@ const PlotEditorModal = ({
                   <label className="modal-label">
                     <Compass size={13} /> FACING DIRECTION
                   </label>
-                  <input
-                    type="text"
-                    className="modal-input"
-                    placeholder="e.g. North, East, South-West"
+                  <select
+                    className="modal-select"
                     value={formData.facing}
                     onChange={(e) => handleInputChange('facing', e.target.value)}
                     disabled={saving}
-                  />
+                  >
+                    <option value="East">East</option>
+                    <option value="West">West</option>
+                    <option value="North">North</option>
+                    <option value="South">South</option>
+                    {!['East', 'West', 'North', 'South'].includes(formData.facing) && formData.facing && (
+                      <option value={formData.facing}>{formData.facing}</option>
+                    )}
+                  </select>
                 </div>
 
                 {/* Field: SVG Path Data */}
