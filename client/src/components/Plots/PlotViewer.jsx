@@ -5,6 +5,7 @@ import PlotInfoCard from './PlotInfoCard';
 import PlotFilterPanel from './PlotFilterPanel';
 import PlotBreadcrumb from './PlotBreadcrumb';
 import PlotEditorModal from './PlotEditorModal';
+import PlotOnboardingGuide from './PlotOnboardingGuide';
 import StatusBadge from '../Common/StatusBadge/StatusBadge';
 import SocialActions from '../Common/SocialActions/SocialActions';
 import LogoPreloader from '../Common/Preloader/LogoPreloader';
@@ -739,6 +740,18 @@ const PlotViewer = ({
             height={contentH}
             viewBox={viewBox}
             style={{ position: 'absolute', top: 0, left: 0 }}
+          />
+
+          {/* First-Time Interactive Plot Guide */}
+          <PlotOnboardingGuide
+            plotsData={plotsData}
+            isPreloaderFinished={isPreloaderFinished}
+            isAuthenticated={isAuthenticated}
+            overlayRef={overlayRef}
+            mapWrapperRef={mapWrapperRef}
+            selectedPlot={selectedPlot}
+            hoveredPlot={hoveredPlot}
+            scale={scale}
           />
         </div>
       </div>

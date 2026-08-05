@@ -1,0 +1,112 @@
+/* Clean & Minimal Plot Onboarding Guide Pill */
+
+.plot-guide-wrapper {
+  position: absolute;
+  z-index: 1500;
+  pointer-events: none;
+  transform: translate(-50%, -100%);
+  margin-top: -10px;
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+}
+
+.plot-guide-pill {
+  pointer-events: auto;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px 8px 14px;
+  background: linear-gradient(135deg, #1A3C2B 0%, #0F241A 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 9999px;
+  box-shadow:
+    0 12px 28px -6px rgba(15, 36, 26, 0.4),
+    0 0 15px rgba(212, 175, 55, 0.15);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+}
+
+/* Caret arrow pointing down toward demo plot */
+.plot-guide-pill-arrow {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: #0F241A;
+  border-right: 1px solid rgba(212, 175, 55, 0.4);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.guide-pill-sparkle {
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+.guide-pill-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+}
+
+.guide-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: 9999px;
+  color: #D4AF37;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guide-pill-btn:hover {
+  background: #D4AF37;
+  color: #0F241A;
+}
+
+.guide-pill-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.guide-pill-close:hover {
+  color: #ffffff;
+}
+
+/* Subtle, elegant pulse highlight on demo plot path */
+svg path.guide-pulse-highlight {
+  animation: guidePlotPulse 2s ease-in-out infinite alternate !important;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+@keyframes guidePlotPulse {
+  0% {
+    stroke: #10b981;
+    stroke-width: 2.5px;
+    filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.6));
+    transform: scale(1);
+  }
+  100% {
+    stroke: #d4af37;
+    stroke-width: 3.5px;
+    filter: drop-shadow(0 0 14px rgba(212, 175, 55, 0.85));
+    transform: scale(1.04);
+  }
+}

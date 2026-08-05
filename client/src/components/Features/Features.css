@@ -8,14 +8,14 @@
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 2rem;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 .bento-card {
   background-color: var(--bg-primary);
   border-radius: var(--radius-card);
   border: 1px solid var(--color-border);
-  padding: 2.5rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,16 +44,16 @@
 }
 
 .bento-icon-wrapper {
-  width: 4rem;
-  height: 4rem;
+  width: clamp(3rem, 5vw, 4rem);
+  height: clamp(3rem, 5vw, 4rem);
   border-radius: 1rem;
   background-color: var(--color-primary);
   color: var(--color-secondary);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
-  margin-bottom: 1.75rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  margin-bottom: clamp(1.25rem, 2vw, 1.75rem);
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-fast);
 }
@@ -64,22 +64,22 @@
 }
 
 .bento-title {
-  font-size: 1.6rem;
+  font-size: clamp(1.25rem, 2.2vw + 0.4rem, 1.6rem);
   color: var(--color-primary);
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
 .bento-desc {
-  font-size: 1rem;
+  font-size: clamp(0.88rem, 1.3vw, 1rem);
   color: var(--color-text-light);
   line-height: 1.6;
 }
 
 .bento-corner-tag {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
+  top: 1.25rem;
+  right: 1.25rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;

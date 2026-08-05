@@ -248,6 +248,27 @@
   }
 }
 
+/* 320px Screen Optimization */
+@media (max-width: 360px) {
+  .brand-title {
+    font-size: 0.95rem;
+    letter-spacing: 0.05rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.48rem;
+    letter-spacing: 0.12rem;
+  }
+
+  .navbar-logo-img {
+    height: 1.8rem;
+  }
+
+  .navbar-brand {
+    gap: 0.4rem;
+  }
+}
+
 /* Admin Login Action Button */
 .admin-icon-btn {
   display: inline-flex;

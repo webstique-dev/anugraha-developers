@@ -1,20 +1,20 @@
 /* Responsive Root Font Scaling & Container Adjustments */
 
-@media (max-width: 1600px) {
+@media (min-width: 1920px) {
   html {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
   html {
-    font-size: 15px;
+    font-size: 15.5px;
   }
 }
 
 @media (max-width: 1200px) {
   html {
-    font-size: 14px;
+    font-size: 14.5px;
   }
 }
 
@@ -26,44 +26,50 @@
 
 @media (max-width: 768px) {
   html {
-    font-size: 13px;
+    font-size: 13.5px;
   }
-  
+
   .container {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-  }
-  
-  .section-padding {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
   }
 }
 
 @media (max-width: 576px) {
   html {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .container {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
 
-  .section-padding {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+@media (max-width: 414px) {
+  html {
+    font-size: 12.5px;
   }
 }
 
-/* 320px Screen Width Optimizations */
 @media (max-width: 360px) {
   html {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .container {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+  }
+}
+
+@media (max-width: 320px) {
+  html {
+    font-size: 11.5px;
+  }
+
+  .container {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
   }
 }

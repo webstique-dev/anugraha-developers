@@ -79,11 +79,11 @@ img {
   max-width: 84rem; /* 1344px */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: clamp(0.75rem, 3.5vw, 2rem);
+  padding-right: clamp(0.75rem, 3.5vw, 2rem);
 }
 
 .section-padding {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: clamp(2.5rem, 5.5vw, 6rem);
+  padding-bottom: clamp(2.5rem, 5.5vw, 6rem);
 }
